@@ -8,6 +8,8 @@ import PricePlan from "@/components/home/home-eight/price-plan";
 import Projects from "@/components/home/home-eight/projects";
 import Services from "@/components/home/home-eight/services";
 import Testimonials from "@/components/home/home-eight/testimonials";
+import Footer from "@/components/home/home-eight/footer";
+import Header from "@/components/home/home-eight/header/multi-page";
 
 export const metadata = {
   title: 'DBMatrix - IT Services & Solutions',
@@ -17,6 +19,7 @@ export const metadata = {
 function RootPage() {
   return (
     <>
+      <Header />
       <Hero />
       <Features />
       <AboutOne />
@@ -26,6 +29,7 @@ function RootPage() {
       <PricePlan />
       <Projects />
       <Testimonials />
+      <Footer />
     </>
   );
 }
