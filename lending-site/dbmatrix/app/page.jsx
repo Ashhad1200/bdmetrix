@@ -1,13 +1,33 @@
-import { redirect } from 'next/navigation';
+// IT Services Components (Home Eight Theme)
+import AboutOne from "@/components/home/home-eight/about-one";
+import AboutTwo from "@/components/home/home-eight/about-two/AboutTwo";
+import Counter from "@/components/home/home-eight/counter";
+import Features from "@/components/home/home-eight/features";
+import Hero from "@/components/home/home-eight/hero";
+import PricePlan from "@/components/home/home-eight/price-plan";
+import Projects from "@/components/home/home-eight/projects";
+import Services from "@/components/home/home-eight/services";
+import Testimonials from "@/components/home/home-eight/testimonials";
 
-// Root page - redirects to home-one layout
-export default function RootPage() {
-  // Redirect to the main home page
-  redirect('/home-one');
-}
-
-// Optional: You can also export metadata
 export const metadata = {
   title: 'DBMatrix - IT Services & Solutions',
   description: 'Professional IT services and digital solutions',
 };
+
+function RootPage() {
+  return (
+    <>
+      <Hero />
+      <Features />
+      <AboutOne />
+      <Counter />
+      <Services />
+      <AboutTwo />
+      <PricePlan />
+      <Projects />
+      <Testimonials />
+    </>
+  );
+}
+
+export default RootPage;
