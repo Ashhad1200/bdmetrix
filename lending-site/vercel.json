@@ -1,6 +1,11 @@
 {
   "root": "dbmatrix",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "buildCommand": "cd dbmatrix && npm run build",
+  "outputDirectory": "dbmatrix/.next",
+  "devCommand": "cd dbmatrix && npm run dev",
+  "installCommand": "npm install --prefix dbmatrix",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url"
+  }
 }
