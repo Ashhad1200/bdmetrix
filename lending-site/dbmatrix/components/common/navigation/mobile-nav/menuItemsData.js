@@ -5,7 +5,7 @@ export const menuItemsData = [
   },
   {
     title: "About Us",
-    url: "about-us",
+    url: "/about-us",
   },
   {
     title: "Services",
@@ -13,15 +13,15 @@ export const menuItemsData = [
     submenu: [
       {
         title: "Our Services",
-        url: "service",
+        url: "/service",
       },
       {
         title: "Service Details",
-        url: "single-service",
+        url: "/single-service",
       },
       {
         title: "Pricing Plans",
-        url: "pricing",
+        url: "/pricing",
       },
     ],
   },
@@ -31,11 +31,11 @@ export const menuItemsData = [
     submenu: [
       {
         title: "Our Portfolio",
-        url: "portfolio",
+        url: "/portfolio",
       },
       {
         title: "Project Details",
-        url: "single-portfolio",
+        url: "/single-portfolio",
       },
     ],
   },
@@ -45,27 +45,27 @@ export const menuItemsData = [
     submenu: [
       {
         title: "Our Team",
-        url: "team",
+        url: "/team",
       },
       {
         title: "Team Member",
-        url: "single-team",
+        url: "/single-team",
       },
       {
         title: "Careers",
-        url: "career",
+        url: "/career",
       },
       {
         title: "Job Details",
-        url: "single-career",
+        url: "/single-career",
       },
       {
         title: "Blog",
-        url: "blog",
+        url: "/blog",
       },
       {
         title: "Blog Details",
-        url: "single-blog",
+        url: "/single-blog",
       },
     ],
   },
@@ -75,15 +75,15 @@ export const menuItemsData = [
     submenu: [
       {
         title: "FAQ",
-        url: "faq",
+        url: "/faq",
       },
       {
         title: "Contact Us",
-        url: "contact-us",
+        url: "/contact-us",
       },
       {
         title: "Terms & Conditions",
-        url: "terms-and-condition",
+        url: "/terms-and-condition",
       },
     ],
   },
