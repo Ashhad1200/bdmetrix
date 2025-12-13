@@ -15,7 +15,7 @@
     "bootstrap": "^5.3.3",
     "framer-motion": "^11.13.1",
     "mixitup": "^3.3.2",
-    "next": "14.2.20",
+    "next": "14.2.35",
     "react": "^18",
     "react-countdown": "^2.3.6",
     "react-countup": "^6.5.3",
