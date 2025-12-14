@@ -1,6 +1,9 @@
 {
-    "framework": "nextjs",
-    "buildCommand": "cd frontendv2 && npm run build",
-    "installCommand": "cd frontendv2 && npm install",
-    "outputDirectory": "frontendv2/.next"
+    "version": 2,
+    "builds": [
+        {
+            "src": "frontendv2/package.json",
+            "use": "@vercel/next"
+        }
+    ]
 }
