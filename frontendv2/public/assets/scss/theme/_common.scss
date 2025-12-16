@@ -15,6 +15,24 @@
 	}
 }
 
+/* Global responsive images for Next.js Image and regular img tags */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Ensure Next.js Image wrapper is responsive */
+span[style*="box-sizing:border-box;display:block"] {
+	max-width: 100% !important;
+	
+	& img {
+		max-width: 100%;
+		height: auto !important;
+		object-fit: contain;
+	}
+}
+
 .fix {
     overflow:hidden
 }
