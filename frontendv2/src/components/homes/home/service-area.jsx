@@ -204,11 +204,15 @@ const ServiceArea = () => {
                               <ul>
                                  <li>
                                     <span> <GreenRightArrow /></span>
-                                    Discovery, Architecture, UI/UX Design, Development
+                                    Understand Your Business & Design Smart Solutions
                                  </li>
                                  <li>
                                     <span><GreenRightArrow /> </span>
-                                    Testing, Deployment, and Ongoing Support
+                                    Develop Secure & Scalable Systems
+                                 </li>
+                                 <li>
+                                    <span><GreenRightArrow /> </span>
+                                    Test, Launch, Optimize & Grow With You
                                  </li>
                               </ul>
                               <div className="tp-fun-fact-btn">

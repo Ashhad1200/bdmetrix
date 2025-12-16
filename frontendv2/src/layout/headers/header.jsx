@@ -47,7 +47,7 @@ const HeaderOne = () => {
                                  <a href="https://www.google.com/maps"
                                     target="_blank"><span>
                                        <i className="fa-sharp fa-solid fa-location-dot"></i>
-                                    </span>Pakistan & Worldwide</a>
+                                    </span>USA | UK | Pakistan</a>
                               </li>
                               <li>
                                  <a href="mailto:info@bdmatrix.com"><span>
@@ -127,7 +127,7 @@ const HeaderOne = () => {
                                  <button onClick={() => setSearchOpen(true)}><i className="fa-regular fa-magnifying-glass"></i></button>
                               </div>
                               <div className="tp-header-btn d-none d-xl-block pl-40">
-                                 <Link className="tp-btn" href="/contact">Get Free Consultation</Link>
+                                 <Link className="tp-btn" href="/contact">Get a Free Consultation</Link>
                               </div>
                            </div>
                         </div>

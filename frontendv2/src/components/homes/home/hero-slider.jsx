@@ -35,29 +35,29 @@ const slider_data = [
   {
     id: 1,
     bg_img: "/assets/img/hero/hero-2.jpg",
-    sub_title_1: "Digital",
-    sub_title_2: "Solutions",
-    hero_title_1: "Building Digital",
-    hero_title_2: "Systems",
-    hero_support: "For Growth",
+    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
+    sub_title_2: "",
+    hero_title_1: "We Build Digital Systems",
+    hero_title_2: "That Scale Businesses",
+    hero_support: "BD Matrix is a US & UK–based digital solutions provider, now operating in Pakistan. We design, develop, and automate digital products that help businesses grow faster, smarter, and stronger.",
   },
   {
     id: 2,
     bg_img: "/assets/img/hero/hero-1.jpg",
-    sub_title_1: "Software",
-    sub_title_2: "Excellence",
+    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
+    sub_title_2: "",
     hero_title_1: "Custom Software &",
-    hero_title_2: "CRM",
-    hero_support: "Solutions",
+    hero_title_2: "CRM Solutions",
+    hero_support: "Tailor-made software solutions built to automate operations, reduce manual work, and scale with your business.",
   },
   {
     id: 3,
     bg_img: "/assets/img/hero/hero-3.jpg",
-    sub_title_1: "Mobile",
-    sub_title_2: "& Web Apps",
+    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
+    sub_title_2: "",
     hero_title_1: "Powering Modern",
-    hero_title_2: "Business",
-    hero_support: "Worldwide",
+    hero_title_2: "Business Worldwide",
+    hero_support: "From idea to launch — we help you build scalable SaaS platforms and digital infrastructure.",
   },
 ];
 // shapes 
@@ -121,11 +121,11 @@ const HeroSlider = () => {
                                 </h3>
                                 <div className="tp-hero-btn">
                                   <Link className="tp-btn" href="/contact">
-                                    Get Free Consultation{" "}
+                                    Get a Free Consultation{" "}
                                     <i className="fa-regular fa-arrow-right-long"></i>
                                   </Link>
-                                  <Link className="tp-btn tp-btn-border ml-20" href="/service">
-                                    View Our Services
+                                  <Link className="tp-btn tp-btn-border ml-20" href="/portfolio">
+                                    View Our Work
                                   </Link>
                                 </div>
                               </div>
@@ -181,8 +181,8 @@ const HeroSlider = () => {
               <Image src={service_shape} alt="theme-pure" />
             </div>
             <p>
-              BD Matrix delivers <span>digital solutions</span> for businesses <br />
-              in Pakistan and worldwide since 2020
+              BD Matrix is a digital solutions provider with over 7 years of <br />
+              experience delivering high-quality software solutions worldwide.
             </p>
             <div className="tp-hero-service-quote">
               <Image src={service_quote} alt="theme-pure" />

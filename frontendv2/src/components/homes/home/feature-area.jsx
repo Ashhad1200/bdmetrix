@@ -18,20 +18,38 @@ const feature_content = {
         {
             id: 1,
             img: feature_img_1,
-            title: "Our Mission",
-            description: <>Empowering businesses with <br /> cutting-edge digital solutions</>,
+            title: "7+ Years Experience",
+            description: <>Proven track record of delivering <br /> high-quality digital solutions</>,
         },
         {
             id: 2,
             img: feature_img_2,
-            title: "Our Process",
-            description: <>7-step development process <br /> from discovery to deployment</>,
+            title: "US & UK Standards",
+            description: <>International quality development <br /> now available locally</>,
         },
         {
             id: 3,
             img: feature_img_3,
-            title: "Why Choose Us",
-            description: <>Expert team, on-time delivery, <br /> and ongoing support</>,
+            title: "Local Presence",
+            description: <>Operating in Pakistan with <br /> on-ground support teams</>,
+        },
+        {
+            id: 4,
+            img: feature_img_1,
+            title: "Custom-Built",
+            description: <>No templates. We build tailored <br /> solutions for your unique needs</>,
+        },
+        {
+            id: 5,
+            img: feature_img_2,
+            title: "Scalable & Secure",
+            description: <>Future-proof systems designed <br /> to grow with your business</>,
+        },
+        {
+            id: 6,
+            img: feature_img_3,
+            title: "Growth Partner",
+            description: <>Long-term technical support <br /> and business consulting</>,
         },
     ],
 
@@ -56,7 +74,7 @@ const FeatureArea = ({ about }) => {
                                     Why <span className="title-pre-color">BD Matrix</span>
                                     <AngleArrow />
                                 </span>
-                                <h3 className="tp-section-title">Trusted by Businesses <span className="title-color">Worldwide</span>
+                                <h3 className="tp-section-title">Why Businesses Choose <span className="title-color">BD Matrix</span>
                                     <span className="title-right-shape">
                                         <LineArrowFive />
                                     </span>
@@ -65,8 +83,8 @@ const FeatureArea = ({ about }) => {
                         </div>
                         <div className="col-lg-6">
                             <div className="tp-feature-wrapper p-relative">
-                                <p>We transform ideas into powerful digital products that help businesses <br />
-                                    grow, scale, and succeed in the modern marketplace.</p>
+                                <p>We don’t just build software — we build business infrastructure. <br />
+                                    High-performance digital systems for modern businesses.</p>
                             </div>
                         </div>
                     </div>

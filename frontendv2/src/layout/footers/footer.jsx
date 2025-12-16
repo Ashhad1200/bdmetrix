@@ -11,26 +11,22 @@ import SocialLinks, { CopyRight } from '@/src/common/social-links';
 const footer_content = {
     contact_us: <> Contact us at <span>info@bdmatrix.com</span></>,
     mail: "info@bdmatrix.com",
-    contact_text: "Digital Solutions For Growth",
+    contact_text: "Digital Solutions Provider",
     phone: "+92 300 123 4567",
-    info: <>BD Matrix is a future-focused software house delivering websites, custom software, CRM systems, mobile apps, POS solutions, and SaaS platforms.</>,
+    info: <>BD Matrix is a digital solutions provider delivering Web Development, ERP, POS, SaaS, Mobile Apps, and AI Automation.</>,
     map: "https://www.google.com/maps",
-    address: <>Pakistan <br /> & Worldwide</>,
+    address: <>USA | UK | Pakistan</>,
     mail_2: "info@bdmatrix.com",
-    mail_phone: <> info@bdmatrix.com <br /> +92 300 123 4567</>,
-
+    mail_phone: <> info@bdmatrix.com </>,
 
     service_links: [
-        "Website Development",
-        "Custom Software",
-        "CRM Development",
-        "Mobile Apps",
+        "Web Development",
+        "Custom ERPs",
         "POS Systems",
+        "Mobile Apps",
         "SaaS Solutions",
+        "AI Automation",
     ]
-
-
-
 }
 const { contact_us, mail, contact_text, phone, info, map, address, mail_2, mail_phone, service_links } = footer_content
 
@@ -93,7 +89,7 @@ const Footer = () => {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6">
                                 <div className="tp-footer-widget tp-footer-col-2">
-                                    <h3 className="tp-footer-widget-title">Services Req</h3>
+                                    <h3 className="tp-footer-widget-title">Services</h3>
                                     <div className="tp-footer-widget-content">
                                         <ul>
                                             {service_links.map((link, i) => <li key={i}><Link href="#">{link}</Link></li>)}
@@ -114,9 +110,8 @@ const Footer = () => {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><Link href="#">Parking permission</Link></li>
-                                            <li><Link href="#">Fire Service Noc</Link></li>
-                                            <li><Link href="#">Report a Parking Violation</Link></li>
+                                            <li><span style={{ color: 'white', opacity: 0.7 }}>Operating Regions:</span></li>
+                                            <li><span style={{ color: 'white', fontWeight: 'bold' }}>🇺🇸 USA | 🇬🇧 UK | 🇵🇰 Pakistan</span></li>
                                         </ul>
                                     </div>
                                 </div>

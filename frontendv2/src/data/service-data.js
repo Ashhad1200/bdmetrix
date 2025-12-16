@@ -9,58 +9,44 @@ const service_data = [
     {
         id: 1,
         alphabet: "W",
-        title: <>Website <br />Development</>,
+        title: <>Web <br />Development</>,
         img: service_img_1,
-        description: <>High-performance, responsive, and conversion-focused websites designed to represent your brand professionally.</>,
-
+        description: <>High-performance, modern websites designed to convert visitors into customers. Business websites, E-commerce stores, and Admin dashboards.</>,
     },
     {
         id: 2,
-        alphabet: "S",
-        title: <>Custom Software <br />Development</>,
+        alphabet: "E",
+        title: <>Custom ERP <br />Systems</>,
         img: service_img_2,
-        description: <>Tailor-made software solutions built to automate operations, reduce manual work, and scale with your business.</>,
-
+        description: <>Tailor-made ERP solutions designed around your operations. Inventory, Sales, CRM, and Reports - perfect for factories and wholesalers.</>,
     },
     {
         id: 3,
-        alphabet: "C",
-        title: <>CRM <br />Development</>,
+        alphabet: "P",
+        title: <>POS <br />Systems</>,
         img: service_img_3,
-        description: <>Powerful Customer Relationship Management systems to manage leads, sales, and communication efficiently.</>,
-
+        description: <>Fast, secure, and easy-to-use POS systems. Retail, Pharmacy, and Restaurant POS with multi-branch support and cloud sync.</>,
     },
     {
         id: 4,
         alphabet: "M",
         title: <>Mobile App <br />Development</>,
         img: service_img_4,
-        description: <>High-performance mobile applications for Android and iOS that deliver seamless user experiences.</>,
-
+        description: <>Powerful mobile apps for Android & iOS. Business apps, booking systems, and delivery apps with seamless API integration.</>,
     },
     {
         id: 5,
-        alphabet: "P",
-        title: <>POS <br />Systems</>,
-        img: service_img_2,
-        description: <>Smart and scalable POS solutions for restaurants, retail stores, pharmacies, and service businesses.</>,
-
+        alphabet: "S",
+        title: <>SaaS Product <br />Development</>,
+        img: service_img_1,
+        description: <>From idea to launch — we help you build scalable SaaS platforms. Architecture, MVP development, subscription systems, and scaling.</>,
     },
     {
         id: 6,
-        alphabet: "S",
-        title: <>SaaS <br />Solutions</>,
-        img: service_img_1,
-        description: <>End-to-end SaaS product development — from idea validation to cloud deployment and scaling.</>,
-
-    },
-    {
-        id: 7,
-        alphabet: "U",
-        title: <>UI/UX <br />Design</>,
-        img: service_img_3,
-        description: <>Futuristic, user-centric designs focused on usability, branding, and conversions.</>,
-
+        alphabet: "A",
+        title: <>AI Automation <br />& Integrations</>,
+        img: service_img_4,
+        description: <>Automate your business workflows using AI. WhatsApp automation, AI Chatbots, CRM automation, and n8n workflow integration.</>,
     },
 ]
 export default service_data
