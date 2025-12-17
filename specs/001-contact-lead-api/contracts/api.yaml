@@ -1,0 +1,422 @@
+openapi: 3.0.3
+info:
+  title: BDMatrix Contact Form API
+  description: API endpoints for contact form submission and lead management
+  version: 1.0.0
+  contact:
+    email: info@bdmatrix.com
+
+servers:
+  - url: https://bdmatrix.org/api
+    description: Production server (Vercel)
+  - url: http://localhost:3000/api
+    description: Local development server
+
+paths:
+  /contact/submit:
+    post:
+      summary: Submit contact form
+      description: |
+        Submit a contact inquiry form. Validates all fields, sanitizes input,
+        and stores submission in database. Returns success confirmation or
+        validation errors.
+      operationId: submitContactForm
+      tags:
+        - Contact Form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSubmissionRequest'
+            examples:
+              validSubmission:
+                summary: Valid contact form submission
+                value:
+                  name: "John Doe"
+                  email: "john.doe@example.com"
+                  service_type: "Web Development"
+                  phone: "+1-555-123-4567"
+                  message: "I need help building a modern web application for my business."
+      responses:
+        '200':
+          description: Form submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+              example:
+                success: true
+                message: "Thank you! Your message has been sent successfully"
+        '400':
+          description: Validation error - invalid or missing fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+              examples:
+                invalidEmail:
+                  summary: Invalid email format
+                  value:
+                    success: false
+                    errors:
+                      email: "Please enter a valid email address"
+                missingFields:
+                  summary: Missing required fields
+                  value:
+                    success: false
+                    errors:
+                      name: "Name is required"
+                      message: "Message is required"
+                tooLong:
+                  summary: Field exceeds max length
+                  value:
+                    success: false
+                    errors:
+                      message: "Message must be 2000 characters or less"
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Too many requests. Please try again later."
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Unable to send message. Please try again later."
+
+  /contact/list:
+    get:
+      summary: List all contact submissions (Admin)
+      description: |
+        Retrieve all contact form submissions in chronological order (newest first).
+        Supports pagination via limit and offset parameters.
+
+        **Authentication Required** (future): This endpoint should be protected with
+        admin authentication in production.
+      operationId: listContactSubmissions
+      tags:
+        - Contact Form
+        - Admin
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of submissions to return
+          required: false
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 100
+        - name: offset
+          in: query
+          description: Number of submissions to skip (for pagination)
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+      responses:
+        '200':
+          description: List of contact submissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactListResponse'
+              example:
+                submissions:
+                  - id: 42
+                    name: "John Doe"
+                    email: "john.doe@example.com"
+                    service_type: "Web Development"
+                    phone: "+1-555-123-4567"
+                    message: "I need help building a modern web application."
+                    submitted_at: "2025-12-16T14:30:00.000Z"
+                    ip_address: "192.168.1.1"
+                  - id: 41
+                    name: "Jane Smith"
+                    email: "jane.smith@example.com"
+                    service_type: "Mobile App Development"
+                    phone: "+1-555-987-6543"
+                    message: "Looking for iOS app development services."
+                    submitted_at: "2025-12-15T10:15:00.000Z"
+                    ip_address: "192.168.1.2"
+                total: 142
+                limit: 50
+                offset: 0
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Unable to retrieve submissions"
+
+  /db/export:
+    get:
+      summary: Export database file (Admin)
+      description: |
+        Download the SQLite database file containing all contact submissions.
+        Used for backup and disaster recovery.
+
+        **Authentication Required** (future): This endpoint should be protected with
+        admin authentication in production.
+      operationId: exportDatabase
+      tags:
+        - Database
+        - Admin
+      responses:
+        '200':
+          description: SQLite database file
+          content:
+            application/x-sqlite3:
+              schema:
+                type: string
+                format: binary
+          headers:
+            Content-Disposition:
+              description: Attachment filename with timestamp
+              schema:
+                type: string
+                example: "attachment; filename=\"contacts-1702734600000.db\""
+        '500':
+          description: Export failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Database export failed"
+
+  /db/import:
+    post:
+      summary: Import database file (Admin)
+      description: |
+        Upload and restore a SQLite database file. Replaces current database
+        with uploaded file. Validates file format before restoration.
+
+        **Warning**: This operation replaces all existing data. Use with caution.
+
+        **Authentication Required** (future): This endpoint should be protected with
+        admin authentication in production.
+      operationId: importDatabase
+      tags:
+        - Database
+        - Admin
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: SQLite database file (.db)
+      responses:
+        '200':
+          description: Database restored successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportSuccessResponse'
+              example:
+                success: true
+                message: "Database restored successfully"
+                records_count: 142
+        '400':
+          description: Invalid file format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                invalidFormat:
+                  summary: Not a valid SQLite file
+                  value:
+                    success: false
+                    message: "Invalid database file format"
+                fileTooLarge:
+                  summary: File exceeds size limit
+                  value:
+                    success: false
+                    message: "File size exceeds 50MB limit"
+        '500':
+          description: Import failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: "Database import failed"
+
+components:
+  schemas:
+    ContactSubmissionRequest:
+      type: object
+      required:
+        - name
+        - email
+        - service_type
+        - phone
+        - message
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Visitor's full name
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          minLength: 1
+          maxLength: 100
+          description: Visitor's email address
+          example: "john.doe@example.com"
+        service_type:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Type of service requested
+          example: "Web Development"
+        phone:
+          type: string
+          minLength: 1
+          maxLength: 20
+          description: Visitor's phone number (flexible format)
+          example: "+1-555-123-4567"
+        message:
+          type: string
+          minLength: 1
+          maxLength: 2000
+          description: Inquiry message content
+          example: "I need help building a modern web application for my business. Please contact me to discuss requirements and pricing."
+
+    ContactSubmission:
+      allOf:
+        - $ref: '#/components/schemas/ContactSubmissionRequest'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Unique submission identifier
+              example: 42
+            submitted_at:
+              type: string
+              format: date-time
+              description: Server timestamp (ISO 8601 format, UTC)
+              example: "2025-12-16T14:30:00.000Z"
+            ip_address:
+              type: string
+              nullable: true
+              description: Visitor's IP address (for spam analysis)
+              example: "192.168.1.1"
+
+    SuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Thank you! Your message has been sent successfully"
+
+    ValidationErrorResponse:
+      type: object
+      required:
+        - success
+        - errors
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: object
+          description: Map of field names to error messages
+          additionalProperties:
+            type: string
+          example:
+            email: "Please enter a valid email address"
+            message: "Message is required"
+
+    ErrorResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: "Unable to send message. Please try again later."
+
+    ContactListResponse:
+      type: object
+      required:
+        - submissions
+        - total
+        - limit
+        - offset
+      properties:
+        submissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactSubmission'
+        total:
+          type: integer
+          description: Total number of submissions in database
+          example: 142
+        limit:
+          type: integer
+          description: Maximum number of submissions returned
+          example: 50
+        offset:
+          type: integer
+          description: Number of submissions skipped
+          example: 0
+
+    ImportSuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+        - records_count
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Database restored successfully"
+        records_count:
+          type: integer
+          description: Number of records in restored database
+          example: 142
+
+tags:
+  - name: Contact Form
+    description: Contact form submission endpoints
+  - name: Admin
+    description: Admin-only endpoints (require authentication in production)
+  - name: Database
+    description: Database backup and restore operations

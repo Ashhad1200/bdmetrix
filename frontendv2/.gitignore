@@ -26,6 +26,13 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.local
+
+# database files (contact form feature)
+/data
+*.db
+*.db-shm
+*.db-wal
 
 # vercel
 .vercel
