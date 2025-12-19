@@ -8,7 +8,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import HomeIcon from '@/src/svg/home-icon';
 import SearchPopup from '@/src/modals/search-popup';
 import Sidebar from '@/src/modals/sidebar';
-import Logo from "@assets/img/logo/logo.png";
+import Logo from "@assets/img/logo/bdmatrix-logo.png";
 
 const HeaderOne = () => {
    const { sticky } = useSticky()
