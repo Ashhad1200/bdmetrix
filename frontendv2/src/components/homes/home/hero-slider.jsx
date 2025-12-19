@@ -1,21 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 // Metrics data
 const metrics = [
-  { value: "500+", label: "Projects Completed" },
-  { value: "250+", label: "Happy Clients" },
-  { value: "10+", label: "Years Experience" },
-  { value: "99%", label: "Client Satisfaction" }
+  { value: "500+", label: "Projects Completed", icon: "🚀" },
+  { value: "250+", label: "Happy Clients", icon: "😊" },
+  { value: "10+", label: "Years Experience", icon: "⭐" },
+  { value: "99%", label: "Client Satisfaction", icon: "💯" }
+];
+
+// Trusted brands (you can replace with actual logos)
+const trustedBy = [
+  "Fortune 500", "Startups", "Enterprises", "SMBs"
 ];
 
 const HeroSlider = () => {
   return (
     <section className="tp-hero-area tp-hero-space pb-95 bdm-bg-gradient-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Animated Background Shapes */}
+      {/* Animated Background Elements */}
       <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50%', filter: 'blur(100px)' }} className="bdm-float"></div>
       <div style={{ position: 'absolute', bottom: '20%', left: '5%', width: '300px', height: '300px', background: 'rgba(5, 218, 195, 0.1)', borderRadius: '50%', filter: 'blur(80px)', animationDelay: '2s' }} className="bdm-float"></div>
+
+      {/* Animated Dots Pattern */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
+        backgroundSize: '30px 30px',
+        opacity: 0.3,
+        pointerEvents: 'none'
+      }}></div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="row align-items-center" style={{ minHeight: '80vh', paddingTop: '80px', paddingBottom: '80px' }}>
@@ -23,161 +40,228 @@ const HeroSlider = () => {
           {/* Main Hero Content */}
           <div className="col-lg-7">
             <div className="tp-hero-content">
-              {/* Subtitle Badge */}
+              {/* Subtitle Badge with Icon */}
               <div style={{ marginBottom: '24px' }}>
-                <span className="bdm-badge bdm-badge-outline" style={{
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                <span className="bdm-badge" style={{
+                  background: 'linear-gradient(135deg, rgba(61, 108, 231, 0.2) 0%, rgba(5, 218, 195, 0.2) 100%)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(10px)',
                   color: 'white',
-                  padding: '8px 16px',
+                  padding: '10px 20px',
                   fontSize: '14px',
-                  display: 'inline-block'
+                  fontWeight: '600',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderRadius: '50px',
+                  boxShadow: '0 4px 15px rgba(5, 218, 195, 0.3)'
                 }}>
+                  <span style={{ fontSize: '16px' }}>⚡</span>
                   CRM • ERP • POS • Landing Sites • SaaS • Mobile Apps
                 </span>
               </div>
 
-              {/* Main Heading */}
+              {/* Main Heading with better emphasis */}
               <h1 style={{
                 fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                 fontWeight: '800',
                 lineHeight: '1.1',
                 marginBottom: '24px',
                 color: 'white',
-                fontFamily: 'var(--bdm-font-heading)'
+                fontFamily: 'var(--bdm-font-heading)',
+                textShadow: '0 2px 20px rgba(0,0,0,0.2)'
               }}>
                 Build Tomorrow's
                 <br />
                 <span className="bdm-gradient-text" style={{
-                  background: 'linear-gradient(135deg, #05DAC3 0%, #ffffff 100%)',
+                  background: 'linear-gradient(135deg, #05DAC3 0%, #3D6CE7 50%, #ffffff 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  backgroundSize: '200% 200%',
+                  animation: 'gradient 3s ease infinite'
                 }}>
                   Software, Today
                 </span>
               </h1>
 
-              {/* Subheading */}
+              {/* Subheading with icon */}
               <p style={{
                 fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                lineHeight: '1.6',
+                lineHeight: '1.7',
                 marginBottom: '32px',
-                color: 'rgba(255, 255, 255, 0.9)',
-                maxWidth: '600px'
+                color: 'rgba(255, 255, 255, 0.95)',
+                maxWidth: '600px',
+                fontWeight: '400',
+                letterSpacing: '0.3px'
               }}>
+                <span style={{
+                  fontSize: '1.5rem',
+                  marginRight: '8px',
+                  verticalAlign: 'middle'
+                }}>🚀</span>
                 Custom software development agency powering startups to enterprises with scalable SaaS platforms, mobile apps, and digital infrastructure.
               </p>
 
-              {/* CTA Buttons */}
+              {/* Enhanced CTA Buttons */}
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
-                <Link href="/contact" className="bdm-btn bdm-btn-primary">
+                <Link href="/contact" style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '16px 32px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  background: 'linear-gradient(135deg, #3D6CE7 0%, #05DAC3 100%)',
+                  color: 'white',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  boxShadow: '0 8px 25px rgba(61, 108, 231, 0.4)',
+                  transition: 'all 0.3s ease',
+                  border: 'none',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 12px 35px rgba(61, 108, 231, 0.5)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(61, 108, 231, 0.4)';
+                  }}>
                   Start Your Project
-                  <i className="fa-regular fa-arrow-right-long" style={{ marginLeft: '8px' }}></i>
+                  <i className="fa-regular fa-arrow-right-long"></i>
                 </Link>
-                <Link href="/portfolio" className="bdm-btn bdm-btn-outline">
+
+                <Link href="/portfolio" style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '16px 32px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  color: 'white',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  }}>
+                  <i className="fa-regular fa-play-circle"></i>
                   View Our Work
                 </Link>
               </div>
 
-              {/* Metrics Row */}
+              {/* Trust Indicators */}
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-                gap: '24px',
-                marginTop: '40px'
+                marginBottom: '32px',
+                paddingTop: '20px',
+                borderTop: '1px solid rgba(255,255,255,0.1)'
               }}>
-                {metrics.map((metric, index) => (
-                  <div key={index} className="bdm-metric" style={{ textAlign: 'left' }}>
-                    <div className="bdm-metric-value" style={{
-                      fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                      fontWeight: '700',
-                      background: 'linear-gradient(135deg, #ffffff 0%, #05DAC3 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      lineHeight: '1.2'
+                <p style={{
+                  fontSize: '13px',
+                  color: 'rgba(255,255,255,0.7)',
+                  marginBottom: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  fontWeight: '600'
+                }}>
+                  Trusted By
+                </p>
+                <div style={{
+                  display: 'flex',
+                  gap: '20px',
+                  flexWrap: 'wrap',
+                  alignItems: 'center'
+                }}>
+                  {trustedBy.map((brand, i) => (
+                    <span key={i} style={{
+                      color: 'rgba(255,255,255,0.8)',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px'
                     }}>
-                      {metric.value}
-                    </div>
-                    <div className="bdm-metric-label" style={{
-                      fontSize: '0.875rem',
-                      color: 'rgba(255, 255, 255, 0.7)',
-                      marginTop: '4px'
-                    }}>
-                      {metric.label}
-                    </div>
-                  </div>
-                ))}
+                      <span style={{ fontSize: '18px' }}>✓</span>
+                      {brand}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Floating Elements / Visual */}
-          <div className="col-lg-5 d-none d-lg-block">
-            <div style={{ position: 'relative', height: '500px' }}>
-              {/* Floating Card 1 */}
-              <div className="bdm-glass bdm-float" style={{
-                position: 'absolute',
-                top: '20%',
-                right: '10%',
-                padding: '24px',
-                borderRadius: 'var(--bdm-radius-lg)',
-                maxWidth: '280px',
-                animationDelay: '0s'
-              }}>
-                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>📈</div>
-                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
-                  15% Sales Growth
-                </h4>
-                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
-                  Average increase for our CRM clients
-                </p>
-              </div>
-
-              {/* Floating Card 2 */}
-              <div className="bdm-glass bdm-float" style={{
-                position: 'absolute',
-                top: '55%',
-                right: '25%',
-                padding: '24px',
-                borderRadius: 'var(--bdm-radius-lg)',
-                maxWidth: '280px',
-                animationDelay: '1s'
-              }}>
-                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>⚡</div>
-                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
-                  30% Cost Reduction
-                </h4>
-                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
-                  With our ERP automation solutions
-                </p>
-              </div>
-
-              {/* Floating Card 3 */}
-              <div className="bdm-glass bdm-float" style={{
-                position: 'absolute',
-                top: '35%',
-                left: '5%',
-                padding: '20px',
-                borderRadius: 'var(--bdm-radius-lg)',
-                maxWidth: '240px',
-                animationDelay: '2s'
-              }}>
-                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🚀</div>
-                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
-                  10x Faster Launch
-                </h4>
-                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
-                  Time-to-market for SaaS platforms
-                </p>
-              </div>
+          {/* Right Side - Floating Metric Cards */}
+          <div className="col-lg-5">
+            <div style={{
+              position: 'relative',
+              height: '500px'
+            }}>
+              {metrics.map((metric, index) => (
+                <div
+                  key={index}
+                  className="bdm-glass bdm-float"
+                  style={{
+                    position: 'absolute',
+                    padding: '24px 28px',
+                    borderRadius: '16px',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    backdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                    minWidth: '200px',
+                    animationDelay: `${index * 0.2}s`,
+                    ...(index === 0 && { top: '10%', right: '0%', background: 'linear-gradient(135deg, rgba(61, 108, 231, 0.15) 0%, rgba(5, 218, 195, 0.15) 100%)' }),
+                    ...(index === 1 && { top: '35%', right: '25%', background: 'linear-gradient(135deg, rgba(5, 218, 195, 0.15) 0%, rgba(61, 108, 231, 0.15) 100%)' }),
+                    ...(index === 2 && { top: '60%', right: '5%', background: 'linear-gradient(135deg, rgba(61, 108, 231, 0.15) 0%, rgba(5, 218, 195, 0.15) 100%)' }),
+                    ...(index === 3 && { bottom: '5%', right: '30%', background: 'linear-gradient(135deg, rgba(5, 218, 195, 0.15) 0%, rgba(61, 108, 231, 0.15) 100%)' })
+                  }}
+                >
+                  <div style={{
+                    fontSize: '32px',
+                    marginBottom: '8px'
+                  }}>
+                    {metric.icon}
+                  </div>
+                  <div className="bdm-metric-value" style={{
+                    fontSize: '2.25rem',
+                    fontWeight: '800',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #05DAC3 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    lineHeight: '1.2',
+                    marginBottom: '8px'
+                  }}>
+                    {metric.value}
+                  </div>
+                  <div className="bdm-metric-label" style={{
+                    fontSize: '0.875rem',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    fontWeight: '600',
+                    letterSpacing: '0.3px'
+                  }}>
+                    {metric.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="bdm-scroll-indicator" style={{
+        <div style={{
           position: 'absolute',
           bottom: '40px',
           left: '50%',
@@ -185,24 +269,52 @@ const HeroSlider = () => {
           textAlign: 'center',
           animation: 'bounce 2s infinite'
         }}>
-          <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem', marginBottom: '8px' }}>
-            Scroll to Explore
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.7)',
+            fontSize: '12px',
+            marginBottom: '8px',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            fontWeight: '600'
+          }}>
+            Scroll to explore
+          </p>
+          <div style={{
+            width: '24px',
+            height: '36px',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '12px',
+            margin: '0 auto',
+            position: 'relative'
+          }}>
+            <div style={{
+              width: '4px',
+              height: '8px',
+              background: 'white',
+              borderRadius: '2px',
+              position: 'absolute',
+              top: '6px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              animation: 'scroll 1.5s infinite'
+            }}></div>
           </div>
-          <i className="fa-solid fa-chevron-down" style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.25rem' }}></i>
         </div>
       </div>
 
+      {/* Add keyframe animations */}
       <style jsx>{`
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-          40% { transform: translateX(-50%) translateY(-10px); }
-          60% { transform: translateX(-50%) translateY(-5px); }
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
-
-        @media (max-width: 768px) {
-          .bdm-scroll-indicator {
-            display: none;
-          }
+        @keyframes bounce {
+          0%, 100% { transform: translateX(-50%) translateY(0); }
+          50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        @keyframes scroll {
+          0% { top: 6px; opacity: 1; }
+          100% { top: 18px; opacity: 0; }
         }
       `}</style>
     </section>
