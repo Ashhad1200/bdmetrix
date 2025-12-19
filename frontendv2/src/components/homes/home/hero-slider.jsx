@@ -1,205 +1,211 @@
+import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import AngleArrow from "@/src/svg/angle-arrow";
-import LineArrow from "@/src/svg/line-arrow";
-import Link from "next/link";
-import { EffectFade, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import VideoPopup from "@/src/modals/video-popup";
-import React, { useState, useEffect } from "react";
 
-
-import shape_1 from "@assets/img/hero/shape-1.png";
-import shape_2 from "@assets/img/hero/shape-2.png";
-import shape_3 from "@assets/img/hero/shape-3.png";
-import shape_4 from "@assets/img/hero/shape-4.png";
-import shape_5 from "@assets/img/hero/shape-7.png";
-import service_shape from "@assets/img/hero/shape-5.png";
-import service_quote from "@assets/img/hero/quot.png";
-
-// slider setting 
-const setting = {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  effect: "fade",
-  autoplay: {
-    delay: 5000,
-  },
-  // Navigation arrows
-  navigation: {
-    nextEl: ".hero-button-next-1",
-    prevEl: ".hero-button-prev-1",
-  },
-};
-// slider data 
-const slider_data = [
-  {
-    id: 1,
-    bg_img: "/assets/img/hero/hero-2.jpg",
-    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
-    sub_title_2: "",
-    hero_title_1: "We Build Digital Systems",
-    hero_title_2: "That Scale Businesses",
-    hero_support: "BD Matrix is a US & UK–based digital solutions provider, now operating in Pakistan. We design, develop, and automate digital products that help businesses grow faster, smarter, and stronger.",
-  },
-  {
-    id: 2,
-    bg_img: "/assets/img/hero/hero-1.jpg",
-    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
-    sub_title_2: "",
-    hero_title_1: "Custom Software &",
-    hero_title_2: "CRM Solutions",
-    hero_support: "Tailor-made software solutions built to automate operations, reduce manual work, and scale with your business.",
-  },
-  {
-    id: 3,
-    bg_img: "/assets/img/hero/hero-3.jpg",
-    sub_title_1: "Web Development • Custom ERPs • POS Systems • SaaS • Mobile Apps • AI Automation",
-    sub_title_2: "",
-    hero_title_1: "Powering Modern",
-    hero_title_2: "Business Worldwide",
-    hero_support: "From idea to launch — we help you build scalable SaaS platforms and digital infrastructure.",
-  },
+// Metrics data
+const metrics = [
+  { value: "500+", label: "Projects Completed" },
+  { value: "250+", label: "Happy Clients" },
+  { value: "10+", label: "Years Experience" },
+  { value: "99%", label: "Client Satisfaction" }
 ];
-// shapes 
-const shapes = [
-  { id_cls: 1, img: shape_1 },
-  { id_cls: 2, img: shape_2 },
-  { id_cls: 3, img: shape_3 },
-  { id_cls: 4, img: shape_4 },
-  { id_cls: 7, img: shape_5 },
-]
 
 const HeroSlider = () => {
-  const [isLoop, setIsLoop] = useState(false)
-  useEffect(() => {
-    setIsLoop(true)
-  }, [])
-
-
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-
   return (
-    <>
-      <section className="tp-hero-area tp-hero-space pb-95">
-        <div className="tp-hero-wrapper p-relative">
-          <div className="hero-active-1 swiper-container">
-            <Swiper {...setting} loop={isLoop} modules={[Navigation, EffectFade]}>
-              {slider_data.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <div className="tp-hero-inner-1">
-                    <div className="container">
-                      <div className="tp-hero-shape">
-                        {shapes.map((shape, index) =>
-                          <Image key={index}
-                            className={`shape-${shape.id_cls}`}
-                            src={shape.img} alt="theme-pure" />
-                        )}
-                      </div>
-                      <div className="tp-hero-1">
-                        <div className="tp-hero-bg tp-hero-overlay p-relative"
-                          style={{ backgroundImage: `url(${item.bg_img})` }}></div>
-                        <div className="row">
-                          <div className="col-lg-7">
-                            <div className="tp-hero-content p-relative">
-                              <div className="tp-hero-title-wrapper">
-                                <span className="tp-section-title__pre p-relative">
-                                  {item.sub_title_1}{" "}
-                                  <span className="title-pre-color">
-                                    {item.sub_title_2}
-                                  </span>
-                                  <AngleArrow />
-                                </span>
-                                <h3 className="tp-hero-title">
-                                  {item.hero_title_1} <LineArrow />
-                                  <span className="title-color">
-                                    {item.hero_title_2}
-                                  </span>{" "}
-                                  <br />{" "}
-                                  <span className="title-text-transparent">
-                                    {item.hero_support}
-                                  </span>
-                                </h3>
-                                <div className="tp-hero-btn">
-                                  <Link className="tp-btn" href="/contact">
-                                    Get a Free Consultation{" "}
-                                    <i className="fa-regular fa-arrow-right-long"></i>
-                                  </Link>
-                                  <Link className="tp-btn tp-btn-border ml-20" href="/portfolio">
-                                    View Our Work
-                                  </Link>
-                                </div>
-                              </div>
-                              <div className="tp-hero-shape-animation">
-                                <span></span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-lg-5">
-                            <div className="tp-hero-play-btn">
-                              <button className="popup-video" onClick={() => setIsVideoOpen(true)}>
-                                <i className="fa-sharp fa-solid fa-play"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+    <section className="tp-hero-area tp-hero-space pb-95 bdm-bg-gradient-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Animated Background Shapes */}
+      <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50%', filter: 'blur(100px)' }} className="bdm-float"></div>
+      <div style={{ position: 'absolute', bottom: '20%', left: '5%', width: '300px', height: '300px', background: 'rgba(5, 218, 195, 0.1)', borderRadius: '50%', filter: 'blur(80px)', animationDelay: '2s' }} className="bdm-float"></div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="row align-items-center" style={{ minHeight: '80vh', paddingTop: '80px', paddingBottom: '80px' }}>
+
+          {/* Main Hero Content */}
+          <div className="col-lg-7">
+            <div className="tp-hero-content">
+              {/* Subtitle Badge */}
+              <div style={{ marginBottom: '24px' }}>
+                <span className="bdm-badge bdm-badge-outline" style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: 'white',
+                  padding: '8px 16px',
+                  fontSize: '14px',
+                  display: 'inline-block'
+                }}>
+                  CRM • ERP • POS • Landing Sites • SaaS • Mobile Apps
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <h1 style={{
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                fontWeight: '800',
+                lineHeight: '1.1',
+                marginBottom: '24px',
+                color: 'white',
+                fontFamily: 'var(--bdm-font-heading)'
+              }}>
+                Build Tomorrow's
+                <br />
+                <span className="bdm-gradient-text" style={{
+                  background: 'linear-gradient(135deg, #05DAC3 0%, #ffffff 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  Software, Today
+                </span>
+              </h1>
+
+              {/* Subheading */}
+              <p style={{
+                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                lineHeight: '1.6',
+                marginBottom: '32px',
+                color: 'rgba(255, 255, 255, 0.9)',
+                maxWidth: '600px'
+              }}>
+                Custom software development agency powering startups to enterprises with scalable SaaS platforms, mobile apps, and digital infrastructure.
+              </p>
+
+              {/* CTA Buttons */}
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+                <Link href="/contact" className="bdm-btn bdm-btn-primary">
+                  Start Your Project
+                  <i className="fa-regular fa-arrow-right-long" style={{ marginLeft: '8px' }}></i>
+                </Link>
+                <Link href="/portfolio" className="bdm-btn bdm-btn-outline">
+                  View Our Work
+                </Link>
+              </div>
+
+              {/* Metrics Row */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+                gap: '24px',
+                marginTop: '40px'
+              }}>
+                {metrics.map((metric, index) => (
+                  <div key={index} className="bdm-metric" style={{ textAlign: 'left' }}>
+                    <div className="bdm-metric-value" style={{
+                      fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+                      fontWeight: '700',
+                      background: 'linear-gradient(135deg, #ffffff 0%, #05DAC3 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      lineHeight: '1.2'
+                    }}>
+                      {metric.value}
+                    </div>
+                    <div className="bdm-metric-label" style={{
+                      fontSize: '0.875rem',
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      marginTop: '4px'
+                    }}>
+                      {metric.label}
                     </div>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          <div className="tp-hero-nav d-none d-xxl-block">
-            <button type="button"
-              className="hero-button-prev-1 tp-btn-hover-clear alt-color">
-              <i className="fa-regular fa-arrow-left"></i>
-              <b></b>
-            </button>
-            <button
-              type="button"
-              className="hero-button-next-1 tp-btn-hover-clear alt-color"
-            >
-              <i className="fa-regular fa-arrow-right"></i>
-              <b></b>
-            </button>
-          </div>
-
-          <div className="tp-hero-bottom">
-            <div className="tp-hero-experince">
-              <span className="year"> 13
-                <br /> <i className="experince">Years of Experince</i>
-              </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div
-            className="tp-hero-service"
-            style={{ backgroundImage: `url(/assets/img/hero/shape-6.png)` }}
-          >
-            <div className="tp-hero-service-shape">
-              <Image src={service_shape} alt="theme-pure" />
-            </div>
-            <p>
-              BD Matrix is a digital solutions provider with over 7 years of <br />
-              experience delivering high-quality software solutions worldwide.
-            </p>
-            <div className="tp-hero-service-quote">
-              <Image src={service_quote} alt="theme-pure" />
+          {/* Right Side - Floating Elements / Visual */}
+          <div className="col-lg-5 d-none d-lg-block">
+            <div style={{ position: 'relative', height: '500px' }}>
+              {/* Floating Card 1 */}
+              <div className="bdm-glass bdm-float" style={{
+                position: 'absolute',
+                top: '20%',
+                right: '10%',
+                padding: '24px',
+                borderRadius: 'var(--bdm-radius-lg)',
+                maxWidth: '280px',
+                animationDelay: '0s'
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>📈</div>
+                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
+                  15% Sales Growth
+                </h4>
+                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
+                  Average increase for our CRM clients
+                </p>
+              </div>
+
+              {/* Floating Card 2 */}
+              <div className="bdm-glass bdm-float" style={{
+                position: 'absolute',
+                top: '55%',
+                right: '25%',
+                padding: '24px',
+                borderRadius: 'var(--bdm-radius-lg)',
+                maxWidth: '280px',
+                animationDelay: '1s'
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>⚡</div>
+                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
+                  30% Cost Reduction
+                </h4>
+                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
+                  With our ERP automation solutions
+                </p>
+              </div>
+
+              {/* Floating Card 3 */}
+              <div className="bdm-glass bdm-float" style={{
+                position: 'absolute',
+                top: '35%',
+                left: '5%',
+                padding: '20px',
+                borderRadius: 'var(--bdm-radius-lg)',
+                maxWidth: '240px',
+                animationDelay: '2s'
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🚀</div>
+                <h4 style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '8px' }}>
+                  10x Faster Launch
+                </h4>
+                <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.875rem', margin: 0 }}>
+                  Time-to-market for SaaS platforms
+                </p>
+              </div>
             </div>
           </div>
-
         </div>
-      </section>
 
-      {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={"dGcsHMXbSOA"}
-      />
-      {/* video modal end */}
-    </>
+        {/* Scroll Indicator */}
+        <div className="bdm-scroll-indicator" style={{
+          position: 'absolute',
+          bottom: '40px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          textAlign: 'center',
+          animation: 'bounce 2s infinite'
+        }}>
+          <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem', marginBottom: '8px' }}>
+            Scroll to Explore
+          </div>
+          <i className="fa-solid fa-chevron-down" style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.25rem' }}></i>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+          40% { transform: translateX(-50%) translateY(-10px); }
+          60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+          .bdm-scroll-indicator {
+            display: none;
+          }
+        }
+      `}</style>
+    </section>
   );
 };
 

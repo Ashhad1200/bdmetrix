@@ -88,6 +88,22 @@ function validateContactForm(data) {
         errors.message = `Message must not exceed ${FIELD_CONSTRAINTS.message.max} characters`;
     }
 
+    // Validate budget (optional field with predefined values)
+    if (data.budget && typeof data.budget === 'string') {
+        const validBudgets = ['under-5k', '5k-10k', '10k-25k', '25k-50k', '50k-plus'];
+        if (data.budget.trim() !== '' && !validBudgets.includes(data.budget)) {
+            errors.budget = 'Invalid budget range selected';
+        }
+    }
+
+    // Validate timeline (optional field with predefined values)
+    if (data.timeline && typeof data.timeline === 'string') {
+        const validTimelines = ['urgent', '1-month', '2-3-months', '3-6-months', 'flexible'];
+        if (data.timeline.trim() !== '' && !validTimelines.includes(data.timeline)) {
+            errors.timeline = 'Invalid timeline selected';
+        }
+    }
+
     return {
         isValid: Object.keys(errors).length === 0,
         errors,

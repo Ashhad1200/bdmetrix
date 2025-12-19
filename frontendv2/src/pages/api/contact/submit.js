@@ -15,6 +15,8 @@
  *   email: string (required, valid email, max 100 chars)
  *   service_type: string (required, max 100 chars)
  *   phone: string (required, max 20 chars)
+ *   budget: string (optional, predefined values)
+ *   timeline: string (optional, predefined values)
  *   message: string (required, max 2000 chars)
  * }
  * 
@@ -79,6 +81,8 @@ export default async function handler(req, res) {
             email: sanitizedData.email,
             phone: sanitizedData.phone,
             service_type: sanitizedData.service_type,
+            budget: sanitizedData.budget || 'Not specified',
+            timeline: sanitizedData.timeline || 'Not specified',
             message: sanitizedData.message,
             ip_address: ipAddress,
         };

@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Count from '@/src/common/count';
 import React, { useEffect, useRef, useState } from 'react';
 import service_data from '@/src/data/service-data';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // svg icon
 import AngleArrow from '@/src/svg/angle-arrow';
@@ -16,14 +15,13 @@ import fun_fact_shape_2 from "@assets/img/fun-fact/shape-2.png";
 import fun_fact_shape_3 from "@assets/img/fun-fact/shape-3.png";
 import fun_fact_shape_4 from "@assets/img/fun-fact/shape-4.png";
 import fun_fact_shape_5 from "@assets/img/fun-fact/shadow.png";
-
 import reload_img from "@assets/img/fun-fact/world.png";
 
 
 const counter_content = [
    {
       id: 1,
-      count: 50,
+      count: 500,
       info: "Projects Delivered",
       cls: "",
       cls_2: "purecounter",
@@ -31,7 +29,7 @@ const counter_content = [
    },
    {
       id: 2,
-      count: 30,
+      count: 250,
       info: "Happy Clients",
       cls: "purecounter",
       cls_2: "",
@@ -39,40 +37,16 @@ const counter_content = [
    },
    {
       id: 3,
-      count: 7,
-      info: "Core Services",
+      count: 10,
+      info: "Years Experience",
       cls: "purecounter",
       cls_2: "",
-      icon: "",
+      icon: "+",
    },
 ]
+
 const ServiceArea = () => {
 
-   const setting = {
-      type: 'loop',
-      drag: 'free',
-      pagination: false,
-      arrows: false,
-      perPage: 5,
-      gap: '30px',
-      breakpoints: {
-         1800: {
-            perPage: 5,
-         },
-         1500: {
-            perPage: 4,
-         },
-         1200: {
-            perPage: 3,
-         },
-         800: {
-            perPage: 2,
-         },
-         566: {
-            perPage: 1,
-         },
-      },
-   }
    const splideRef = useRef(null);
 
    const [reloadClassName, setReloadClassName] = useState(null);
@@ -99,55 +73,154 @@ const ServiceArea = () => {
       <>
          <div className="tp-service-funfact-box">
 
-            <section className="tp-service-area pt-85 pb-50">
-               <div className="container-fluid">
+            {/* Modern Services Section */}
+            <section className="bdm-section" style={{ background: '#FAFBFC' }}>
+               <div className="container">
                   <div className="row">
-
                      <div className="col-lg-12">
-                        <div className="tp-service-title-wrapper text-center">
+                        <div className="tp-service-title-wrapper text-center mb-60">
                            <span className="tp-section-title__pre">
                               Our <span className="title-pre-color">Core Services</span>
                               <AngleArrow />
                            </span>
-                           <h3 className="tp-section-title">Digital Solutions <i>Engineered</i> For Growth
+                           <h2 className="tp-section-title">
+                              Digital Solutions <i>Engineered</i> For Growth
                               <span className="title-center-shape">
                                  <LineArrowTwo />
                               </span>
-                           </h3>
+                           </h2>
+                           <p style={{ maxWidth: '700px', margin: '20px auto 0', fontSize: '1.125rem', color: 'var(--tp-text-body)' }}>
+                              From CRM to ERP, POS to SaaS—we build custom software that drives measurable business outcomes.
+                           </p>
                         </div>
                      </div>
-
-                     <div className="tp-service-slider-wrapper">
-                        <Splide options={setting} ref={splideRef}
-                           className="service-active splide">
-                           {service_data.map((item, i) =>
-                              <SplideSlide key={i}>
-                                 <div className="tp-service-wrapper p-relative mb-55">
-                                    <div className="tp-service-designation">
-                                       <p>{item.alphabet}</p>
-                                    </div>
-                                    <h3 className="service-title">{item.title}</h3>
-                                    <div className="tp-service-icon">
-                                       <Image src={item.img} alt="theme-pure" />
-                                    </div>
-                                    <p className="hide-text">{item.description}</p>
-                                    <div className="tp-service-btn">
-                                       <Link href="/service-details">Read Out More
-                                          <i className="fa-solid fa-arrow-up-right"></i>
-                                       </Link>
-                                    </div>
-                                 </div>
-                              </SplideSlide>
-                           )}
-                        </Splide>
-                     </div>
-
                   </div>
 
+                  {/* Service Cards Grid */}
+                  <div className="row g-4">
+                     {service_data.map((service, index) => (
+                        <div key={service.id} className="col-lg-4 col-md-6">
+                           <div className="bdm-card bdm-tilt" style={{
+                              height: '100%',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              background: service.bg_color || 'white',
+                              transition: 'all 0.3s ease',
+                              borderLeft: `4px solid ${index % 2 === 0 ? 'var(--bdm-primary)' : 'var(--bdm-secondary)'}`
+                           }}>
+                              {/* Service Icon */}
+                              <div style={{
+                                 width: '80px',
+                                 height: '80px',
+                                 borderRadius: 'var(--bdm-radius-md)',
+                                 background: 'white',
+                                 display: 'flex',
+                                 alignItems: 'center',
+                                 justifyContent: 'center',
+                                 marginBottom: '20px',
+                                 padding: '12px',
+                                 boxShadow: 'var(--bdm-shadow-md)'
+                              }}>
+                                 {service.icon && (
+                                    <img
+                                       src={service.icon}
+                                       alt={service.title}
+                                       style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                    />
+                                 )}
+                              </div>
+
+                              {/* Service Title */}
+                              <h3 style={{
+                                 fontSize: '1.5rem',
+                                 fontWeight: '700',
+                                 marginBottom: '8px',
+                                 color: 'var(--tp-heading-primary)',
+                                 fontFamily: 'var(--bdm-font-heading)'
+                              }}>
+                                 {service.title}
+                              </h3>
+
+                              {/* Subtitle */}
+                              <div style={{
+                                 fontSize: '0.875rem',
+                                 color: 'var(--bdm-primary)',
+                                 fontWeight: '600',
+                                 marginBottom: '16px',
+                                 textTransform: 'uppercase',
+                                 letterSpacing: '0.5px'
+                              }}>
+                                 {service.subtitle}
+                              </div>
+
+                              {/* Description */}
+                              <p style={{
+                                 color: 'var(--tp-text-body)',
+                                 marginBottom: '20px',
+                                 lineHeight: '1.6',
+                                 flexGrow: 1
+                              }}>
+                                 {service.description}
+                              </p>
+
+                              {/* Outcomes */}
+                              {service.outcomes && service.outcomes.length > 0 && (
+                                 <div style={{ marginBottom: '20px' }}>
+                                    <h4 style={{
+                                       fontSize: '0.875rem',
+                                       fontWeight: '700',
+                                       marginBottom: '12px',
+                                       color: 'var(--tp-heading-primary)',
+                                       textTransform: 'uppercase',
+                                       letterSpacing: '0.5px'
+                                    }}>
+                                       Key Outcomes
+                                    </h4>
+                                    <ul style={{
+                                       listStyle: 'none',
+                                       padding: 0,
+                                       margin: 0
+                                    }}>
+                                       {service.outcomes.slice(0, 2).map((outcome, idx) => (
+                                          <li key={idx} style={{
+                                             fontSize: '0.875rem',
+                                             color: 'var(--tp-text-body)',
+                                             marginBottom: '8px',
+                                             display: 'flex',
+                                             alignItems: 'flex-start',
+                                             gap: '8px'
+                                          }}>
+                                             <span style={{ color: 'var(--bdm-secondary)', marginTop: '2px' }}>✓</span>
+                                             <span>{outcome}</span>
+                                          </li>
+                                       ))}
+                                    </ul>
+                                 </div>
+                              )}
+
+                              {/* CTA Button */}
+                              <Link href={service.cta_link || '/contact'} className="bdm-btn bdm-btn-outline" style={{
+                                 fontSize: '0.875rem',
+                                 padding: '12px 24px',
+                                 display: 'inline-block',
+                                 textAlign: 'center'
+                              }}>
+                                 {service.cta_text || 'Learn More'}
+                                 <i className="fa-regular fa-arrow-right-long" style={{ marginLeft: '8px' }}></i>
+                              </Link>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+
+                  {/* View All Services Button */}
                   <div className="row">
                      <div className="col-lg-12">
-                        <div className="tp-service-all-btn text-center fadeUp">
-                           <Link className="tp-btn" href="/service">View all Services</Link>
+                        <div className="text-center" style={{ marginTop: '60px' }}>
+                           <Link className="bdm-btn bdm-btn-primary" href="/service">
+                              View All Services
+                              <i className="fa-regular fa-arrow-right-long" style={{ marginLeft: '8px' }}></i>
+                           </Link>
                         </div>
                      </div>
                   </div>
@@ -155,6 +228,7 @@ const ServiceArea = () => {
                </div>
             </section>
 
+            {/* Fun Fact / Stats Section */}
             <section className="tp-fun-fact-area pt-80 pb-65 p-relative">
                <div className="container container-1400">
 

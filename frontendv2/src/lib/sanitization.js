@@ -36,6 +36,8 @@ function sanitizeInput(input) {
  * @param {string} data.email - Contact email
  * @param {string} data.service_type - Service type
  * @param {string} data.phone - Phone number
+ * @param {string} data.budget - Budget range (optional)
+ * @param {string} data.timeline - Project timeline (optional)
  * @param {string} data.message - Message content
  * @returns {Object} Sanitized form data
  */
@@ -45,6 +47,8 @@ function sanitizeContactForm(data) {
         email: sanitizeInput(data.email),
         service_type: sanitizeInput(data.service_type),
         phone: sanitizeInput(data.phone),
+        budget: data.budget ? sanitizeInput(data.budget) : '',
+        timeline: data.timeline ? sanitizeInput(data.timeline) : '',
         message: sanitizeInput(data.message),
     };
 }

@@ -1,187 +1,232 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Navigation } from "swiper";
-import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import AngleArrow from "@/src/svg/angle-arrow";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-import about_img_1 from "@assets/img/about/icon-1.png";
-import about_img_2 from "@assets/img/about/icon-2.png";
-import about_img_3 from "@assets/img/about/icon-3.png";
-import LineArrowTwo from '@/src/svg/line-arrow-2';
-import shape_1 from "@assets/img/about/shape-1.png";
-import about from "@assets/img/about/about-1.png";
+import img_1 from "@assets/img/about/about-1.png";
+import img_2 from "@assets/img/about/about-1.png";
 
-const about_data = [
+const about_content = {
+    sub_title: "Who We Are",
+    title: "Building Software That Powers Growth",
+    description_1:
+        "Since 2013, BD Matrix has been transforming business ideas into scalable software solutions. We're a team of passionate developers, designers, and strategists dedicated to creating custom software that drives real business results.",
+    description_2:
+        "From startups to enterprises, we've delivered 500+ projects across 20+ countries. Our expertise in CRM, ERP, POS systems, SaaS platforms, and mobile apps has helped businesses increase sales by 15%, reduce costs by 38%, and scale efficiently.",
+};
+
+const company_milestones = [
     {
-        id: 1,
-        img: about_img_1,
-        title: "Restaurants & Cafes",
-        description: <>Complete POS, online ordering, <br /> and kitchen management systems</>,
-    },
-    {
-        id: 2,
-        img: about_img_2,
-        title: "Clinics & Hospitals",
-        description: <>Patient management, appointments, <br /> and EMR/EHR software</>,
+        year: "2013",
+        title: "Founded",
+        description: "Started with a vision to build quality software"
     },
     {
-        id: 3,
-        img: about_img_3,
-        title: "Pharmacies",
-        description: <>Inventory tracking, POS, and <br /> medicine management systems</>,
+        year: "2016",
+        title: "50+ Projects",
+        description: "Reached first major milestone of successful deliveries"
     },
     {
-        id: 4,
-        img: about_img_1,
-        title: "Retail & Wholesale",
-        description: <>E-commerce, stock management, <br /> and multi-branch POS solutions</>,
+        year: "2019",
+        title: "Global Expansion",
+        description: "Expanded services to international markets"
     },
     {
-        id: 5,
-        img: about_img_2,
-        title: "Startups & SaaS",
-        description: <>MVP development and scalable <br /> product architecture</>,
+        year: "2023",
+        title: "500+ Projects",
+        description: "Celebrating a decade of innovation and excellence"
+    }
+];
+
+const company_values = [
+    {
+        icon: "🎯",
+        title: "Client Success First",
+        description: "Your goals are our goals. We measure success by your business growth."
     },
     {
-        id: 6,
-        img: about_img_3,
-        title: "Service Businesses",
-        description: <>Booking systems, CRM, and <br /> client management portals</>,
+        icon: "💎",
+        title: "Quality Over Quantity",
+        description: "Every line of code is crafted with precision and tested rigorously."
     },
-]
-
-const setting = {
-    slidesPerView: 3,
-    spaceBetween: 82,
-    navigation: {
-        nextEl: ".about-button-next-1",
-        prevEl: ".about-button-prev-1",
+    {
+        icon: "🚀",
+        title: "Innovation Driven",
+        description: "We stay ahead of technology trends to build future-proof solutions."
     },
-    breakpoints: {
-        '1860': {
-
-        },
-        '1800': {
-            spaceBetween: 40,
-        },
-        '1701': {
-
-        },
-        '1600': {
-
-        },
-        '1560': {
-
-        },
-        '1400': {
-            spaceBetween: 60,
-        },
-        '1200': {
-            spaceBetween: 30,
-            slidesPerView: 2,
-        },
-        '992': {
-            spaceBetween: 60,
-            slidesPerView: 2,
-        },
-        '767': {
-            slidesPerView: 2
-        },
-        '576': {
-            slidesPerView: 2
-        },
-        '0': {
-            slidesPerView: 1
-        },
-    },
-}
-
+    {
+        icon: "🤝",
+        title: "Transparent Partnership",
+        description: "Clear communication, honest timelines, and no hidden surprises."
+    }
+];
 
 const AboutArea = () => {
-    const [isLoop, setIsLoop] = useState(false)
-    useEffect(() => {
-        setIsLoop(true)
-    }, [])
-
     return (
         <>
-            <section className="tp-about-area pb-45 box-plr p-relative">
-                <div className="tp-about-shape d-none d-xl-block">
-                    <Image className="shape-1" src={shape_1} alt="theme-pure" />
-                </div>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xl-4 col-lg-12">
-                            <div className="tp-about-wrapper-thumb text-center text-xl-start fadeLeft">
-                                <Image src={about} alt="theme-pure" />
+            <section className="tp-about-area pt-120 pb-90">
+                <div className="container">
+                    {/* Main About Section */}
+                    <div className="row align-items-center">
+                        <div className="col-lg-6">
+                            <div className="tp-about-wrap">
+                                <div className="tp-about-img mb-30">
+                                    <Image src={img_1} alt="BD Matrix Team" />
+                                </div>
+                                <div className="tp-about-img mb-30">
+                                    <Image src={img_2} alt="BD Matrix Office" />
+                                </div>
                             </div>
                         </div>
-                        <div className="col-xl-8 col-lg-10">
-                            <div className="tp-about-wrapper pl-50">
+                        <div className="col-lg-6">
+                            <div className="tp-about-content mb-30">
+                                <div className="section-title-wrapper mb-25">
+                                    <span className="tp-section-subtitle mb-15">
+                                        {about_content.sub_title}
+                                    </span>
+                                    <h2 className="tp-section-title">{about_content.title}</h2>
+                                </div>
+                                <p className="mb-25">{about_content.description_1}</p>
+                                <p className="mb-35">{about_content.description_2}</p>
 
-                                <div className="row">
-
-                                    <div className="col-lg-8">
-                                        <div className="tp-about-title-wrapper p-relative">
-                                            <span className="tp-section-title__pre">
-                                                Industries <span className="title-pre-color">We Serve</span>
-                                                <AngleArrow />
-                                            </span>
-                                            <h3 className="tp-section-title">Digital Solutions For Every Industry
-                                                <span className="title-left-shape">
-                                                    <LineArrowTwo />
-                                                </span>
-                                            </h3>
+                                {/* Stats */}
+                                <div className="row mb-40">
+                                    <div className="col-sm-6">
+                                        <div className="bdm-metric" style={{ marginBottom: '20px' }}>
+                                            <div className="bdm-metric-value" style={{ fontSize: '2.5rem', color: 'var(--bdm-primary)' }}>500+</div>
+                                            <div className="bdm-metric-label">Projects Delivered</div>
                                         </div>
                                     </div>
-
-                                    <div className="col-lg-4">
-                                        <div className="tp-about-nav d-none d-md-block p-relative">
-                                            <button type="button" className="about-button-prev-1">
-                                                <i className="fa-regular fa-arrow-left"></i>
-                                            </button>
-                                            <button type="button" className="about-button-next-1">
-                                                <i className="fa-regular fa-arrow-right"></i>
-                                            </button>
+                                    <div className="col-sm-6">
+                                        <div className="bdm-metric" style={{ marginBottom: '20px' }}>
+                                            <div className="bdm-metric-value" style={{ fontSize: '2.5rem', color: 'var(--bdm-primary)' }}>250+</div>
+                                            <div className="bdm-metric-label">Happy Clients</div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-6">
+                                        <div className="bdm-metric">
+                                            <div className="bdm-metric-value" style={{ fontSize: '2.5rem', color: 'var(--bdm-primary)' }}>10+</div>
+                                            <div className="bdm-metric-label">Years Experience</div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-6">
+                                        <div className="bdm-metric">
+                                            <div className="bdm-metric-value" style={{ fontSize: '2.5rem', color: 'var(--bdm-primary)' }}>99%</div>
+                                            <div className="bdm-metric-label">Client Satisfaction</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="tp-about-item-wrapper">
-                                    <Swiper {...setting}
-                                        modules={[Navigation]}
-                                        loop={isLoop}
-                                        className="about-active swiper-container"
-                                    >
-                                        {about_data.map((item, i) =>
-                                            <SwiperSlide key={i} className="tp-about-item mb-30">
-                                                <div className="tp-about-item-thumb">
-                                                    <Image src={item.img} alt="theme-pure" />
-                                                </div>
-                                                <div className="tp-about-item-content">
-                                                    <h4 className="about-title">{item.title}</h4>
-                                                    <p>{item.description}</p>
-                                                    <div className="tp-about-item-btn">
-                                                        <Link href="/about">
-                                                            <i className="fa-regular fa-arrow-right"></i>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </SwiperSlide>
-                                        )}
-                                    </Swiper>
-
-                                    <div className="tp-about-call">
-                                        <a href="tel:+923001234567">
-                                            <p><i className="fa-solid fa-phone"></i>
-                                                Trusted by businesses in Pakistan & worldwide <span>+92 300 123 4567</span></p>
-                                        </a>
-                                    </div>
-
-                                </div>
+                                <Link className="bdm-btn bdm-btn-primary" href="/contact">
+                                    Start Your Project
+                                    <i className="fa-regular fa-arrow-right-long" style={{ marginLeft: '8px' }}></i>
+                                </Link>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Company Journey Timeline */}
+                    <div className="row" style={{ marginTop: '80px' }}>
+                        <div className="col-lg-12">
+                            <div className="text-center mb-50">
+                                <span className="tp-section-subtitle mb-15" style={{
+                                    fontSize: '0.875rem',
+                                    color: 'var(--bdm-primary)',
+                                    fontWeight: '700',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px'
+                                }}>
+                                    Our Journey
+                                </span>
+                                <h2 className="tp-section-title">A Decade of Excellence</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row g-4 mb-60">
+                        {company_milestones.map((milestone, index) => (
+                            <div key={index} className="col-lg-3 col-md-6">
+                                <div className="bdm-card" style={{
+                                    textAlign: 'center',
+                                    height: '100%',
+                                    borderTop: '4px solid var(--bdm-primary)'
+                                }}>
+                                    <div style={{
+                                        fontSize: '2rem',
+                                        fontWeight: '800',
+                                        color: 'var(--bdm-primary)',
+                                        marginBottom: '12px',
+                                        fontFamily: 'var(--bdm-font-heading)'
+                                    }}>
+                                        {milestone.year}
+                                    </div>
+                                    <h4 style={{
+                                        fontSize: '1.25rem',
+                                        fontWeight: '700',
+                                        marginBottom: '8px'
+                                    }}>
+                                        {milestone.title}
+                                    </h4>
+                                    <p style={{
+                                        color: 'var(--tp-text-body)',
+                                        fontSize: '0.95rem',
+                                        margin: 0
+                                    }}>
+                                        {milestone.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Company Values */}
+                    <div className="row" style={{ marginTop: '60px' }}>
+                        <div className="col-lg-12">
+                            <div className="text-center mb-50">
+                                <span className="tp-section-subtitle mb-15" style={{
+                                    fontSize: '0.875rem',
+                                    color: 'var(--bdm-primary)',
+                                    fontWeight: '700',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px'
+                                }}>
+                                    Our Values
+                                </span>
+                                <h2 className="tp-section-title">What Drives Us</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row g-4">
+                        {company_values.map((value, index) => (
+                            <div key={index} className="col-lg-3 col-md-6">
+                                <div className="bdm-card bdm-hover-lift" style={{
+                                    textAlign: 'center',
+                                    height: '100%'
+                                }}>
+                                    <div style={{
+                                        fontSize: '3rem',
+                                        marginBottom: '16px'
+                                    }}>
+                                        {value.icon}
+                                    </div>
+                                    <h4 style={{
+                                        fontSize: '1.125rem',
+                                        fontWeight: '700',
+                                        marginBottom: '12px'
+                                    }}>
+                                        {value.title}
+                                    </h4>
+                                    <p style={{
+                                        color: 'var(--tp-text-body)',
+                                        fontSize: '0.95rem',
+                                        margin: 0,
+                                        lineHeight: '1.6'
+                                    }}>
+                                        {value.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

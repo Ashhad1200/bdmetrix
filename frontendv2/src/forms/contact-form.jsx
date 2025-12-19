@@ -7,6 +7,8 @@ const ContactForm = () => {
     email: '',
     service_type: '',
     phone: '',
+    budget: '',
+    timeline: '',
     message: '',
   });
 
@@ -51,7 +53,7 @@ const ContactForm = () => {
     }
 
     if (!formData.service_type.trim()) {
-      newErrors.service_type = 'Service type is required';
+      newErrors.service_type = 'Please select a service type';
     }
 
     if (!formData.phone.trim()) {
@@ -99,7 +101,7 @@ const ContactForm = () => {
 
       if (response.ok && data.success) {
         // Success!
-        setSuccessMessage(data.message);
+        setSuccessMessage('Thank you! We\'ll get back to you within 24 hours.');
 
         // Reset form
         setFormData({
@@ -107,6 +109,8 @@ const ContactForm = () => {
           email: '',
           service_type: '',
           phone: '',
+          budget: '',
+          timeline: '',
           message: '',
         });
 
@@ -136,20 +140,32 @@ const ContactForm = () => {
     <>
       {/* Success Message */}
       {successMessage && (
-        <div className="alert alert-success mb-3" role="alert" aria-live="polite">
+        <div className="alert alert-success mb-3" role="alert" aria-live="polite" style={{
+          background: 'linear-gradient(135deg, rgba(5, 218, 195, 0.1) 0%, rgba(5, 218, 195, 0.2) 100%)',
+          border: '1px solid var(--bdm-secondary)',
+          borderRadius: 'var(--bdm-radius-md)',
+          padding: '16px',
+          color: 'var(--tp-heading-primary)'
+        }}>
           <strong>✓</strong> {successMessage}
         </div>
       )}
 
       {/* Error Message */}
       {errorMessage && (
-        <div className="alert alert-danger mb-3" role="alert" aria-live="assertive">
+        <div className="alert alert-danger mb-3" role="alert" aria-live="assertive" style={{
+          background: 'rgba(220, 53, 69, 0.1)',
+          border: '1px solid #dc3545',
+          borderRadius: 'var(--bdm-radius-md)',
+          padding: '16px'
+        }}>
           <strong>✗</strong> {errorMessage}
         </div>
       )}
 
       <form id="contact-form" onSubmit={handleSubmit} method="POST" noValidate>
         <div className="row tp-gx-10">
+          {/* Name */}
           <div className="col-md-6">
             <div className="tp-contact-input">
               <input
@@ -162,18 +178,17 @@ const ContactForm = () => {
                 className={errors.name ? 'is-invalid' : ''}
                 aria-label="Your Name"
                 aria-required="true"
-                aria-invalid={errors.name ? 'true' : 'false'}
-                aria-describedby={errors.name ? 'name-error' : undefined}
                 maxLength={100}
               />
               {errors.name && (
-                <div className="invalid-feedback" id="name-error" role="alert">
+                <div className="invalid-feedback" role="alert">
                   {errors.name}
                 </div>
               )}
             </div>
           </div>
 
+          {/* Email */}
           <div className="col-md-6">
             <div className="tp-contact-input">
               <input
@@ -186,42 +201,55 @@ const ContactForm = () => {
                 className={errors.email ? 'is-invalid' : ''}
                 aria-label="Email Address"
                 aria-required="true"
-                aria-invalid={errors.email ? 'true' : 'false'}
-                aria-describedby={errors.email ? 'email-error' : undefined}
                 maxLength={100}
               />
               {errors.email && (
-                <div className="invalid-feedback" id="email-error" role="alert">
+                <div className="invalid-feedback" role="alert">
                   {errors.email}
                 </div>
               )}
             </div>
           </div>
 
+          {/* Service Type - Dropdown */}
           <div className="col-md-6">
             <div className="tp-contact-input">
-              <input
+              <select
                 name="service_type"
-                type="text"
-                placeholder="Service Type*"
                 value={formData.service_type}
                 onChange={handleChange}
                 disabled={isSubmitting}
                 className={errors.service_type ? 'is-invalid' : ''}
                 aria-label="Service Type"
                 aria-required="true"
-                aria-invalid={errors.service_type ? 'true' : 'false'}
-                aria-describedby={errors.service_type ? 'service-type-error' : undefined}
-                maxLength={100}
-              />
+                style={{
+                  width: '100%',
+                  padding: '14px 20px',
+                  fontSize: '15px',
+                  border: '1px solid #e0e0e0',
+                  borderRadius: '4px',
+                  background: 'white',
+                  cursor: 'pointer'
+                }}
+              >
+                <option value="">Select Service Type*</option>
+                <option value="crm">CRM Software Development</option>
+                <option value="erp">ERP System Development</option>
+                <option value="pos">POS System Development</option>
+                <option value="landing-site">Landing Site / Web Development</option>
+                <option value="saas">SaaS Platform Development</option>
+                <option value="mobile-app">Mobile App Development</option>
+                <option value="other">Other / Consulting</option>
+              </select>
               {errors.service_type && (
-                <div className="invalid-feedback" id="service-type-error" role="alert">
+                <div className="invalid-feedback" role="alert">
                   {errors.service_type}
                 </div>
               )}
             </div>
           </div>
 
+          {/* Phone */}
           <div className="col-md-6">
             <div className="tp-contact-input">
               <input
@@ -234,42 +262,98 @@ const ContactForm = () => {
                 className={errors.phone ? 'is-invalid' : ''}
                 aria-label="Phone Number"
                 aria-required="true"
-                aria-invalid={errors.phone ? 'true' : 'false'}
-                aria-describedby={errors.phone ? 'phone-error' : undefined}
                 maxLength={20}
               />
               {errors.phone && (
-                <div className="invalid-feedback" id="phone-error" role="alert">
+                <div className="invalid-feedback" role="alert">
                   {errors.phone}
                 </div>
               )}
             </div>
           </div>
 
+          {/* Budget Range */}
+          <div className="col-md-6">
+            <div className="tp-contact-input">
+              <select
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                aria-label="Budget Range"
+                style={{
+                  width: '100%',
+                  padding: '14px 20px',
+                  fontSize: '15px',
+                  border: '1px solid #e0e0e0',
+                  borderRadius: '4px',
+                  background: 'white',
+                  cursor: 'pointer'
+                }}
+              >
+                <option value="">Budget Range (Optional)</option>
+                <option value="under-5k">Under $5,000</option>
+                <option value="5k-10k">$5,000 - $10,000</option>
+                <option value="10k-25k">$10,000 - $25,000</option>
+                <option value="25k-50k">$25,000 - $50,000</option>
+                <option value="50k-plus">$50,000+</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="col-md-6">
+            <div className="tp-contact-input">
+              <select
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                aria-label="Project Timeline"
+                style={{
+                  width: '100%',
+                  padding: '14px 20px',
+                  fontSize: '15px',
+                  border: '1px solid #e0e0e0',
+                  borderRadius: '4px',
+                  background: 'white',
+                  cursor: 'pointer'
+                }}
+              >
+                <option value="">Project Timeline (Optional)</option>
+                <option value="urgent">Urgent (1-2 weeks)</option>
+                <option value="1-month">Within 1 Month</option>
+                <option value="2-3-months">2-3 Months</option>
+                <option value="3-6-months">3-6 Months</option>
+                <option value="flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Message */}
           <div className="col-md-12">
             <div className="tp-contact-input">
               <textarea
                 name="message"
-                placeholder="Enter Your Message here*"
+                placeholder="Tell us about your project*"
                 value={formData.message}
                 onChange={handleChange}
                 disabled={isSubmitting}
                 className={errors.message ? 'is-invalid' : ''}
                 aria-label="Your Message"
                 aria-required="true"
-                aria-invalid={errors.message ? 'true' : 'false'}
-                aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={5}
                 maxLength={2000}
               ></textarea>
               {errors.message && (
-                <div className="invalid-feedback" id="message-error" role="alert">
+                <div className="invalid-feedback" role="alert">
                   {errors.message}
                 </div>
               )}
             </div>
           </div>
 
+          {/* Submit Button */}
           <div className="tp-contact-btn mt-10">
             <button
               type="submit"
@@ -294,4 +378,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
