@@ -16,25 +16,45 @@ const trustedBy = [
 
 const HeroSlider = () => {
   const canvasRef = useRef(null);
+  const sectionRef = useRef(null);
+  const animationRef = useRef(null);
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const section = sectionRef.current;
+    if (!canvas || !section) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false }); // Disable alpha for performance
     const rect = canvas.getBoundingClientRect();
 
-    // Retina support
-    canvas.width = rect.width * 2;
-    canvas.height = rect.height * 2;
-    ctx.scale(2, 2);
+    // Use lower resolution for better performance
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
 
-    let animationId;
     let time = 0;
+    let lastFrameTime = 0;
+    const targetFPS = 30; // Reduced from 60 for better performance
+    const frameInterval = 1000 / targetFPS;
 
-    // Plasma wave animation
-    const drawPlasmaWave = () => {
-      time += 0.005;
+    // Reduced particle count for performance
+    const particleCount = 15; // Reduced from 30
+
+    // Plasma wave animation - optimized
+    const drawPlasmaWave = (currentTime) => {
+      if (!isVisibleRef.current) return;
+
+      // Throttle to target FPS
+      const deltaTime = currentTime - lastFrameTime;
+      if (deltaTime < frameInterval) {
+        animationRef.current = requestAnimationFrame(drawPlasmaWave);
+        return;
+      }
+      lastFrameTime = currentTime - (deltaTime % frameInterval);
+
+      time += 0.003; // Slower animation
 
       // Create gradient background
       const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
@@ -44,51 +64,63 @@ const HeroSlider = () => {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, rect.width, rect.height);
 
-      // Draw plasma waves
-      for (let y = 0; y < rect.height; y += 4) {
-        for (let x = 0; x < rect.width; x += 4) {
-          // Complex wave calculation for organic feel
+      // Draw plasma waves - reduced resolution
+      const step = 8; // Increased from 4 for performance
+      for (let y = 0; y < rect.height; y += step) {
+        for (let x = 0; x < rect.width; x += step) {
           const value = Math.sin(x * 0.01 + time) +
             Math.sin(y * 0.01 + time * 1.2) +
-            Math.sin((x + y) * 0.008 + time * 0.8) +
-            Math.sin(Math.sqrt(x * x + y * y) * 0.01 + time);
+            Math.sin((x + y) * 0.008 + time * 0.8);
 
-          // Map to color
-          const normalized = (value + 4) / 8; // Normalize to 0-1
-
-          // Create flowing color based on wave intensity
-          const hue = 200 + normalized * 60; // Blue to cyan
+          const normalized = (value + 3) / 6;
+          const hue = 200 + normalized * 60;
           const saturation = 70 + normalized * 30;
           const lightness = 20 + normalized * 25;
-          const alpha = 0.15 + normalized * 0.3;
+          const alpha = 0.15 + normalized * 0.2;
 
           ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-          ctx.fillRect(x, y, 4, 4);
+          ctx.fillRect(x, y, step, step);
         }
       }
 
-      // Add subtle particle overlay
-      for (let i = 0; i < 30; i++) {
+      // Add subtle particle overlay - reduced count
+      for (let i = 0; i < particleCount; i++) {
         const px = Math.sin(time * 0.5 + i * 0.5) * rect.width * 0.3 + rect.width / 2;
         const py = Math.cos(time * 0.7 + i * 0.3) * rect.height * 0.3 + rect.height / 2;
 
         ctx.beginPath();
         ctx.arc(px, py, 1.5, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(5, 218, 195, ${0.3 + Math.sin(time + i) * 0.2})`;
-        ctx.shadowColor = '#05DAC3';
-        ctx.shadowBlur = 10;
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
 
-      animationId = requestAnimationFrame(drawPlasmaWave);
+      animationRef.current = requestAnimationFrame(drawPlasmaWave);
     };
+
+    // Intersection Observer to only animate when visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting && !animationRef.current) {
+          animationRef.current = requestAnimationFrame(drawPlasmaWave);
+        } else if (!entry.isIntersecting && animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+          animationRef.current = null;
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      drawPlasmaWave();
+      // Start animation if in viewport
+      if (isVisibleRef.current) {
+        animationRef.current = requestAnimationFrame(drawPlasmaWave);
+      }
     } else {
       // Static gradient for accessibility
       const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
@@ -98,13 +130,19 @@ const HeroSlider = () => {
       ctx.fillRect(0, 0, rect.width, rect.height);
     }
 
-    return () => cancelAnimationFrame(animationId);
+    return () => {
+      observer.disconnect();
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section className="tp-hero-area tp-hero-space pb-95" style={{
+    <section ref={sectionRef} className="tp-hero-area tp-hero-space pb-95" style={{
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      willChange: 'transform' // Performance hint
     }}>
       {/* Animated Plasma Wave Canvas */}
       <canvas
@@ -115,7 +153,8 @@ const HeroSlider = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          opacity: 0.8
+          opacity: 0.8,
+          willChange: 'transform'
         }}
       />
 
@@ -126,7 +165,8 @@ const HeroSlider = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(20, 30, 70, 0.5) 100%)'
+        background: 'linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(20, 30, 70, 0.5) 100%)',
+        pointerEvents: 'none'
       }}></div>
 
       {/* Animated Dots Pattern */}
@@ -184,9 +224,7 @@ const HeroSlider = () => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  display: 'inline-block',
-                  animation: 'gradient 3s ease infinite',
-                  backgroundSize: '200% 200%'
+                  display: 'inline-block'
                 }}>
                   Custom Software
                 </span>
@@ -393,11 +431,6 @@ const HeroSlider = () => {
       </div>
 
       <style jsx>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
         @keyframes scroll {
           0%, 100% { transform: translateX(-50%) translateY(0); }
           50% { transform: translateX(-50%) translateY(10px); }

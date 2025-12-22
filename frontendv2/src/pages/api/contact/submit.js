@@ -3,12 +3,6 @@
  * 
  * Submit contact form data
  * 
- * TEMPORARY VERSION FOR VERCEL:
- * - better-sqlite3 doesn't work on Vercel serverless
- * - Logs submissions to Vercel function logs
- * - Returns success to user
- * - TODO: Migrate to Vercel Postgres or Vercel KV
- * 
  * Request body:
  * {
  *   name: string (required, max 100 chars)
@@ -32,6 +26,7 @@
 
 const { validateContactForm } = require('../../../lib/validation');
 const { sanitizeContactForm } = require('../../../lib/sanitization');
+const { sendLeadNotification } = require('../../../lib/email-service');
 
 export default async function handler(req, res) {
     // Only allow POST requests
@@ -72,8 +67,7 @@ export default async function handler(req, res) {
         // Generate unique ID for this submission
         const submissionId = `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
-        // TEMPORARY: Log to Vercel function logs
-        // You can view these in Vercel Dashboard → Deployments → [deployment] → Functions
+        // Prepare submission data
         const submissionData = {
             id: submissionId,
             timestamp: new Date().toISOString(),
@@ -87,22 +81,45 @@ export default async function handler(req, res) {
             ip_address: ipAddress,
         };
 
-        // Log to Vercel (this data is searchable in Vercel logs)
+        // Log to console (backup method)
         console.log('=== NEW CONTACT FORM SUBMISSION ===');
         console.log(JSON.stringify(submissionData, null, 2));
         console.log('===================================');
 
+        // Send email notification (non-blocking)
+        // If email fails, we still return success to user
+        let emailStatus = { sent: false };
+        try {
+            const emailResult = await sendLeadNotification(submissionData);
+
+            if (emailResult.success) {
+                emailStatus = {
+                    sent: true,
+                    emailId: emailResult.emailId,
+                    to: emailResult.to
+                };
+                console.log('[API] Email notification sent successfully:', emailResult.emailId);
+            } else if (emailResult.skipped) {
+                console.log('[API] Email notification skipped - service not configured');
+            } else {
+                console.warn('[API] Email notification failed:', emailResult.error);
+            }
+        } catch (emailError) {
+            // Log email error but don't fail the request
+            console.error('[API] Email notification error:', emailError.message);
+        }
+
         const duration = Date.now() - startTime;
 
         // Log success
-        console.log(`[API] Contact form logged successfully (ID: ${submissionId}, Duration: ${duration}ms)`);
+        console.log(`[API] Contact form processed successfully (ID: ${submissionId}, Duration: ${duration}ms, Email: ${emailStatus.sent ? 'sent' : 'not sent'})`);
 
         // Return success response
         return res.status(200).json({
             success: true,
-            message: 'Thank you! Your message has been sent successfully',
+            message: 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.',
             id: submissionId,
-            __temp_note: 'Using temporary console logging. Submissions visible in Vercel logs.',
+            emailSent: emailStatus.sent
         });
 
     } catch (error) {
