@@ -16,10 +16,38 @@ const trustedBy = [
 
 const HeroSlider = () => {
   return (
-    <section className="tp-hero-area tp-hero-space pb-95 bdm-bg-gradient-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Animated Background Elements */}
-      <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50%', filter: 'blur(100px)' }} className="bdm-float"></div>
-      <div style={{ position: 'absolute', bottom: '20%', left: '5%', width: '300px', height: '300px', background: 'rgba(5, 218, 195, 0.1)', borderRadius: '50%', filter: 'blur(80px)', animationDelay: '2s' }} className="bdm-float"></div>
+    <section className="tp-hero-area tp-hero-space pb-95" style={{
+      position: 'relative',
+      overflow: 'hidden',
+      background: '#0a0e27'
+    }}>
+      {/* Background Image with Overlay */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url(/assets/img/hero/hero-bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.75
+      }}></div>
+
+      {/* Dark Gradient Overlay for better text readability */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'linear-gradient(135deg, rgba(10, 14, 39, 0.75) 0%, rgba(20, 30, 70, 0.65) 100%)'
+      }}></div>
+
+      {/* Animated Background Shapes */}
+      <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'rgba(61, 108, 231, 0.08)', borderRadius: '50%', filter: 'blur(100px)' }} className="bdm-float"></div>
+      <div style={{ position: 'absolute', bottom: '20%', left: '5%', width: '300px', height: '300px', background: 'rgba(5, 218, 195, 0.08)', borderRadius: '50%', filter: 'blur(80px)', animationDelay: '2s' }} className="bdm-float"></div>
 
       {/* Animated Dots Pattern */}
       <div style={{
@@ -28,7 +56,7 @@ const HeroSlider = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)',
         backgroundSize: '30px 30px',
         opacity: 0.3,
         pointerEvents: 'none'
