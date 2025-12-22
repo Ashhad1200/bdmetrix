@@ -50,8 +50,8 @@ const HeaderOne = () => {
                                     </span>USA | UK | Pakistan</a>
                               </li>
                               <li>
-                                 <a href="mailto:info@bdmatrix.com"><span>
-                                    <i className="fa-solid fa-envelope"></i></span>info@bdmatrix.com
+                                 <a href="mailto:support@bdmatrix.org"><span>
+                                    <i className="fa-solid fa-envelope"></i></span>support@bdmatrix.org
                                  </a>
                               </li>
                               <li>
@@ -78,12 +78,12 @@ const HeaderOne = () => {
                      <div className="col-xxl-6 col-xl-4">
                         <div className="tp-header-top-right d-flex justify-content-end align-items-center">
                            <div className="header-call">
-                              <a href="tel:+923001234567"><i className="fa-solid fa-phone"></i> +92 300 123 4567</a>
+                              <a href="tel:+15817051620"><i className="fa-solid fa-phone"></i> +1 (581) 705-1620</a>
                            </div>
                            <div className="header-social d-xxl-block d-none">
-                              <Link href="https://facebook.com/bdmatrix"><i className="fa-brands fa-facebook"></i> Facebook</Link>
-                              <Link href="https://wa.me/923001234567"><i className="fa-brands fa-whatsapp"></i> WhatsApp</Link>
-                              <Link href="https://linkedin.com/company/bdmatrix"><i className="fa-brands fa-linkedin"></i> LinkedIn</Link>
+                              <Link href="https://www.facebook.com/profile.php?id=61585293039839"><i className="fa-brands fa-facebook"></i> Facebook</Link>
+                              <Link href="https://wa.me/15817051620"><i className="fa-brands fa-whatsapp"></i> WhatsApp</Link>
+                              <Link href="https://www.linkedin.com/in/bdmatrix/"><i className="fa-brands fa-linkedin"></i> LinkedIn</Link>
                            </div>
                         </div>
                      </div>

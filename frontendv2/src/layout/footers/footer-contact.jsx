@@ -6,7 +6,7 @@ import conversation from "@assets/img/cta/home-3/conversation.png";
 import footer_contact_shape_1 from "@assets/img/cta/home-3/shape-2.png";
 import footer_contact_shape_2 from "@assets/img/cta/home-3/shape-3.png";
 
-const FooterContact = ({bg_style, contact_style}) => {
+const FooterContact = ({ bg_style, contact_style }) => {
     return (
         <>
             <div className={`${bg_style ? "" : contact_style ? "tp-contact-cta-area" : "tp-cta-4-area"} p-relative`}>
@@ -20,7 +20,7 @@ const FooterContact = ({bg_style, contact_style}) => {
                                 <Image className="shape-1" src={footer_contact_shape_2} alt="theme-pure" />
                                 <div className="tp-cta-4-mail d-flex flex-wrap justify-content-center justify-content-xl-start align-items-center">
                                     <Image src={conversation} alt="theme-pure" />
-                                    <a href="mailto:@themepure.gmail.com">Contact us at <span>@Themepure.com</span></a>
+                                    <a href="mailto:support@bdmatrix.org">Contact us at <span>support@bdmatrix.org</span></a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ const FooterContact = ({bg_style, contact_style}) => {
                                     </div>
                                     <div className="tp-cta-4-content">
                                         <p>PERFECT SOLUTION From  <span>It Advisor</span></p>
-                                        <a href="tel:9266688000">+92 666 888 0000</a>
+                                        <a href="tel:+15817051620">+1 (581) 705-1620</a>
                                     </div>
                                 </div>
                             </div>

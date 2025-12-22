@@ -70,116 +70,133 @@ const TechStackShowcase = () => {
         let animationId;
         let time = 0;
 
-        // Particle system
-        const particles = Array.from({ length: 80 }, () => ({
-            x: Math.random() * (rect.width),
-            y: Math.random() * (rect.height),
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 1.5 + 0.5,
-            alpha: Math.random() * 0.5 + 0.3
-        }));
+        // Hexagonal grid parameters
+        const hexSize = 25;
+        const hexHeight = hexSize * 2;
+        const hexWidth = Math.sqrt(3) * hexSize;
+        const hexagons = [];
 
-        // Network nodes for visualization
-        const nodes = [
-            { x: rect.width * 0.5, y: rect.height * 0.5, r: 40, color: '#3D6CE7', label: 'Core' },
-            { x: rect.width * 0.2, y: rect.height * 0.25, r: 25, color: '#61DAFB', label: 'Frontend' },
-            { x: rect.width * 0.8, y: rect.height * 0.25, r: 25, color: '#68A063', label: 'Backend' },
-            { x: rect.width * 0.2, y: rect.height * 0.75, r: 25, color: '#02569B', label: 'Mobile' },
-            { x: rect.width * 0.8, y: rect.height * 0.75, r: 25, color: '#FF9900', label: 'Cloud' },
-            { x: rect.width * 0.5, y: rect.height * 0.15, r: 20, color: '#336791', label: 'Database' }
-        ];
+        // Generate hexagon grid
+        const cols = Math.ceil(rect.width / hexWidth) + 1;
+        const rows = Math.ceil(rect.height / (hexHeight * 0.75)) + 1;
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const x = col * hexWidth + (row % 2) * (hexWidth / 2);
+                const y = row * (hexHeight * 0.75);
+                hexagons.push({
+                    x,
+                    y,
+                    glowIntensity: Math.random(),
+                    glowSpeed: 0.5 + Math.random() * 0.5,
+                    glowPhase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        // Draw hexagon
+        const drawHexagon = (x, y, size, glowAlpha) => {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 3) * i;
+                const hx = x + size * Math.cos(angle);
+                const hy = y + size * Math.sin(angle);
+                if (i === 0) ctx.moveTo(hx, hy);
+                else ctx.lineTo(hx, hy);
+            }
+            ctx.closePath();
+
+            // Glow effect
+            if (glowAlpha > 0.1) {
+                ctx.strokeStyle = `rgba(5, 218, 195, ${glowAlpha})`;
+                ctx.lineWidth = 2;
+                ctx.shadowColor = '#05DAC3';
+                ctx.shadowBlur = 10 * glowAlpha;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            } else {
+                ctx.strokeStyle = `rgba(61, 108, 231, 0.15)`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        };
 
         const animate = () => {
             time += 0.01;
 
             // Clear with fade effect
-            ctx.fillStyle = 'rgba(10, 14, 39, 0.08)';
+            ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
             ctx.fillRect(0, 0, rect.width, rect.height);
 
-            // Update and draw particles
-            particles.forEach(p => {
-                // Update position
-                p.x += p.vx;
-                p.y += p.vy;
+            // Draw hexagons
+            hexagons.forEach((hex) => {
+                const glowPhase = Math.sin(time * hex.glowSpeed + hex.glowPhase);
+                const glowAlpha = hex.glowIntensity * (glowPhase * 0.5 + 0.5);
 
-                // Bounce off walls
-                if (p.x < 0 || p.x > rect.width) p.vx *= -1;
-                if (p.y < 0 || p.y > rect.height) p.vy *= -1;
+                drawHexagon(hex.x, hex.y, hexSize, glowAlpha * 0.6);
+            });
 
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(5, 218, 195, ${p.alpha})`;
-                ctx.fill();
-
-                // Draw connections to nearby particles
-                particles.forEach(op => {
-                    const dx = op.x - p.x;
-                    const dy = op.y - p.y;
+            // Draw connecting lines between nearby hexagons
+            hexagons.forEach((hex1, i) => {
+                hexagons.slice(i + 1, i + 7).forEach((hex2) => {
+                    const dx = hex2.x - hex1.x;
+                    const dy = hex2.y - hex1.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 100 && dist > 0) {
+                    if (dist < hexWidth * 1.5) {
+                        const alpha = (1 - dist / (hexWidth * 1.5)) * 0.1;
                         ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(op.x, op.y);
-                        ctx.strokeStyle = `rgba(5, 218, 195, ${0.15 * (1 - dist / 100)})`;
+                        ctx.moveTo(hex1.x, hex1.y);
+                        ctx.lineTo(hex2.x, hex2.y);
+                        ctx.strokeStyle = `rgba(61, 108, 231, ${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 });
             });
 
-            // Draw network nodes
-            nodes.forEach((node, i) => {
-                // Draw connections to center
-                if (i > 0) {
-                    const pulsePhase = (time + i * 0.5) % (Math.PI * 2);
-                    const pulsePos = (Math.sin(pulsePhase) + 1) / 2;
+            // Pulsing energy nodes
+            const pulseCount = 8;
+            for (let i = 0; i < pulseCount; i++) {
+                const pulsePhase = (time + i * (Math.PI * 2 / pulseCount)) % (Math.PI * 2);
+                const px = rect.width / 2 + Math.cos(pulsePhase) * rect.width * 0.3;
+                const py = rect.height / 2 + Math.sin(pulsePhase) * rect.height * 0.3;
+                const pulseSize = 3 + Math.sin(time * 2 + i) * 2;
 
-                    const cx = nodes[0].x;
-                    const cy = nodes[0].y;
-                    const px = cx + (node.x - cx) * pulsePos;
-                    const py = cy + (node.y - cy) * pulsePos;
-
-                    ctx.beginPath();
-                    ctx.moveTo(cx, cy);
-                    ctx.lineTo(node.x, node.y);
-                    const gradient = ctx.createLinearGradient(cx, cy, node.x, node.y);
-                    gradient.addColorStop(0, 'rgba(61, 108, 231, 0.3)');
-                    gradient.addColorStop(1, `${node.color}80`);
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 1.5;
-                    ctx.stroke();
-
-                    // Pulse dot
-                    ctx.beginPath();
-                    ctx.arc(px, py, 3, 0, Math.PI * 2);
-                    ctx.fillStyle = node.color;
-                    ctx.shadowColor = node.color;
-                    ctx.shadowBlur = 10;
-                    ctx.fill();
-                    ctx.shadowBlur = 0;
-                }
-
-                // Draw node
-                const pulse = Math.sin(time * 2 + i) * 0.1 + 1;
                 ctx.beginPath();
-                ctx.arc(node.x, node.y, node.r * pulse, 0, Math.PI * 2);
-                const nodeGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.r);
-                nodeGradient.addColorStop(0, `${node.color}40`);
-                nodeGradient.addColorStop(1, `${node.color}10`);
-                ctx.fillStyle = nodeGradient;
+                ctx.arc(px, py, pulseSize, 0, Math.PI * 2);
+                const gradient = ctx.createRadialGradient(px, py, 0, px, py, pulseSize * 3);
+                gradient.addColorStop(0, 'rgba(5, 218, 195, 0.6)');
+                gradient.addColorStop(1, 'rgba(5, 218, 195, 0)');
+                ctx.fillStyle = gradient;
                 ctx.fill();
-                ctx.strokeStyle = node.color;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            });
+
+                // Core
+                ctx.beginPath();
+                ctx.arc(px, py, pulseSize * 0.5, 0, Math.PI * 2);
+                ctx.fillStyle = '#05DAC3';
+                ctx.shadowColor = '#05DAC3';
+                ctx.shadowBlur = 15;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
 
             animationId = requestAnimationFrame(animate);
         };
 
-        animate();
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            animate();
+        } else {
+            // Static hexagon grid for accessibility
+            ctx.fillStyle = '#0a0e27';
+            ctx.fillRect(0, 0, rect.width, rect.height);
+            hexagons.forEach((hex) => {
+                drawHexagon(hex.x, hex.y, hexSize, 0.3);
+            });
+        }
 
         return () => cancelAnimationFrame(animationId);
     }, []);
@@ -191,7 +208,7 @@ const TechStackShowcase = () => {
             overflow: 'hidden',
             padding: '120px 0'
         }}>
-            {/* Animated Canvas Background */}
+            {/* Animated Hexagonal Grid Canvas */}
             <canvas
                 ref={canvasRef}
                 style={{
@@ -200,24 +217,9 @@ const TechStackShowcase = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    opacity: 0.7
+                    opacity: 0.9
                 }}
             />
-
-            {/* Grid Overlay */}
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: `
-                    linear-gradient(rgba(61, 108, 231, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(5, 218, 195, 0.03) 1px, transparent 1px)
-                `,
-                backgroundSize: '50px 50px',
-                opacity: 0.5
-            }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 {/* Header */}

@@ -3,22 +3,22 @@ import Link from "next/link";
 
 const social_links = [
   {
-    link: "https://facebook.com/bdmatrix",
+    link: "https://www.facebook.com/profile.php?id=61585293039839",
     target: "_blank",
     icon: "fab fa-facebook-f",
   },
   {
-    link: "https://wa.me/923001234567",
+    link: "https://wa.me/15817051620",
     target: "_blank",
     icon: "fab fa-whatsapp",
   },
   {
-    link: "https://www.instagram.com/bdmatrix",
+    link: "https://www.instagram.com/bdmatrix1",
     target: "_blank",
     icon: "fa-brands fa-instagram",
   },
   {
-    link: "https://www.linkedin.com/company/bdmatrix",
+    link: "https://www.linkedin.com/in/bdmatrix/",
     target: "_blank",
     icon: "fa-brands fa-linkedin",
   },

@@ -9,15 +9,18 @@ import EmailAeroplan from '@/src/svg/email-aeroplan';
 import SocialLinks, { CopyRight } from '@/src/common/social-links';
 
 const footer_content = {
-    contact_us: <> Contact us at <span>info@bdmatrix.com</span></>,
-    mail: "info@bdmatrix.com",
-    contact_text: "Digital Solutions Provider",
-    phone: "+92 300 123 4567",
-    info: <>BD Matrix is a digital solutions provider delivering Web Development, ERP, POS, SaaS, Mobile Apps, and AI Automation.</>,
+    contact_us: <> Contact us at <span>support@bdmatrix.org</span></>,
+    mail: "support@bdmatrix.org",
+    contact_text: "Custom Software Development",
+    phone: "+1 (581) 705-1620",
+    info: <>BD Matrix is a digital solutions provider delivering CRM, ERP, POS, SaaS, Mobile Apps, and Custom Software Development.</>,
     map: "https://www.google.com/maps",
-    address: <>USA | UK | Pakistan</>,
-    mail_2: "info@bdmatrix.com",
-    mail_phone: <> info@bdmatrix.com </>,
+    address: <>Worldwide Service | 20+ Countries</>,
+    mail_2: "support@bdmatrix.org",
+    mail_phone: <> support@bdmatrix.org </>,
+    website: "http://bdmatrix.org/",
+    instagram: "https://www.instagram.com/bdmatrix1",
+    linkedin: "https://www.linkedin.com/in/bdmatrix/",
 
     service_links: [
         "Web Development",
@@ -56,7 +59,7 @@ const Footer = () => {
                                             </div>
                                             <div className="tp-footer-top-right-content">
                                                 <p>{contact_text}</p>
-                                                <a href={`tel:${phone}`}>+92 666 888 0000</a>
+                                                <a href={`tel:${phone}`}>{phone}</a>
                                             </div>
                                         </div>
                                     </div>

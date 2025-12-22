@@ -23,7 +23,7 @@ const ContactArea = () => {
                                                 <EmailIconOne />
                                             </span>
                                         </div>
-                                        <h3 className="tp-contact-item-title"><a href="mailto:info@bdmatrix.com">info@bdmatrix.com</a></h3>
+                                        <h3 className="tp-contact-item-title"><a href="mailto:support@bdmatrix.org">support@bdmatrix.org</a></h3>
                                     </div>
                                     <div className="tp-contact-content-phone d-flex align-items-center">
                                         <div className="tp-contact-content-phone-icon">

@@ -59,7 +59,7 @@ export const structuredData = {
         "sameAs": [
             "https://linkedin.com/company/bdmatrix",
             "https://twitter.com/bdmatrix",
-            "https://facebook.com/bdmatrix"
+            "https://www.facebook.com/profile.php?id=61585293039839"
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
