@@ -89,15 +89,38 @@ async function sendLeadNotification(leadData) {
         // Log the FULL response from Resend
         console.log('[Email Service] Resend API full response:', JSON.stringify(result, null, 2));
 
+        // Check if Resend returned an error (Resend v3+ returns {data: ..., error: ...})
+        if (result?.error) {
+            console.error('[Email Service] Resend API returned error:', {
+                errorMessage: result.error.message,
+                errorCode: result.error.statusCode,
+                errorName: result.error.name,
+                leadId: leadData.id
+            });
+
+            return {
+                success: false,
+                error: result.error.message || 'Email sending failed',
+                errorDetails: result.error
+            };
+        }
+
         // Check if result has 'data' property (Resend v3+)
         const emailId = result?.data?.id || result?.id;
+
+        if (!emailId) {
+            console.error('[Email Service] No email ID returned from Resend:', result);
+            return {
+                success: false,
+                error: 'No email ID returned from Resend API'
+            };
+        }
 
         console.log('[Email Service] Lead notification sent successfully:', {
             id: emailId,
             to: emailTo,
             leadName: leadData.name,
-            submissionId: leadData.id,
-            fullResult: result
+            submissionId: leadData.id
         });
 
         return {
