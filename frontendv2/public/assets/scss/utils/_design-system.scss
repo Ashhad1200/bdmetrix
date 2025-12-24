@@ -88,11 +88,13 @@
     background: var(--bdm-gradient-dark);
 }
 
-/* Glassmorphism Effect */
+/* Glass effect - OPTIMIZED for performance */
+/* Removed backdrop-filter blur (GPU-intensive) and replaced with semi-transparent background */
 .bdm-glass {
-    background: var(--bdm-glass-bg);
-    backdrop-filter: var(--bdm-glass-blur);
-    -webkit-backdrop-filter: var(--bdm-glass-blur);
+    background: rgba(255, 255, 255, 0.85);
+    /* backdrop-filter: var(--bdm-glass-blur); // REMOVED - causes severe lag */
+    /* -webkit-backdrop-filter: var(--bdm-glass-blur); // REMOVED - causes severe lag */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--bdm-glass-border);
 }
 
