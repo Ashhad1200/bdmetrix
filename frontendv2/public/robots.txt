@@ -2,10 +2,9 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: http://bdmatrix.org/sitemap.xml
 
-# Disallow admin areas
-Disallow: /admin/
+# Disallow API routes
 Disallow: /api/
 
 # Crawl-delay
