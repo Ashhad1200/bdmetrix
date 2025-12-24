@@ -69,14 +69,7 @@ const FooterTwo = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-xl-4 col-lg-3 col-md-6">
-                                    <div className="tp-footer-widget tp-footer-2-col-2">
-                                        <h3 className="tp-footer-widget-title">Services Req</h3>
-                                        <div className="tp-footer-widget-content">
-                                            <ul>{footer_widget.map((item, i) => <li key={i}><Link href="#">{item}</Link></li>)}</ul>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div className="col-xl-4 col-lg-4 col-md-6">
                                     <div className="tp-footer-widget tp-footer-2-col-3">
                                         <h3 className="tp-footer-widget-title">About Us</h3>

@@ -72,7 +72,7 @@ const HeaderThree = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="mailto:technix@support.com"><span><i className="fa-solid fa-envelope"></i></span>technix@support.com</a>
+                                    <a href="mailto:Bd Matrix@support.com"><span><i className="fa-solid fa-envelope"></i></span>Bd Matrix@support.com</a>
                                 </li>
                                 </ul>
                             </div>

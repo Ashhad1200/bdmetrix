@@ -6,7 +6,7 @@
 
 ## Summary
 
-Implement a functional contact form submission system with Node.js API routes using Next.js API Routes (compatible with Vercel serverless functions). Store submissions in a SQLite database file that can be backed up and restored. The implementation will integrate seamlessly with the existing Technix theme components and respect the current Vercel routing configuration that serves the Next.js frontend from the `frontendv2` directory.
+Implement a functional contact form submission system with Node.js API routes using Next.js API Routes (compatible with Vercel serverless functions). Store submissions in a SQLite database file that can be backed up and restored. The implementation will integrate seamlessly with the existing Bd Matrix theme components and respect the current Vercel routing configuration that serves the Next.js frontend from the `frontendv2` directory.
 
 **Key Technical Approach**:
 - Use Next.js 13 API Routes (`pages/api/*`) for serverless backend functionality on Vercel

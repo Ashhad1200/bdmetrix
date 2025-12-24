@@ -1,9 +1,9 @@
 #Developed by
 ## ThemePure
-Technix React Next js Template 
+Bd Matrix React Next js Template 
 
 ```bash
-technix next js
+Bd Matrix next js
 
 
 ```

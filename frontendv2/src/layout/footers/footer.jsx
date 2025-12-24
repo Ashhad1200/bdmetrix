@@ -100,25 +100,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-3 col-lg-4 col-md-6">
-                                <div className="tp-footer-widget tp-footer-col-3">
-                                    <h3 className="tp-footer-widget-title">Contact Info</h3>
-                                    <div className="tp-footer-widget-content">
-                                        <div className="tp-footer-author d-flex">
-                                            <div className="tp-footer-author-thumb">
-                                                <Image src={user} alt="theme-pure" />
-                                            </div>
-                                            <div className="tp-footer-author-content">
-                                                <span>Chat With Expert <br /> Active Now</span>
-                                            </div>
-                                        </div>
-                                        <ul>
-                                            <li><span style={{ color: 'white', opacity: 0.7 }}>Operating Regions:</span></li>
-                                            <li><span style={{ color: 'white', fontWeight: 'bold' }}>🇺🇸 USA | 🇬🇧 UK | 🇵🇰 Pakistan</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div className="col-xl-3 col-lg-5 col-md-6">
                                 <div className="tp-footer-widget tp-footer-col-4">
                                     <h3 className="tp-footer-widget-title">Newsletter</h3>

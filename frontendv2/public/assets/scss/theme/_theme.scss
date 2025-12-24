@@ -1,10 +1,10 @@
 @use '../utils' as *;
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Technix - Technology & IT Solutions HTML Template
+    Template Name: Bd Matrix - Technology & IT Solutions HTML Template
     Author: Theme_Pure
     Support: help.themepure.net
-    Description: Technix - Technology & IT Solutions HTML Template
+    Description: Bd Matrix - Technology & IT Solutions HTML Template
     Version: 1.0
 
 -----------------------------------------------------------------------------------
@@ -97,19 +97,19 @@
 
 @import url($font-url);
 
-*{
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-.container-large, 
-.container-large-lg, 
-.container-large-md, 
-.container-large-sm, 
-.container-large-xl, 
+.container-large,
+.container-large-lg,
+.container-large-md,
+.container-large-sm,
+.container-large-xl,
 .container-large-xxl {
-	@media (min-width: 1400px){
+	@media (min-width: 1400px) {
 		max-width: 1350px;
 	}
 }
@@ -136,7 +136,7 @@ body {
 	line-height: 26px;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
@@ -157,25 +157,25 @@ h6 {
 h1 {
 	font-size: 40px;
 }
-  
+
 h2 {
-font-size: 38px;
+	font-size: 38px;
 }
 
 h3 {
-font-size: 28px;
+	font-size: 28px;
 }
 
 h4 {
-font-size: 24px;
+	font-size: 24px;
 }
 
 h5 {
-font-size: 22px;
+	font-size: 22px;
 }
 
 h6 {
-font-size: 18px;
+	font-size: 18px;
 }
 
 ul {
@@ -200,11 +200,11 @@ input,
 select,
 textarea,
 li,
-.transition-3{
+.transition-3 {
 	@extend %tp-transition-common;
 }
 
-a:not([href]):not([class]), 
+a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
 	color: inherit;
 	text-decoration: none;
@@ -217,7 +217,7 @@ a:focus,
 }
 
 a:focus,
-a:hover{
+a:hover {
 	color: inherit;
 	text-decoration: none;
 }
@@ -232,17 +232,18 @@ button {
 	background: transparent;
 }
 
-button:hover{
+button:hover {
 	cursor: pointer;
 }
 
-button:focus{
-    outline: 0; 
+button:focus {
+	outline: 0;
 }
 
 .uppercase {
 	text-transform: uppercase;
 }
+
 .capitalize {
 	text-transform: capitalize;
 }
@@ -253,7 +254,7 @@ input[type="tel"],
 input[type="number"],
 input[type="password"],
 input[type="url"],
-textarea{
+textarea {
 	outline: none;
 	background-color: #EFF0F2;
 	height: 54px;
@@ -265,11 +266,11 @@ textarea{
 	padding-left: 29px;
 	padding-right: 29px;
 
-	@include rtl{
+	@include rtl {
 		text-align: right;
 	}
 
-	@include tp-placeholder{
+	@include tp-placeholder {
 		color: #84848B;
 	}
 
@@ -293,11 +294,13 @@ input[type="color"] {
 	color: var(--tp-common-white);
 	text-shadow: none;
 }
+
 ::-moz-selection {
 	background: var(--tp-common-black);
 	color: var(--tp-common-white);
 	text-shadow: none;
 }
+
 ::selection {
 	background: var(--tp-common-black);
 	color: var(--tp-common-white);
@@ -310,6 +313,7 @@ input[type="color"] {
 	font-size: var(--tp-fz-body);
 	opacity: 1;
 }
+
 *::placeholder {
 	color: var(--tp-common-black);
 	font-size: var(--tp-fz-body);
@@ -317,14 +321,15 @@ input[type="color"] {
 }
 
 
-.test-class{
+.test-class {
 	padding: 5px 20px;
 	background-color: green;
 	color: #000;
 	position: relative;
 	overflow: hidden;
+
 	&::after,
-	&::before{
+	&::before {
 		position: absolute;
 		content: '';
 		left: -23px;
@@ -335,18 +340,18 @@ input[type="color"] {
 		border-radius: 50%;
 	}
 
-	&::before{
+	&::before {
 		left: auto;
 		right: -23px;
 		top: -7px;
 		bottom: auto;
 	}
 
-	& span{
+	& span {
 		position: relative;
 
 		&::after,
-		&::before{
+		&::before {
 			position: absolute;
 			content: '';
 			left: -23px;
@@ -364,62 +369,53 @@ input[type="color"] {
 
 ///mousemove///
 .mousemove {
-    --x: 0;
-    --y: 0;
-    --d: 50;
-     
-     &:hover .mousemove__image-wrapper {
-       transform: 
-         scale(1.025)
-         translate(
-           calc(var(--x) / var(--d) * 1px),
-           calc(var(--y) / var(--d) * 1px)
-         );
-     }
-   }
-   
-   .mousemove__image {
-     --d: 20;
-   
-     transform: 
-       translate(
-         calc(var(--x) / var(--d) * 1px),
-         calc(var(--y) / var(--d) * 1px)
-       );
-   }
-   
-   .mousemove__content {
-     --d: 60;
-   
-     transform: 
-       translate(
-         calc(var(--x) / var(--d) * -1px),
-         calc(var(--y) / var(--d) * -1px)
-       );
-   }
-   
-   // ========================
-   // mousemove image wrapper
-   // ========================
-   
-   .mousemove__image-wrapper {
-    height: 67%;
-    // transition: transform calc(var(--base-duration) / 1) var(--base-ease);
+	--x: 0;
+	--y: 0;
+	--d: 50;
+
+	&:hover .mousemove__image-wrapper {
+		transform:
+			scale(1.025) translate(calc(var(--x) / var(--d) * 1px),
+				calc(var(--y) / var(--d) * 1px));
+	}
+}
+
+.mousemove__image {
+	--d: 20;
+
+	transform:
+		translate(calc(var(--x) / var(--d) * 1px),
+			calc(var(--y) / var(--d) * 1px));
+}
+
+.mousemove__content {
+	--d: 60;
+
+	transform:
+		translate(calc(var(--x) / var(--d) * -1px),
+			calc(var(--y) / var(--d) * -1px));
+}
+
+// ========================
+// mousemove image wrapper
+// ========================
+
+.mousemove__image-wrapper {
+	height: 67%;
+	// transition: transform calc(var(--base-duration) / 1) var(--base-ease);
 	@include transition(.3s);
-    width: 50%;
-   }
-   
-   // ========================
-   // mousemove image
-   // ========================
-   
-   .mousemove__image {
-     --d: 20;
-     object-fit: cover;
-     pointer-events: none;
-     position: absolute;
-	 @include transition(.3s);
-     user-select: none;
-   }
+	width: 50%;
+}
 
+// ========================
+// mousemove image
+// ========================
 
+.mousemove__image {
+	--d: 20;
+	object-fit: cover;
+	pointer-events: none;
+	position: absolute;
+	@include transition(.3s);
+	user-select: none;
+}
