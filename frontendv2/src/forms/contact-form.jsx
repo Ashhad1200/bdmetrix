@@ -292,11 +292,11 @@ const ContactForm = () => {
                 }}
               >
                 <option value="">Budget Range (Optional)</option>
-                <option value="under-5k">Under $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-50k">$25,000 - $50,000</option>
-                <option value="50k-plus">$50,000+</option>
+                <option value="under-100k">Under PKR 100,000</option>
+                <option value="100k-300k">PKR 100,000 - 300,000</option>
+                <option value="300k-500k">PKR 300,000 - 500,000</option>
+                <option value="500k-1m">PKR 500,000 - 1 Million</option>
+                <option value="1m-plus">PKR 1 Million+</option>
               </select>
             </div>
           </div>
