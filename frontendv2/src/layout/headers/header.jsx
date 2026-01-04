@@ -47,7 +47,7 @@ const HeaderOne = () => {
                                  <a href="https://www.google.com/maps"
                                     target="_blank"><span>
                                        <i className="fa-sharp fa-solid fa-location-dot"></i>
-                                    </span>USA | UK | Pakistan</a>
+                                    </span>Canada | UK | Pakistan</a>
                               </li>
                               <li>
                                  <a href="mailto:support@bdmatrix.org"><span>

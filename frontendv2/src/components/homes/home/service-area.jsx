@@ -199,7 +199,7 @@ const ServiceArea = () => {
                               )}
 
                               {/* CTA Button */}
-                              <Link href={service.cta_link || '/contact'} className="bdm-btn bdm-btn-outline" style={{
+                              <Link href={`/service-details/${service.slug}`} className="bdm-btn bdm-btn-outline" style={{
                                  fontSize: '0.875rem',
                                  padding: '12px 24px',
                                  display: 'inline-block',

@@ -6,7 +6,7 @@ import React from 'react';
 const ContactArea = () => {
     return (
         <>
-            <section className="tp-contact-area pt-120 pb-90">
+            <section className="tp-contact-area pt-120 pb-130">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -41,7 +41,7 @@ const ContactArea = () => {
                                                 Operating Regions
                                                 <i className="fa-regular fa-arrow-down"></i>
                                             </h3>
-                                            <p>🇺🇸 USA | 🇬🇧 UK | 🇵🇰 Pakistan</p>
+                                            <p>🇺🇸 Canada | 🇬🇧 UK | 🇵🇰 Pakistan</p>
                                         </div>
                                     </div>
                                 </div>

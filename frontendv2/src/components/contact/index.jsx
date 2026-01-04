@@ -13,7 +13,7 @@ const Contact = () => {
             <main>
                 <Breadcrumb top_title="Contact Us"  page_title="Contact Us" />
                 <ContactArea />
-                <GoogleMap />
+                {/* <GoogleMap /> */}
                 <FooterContact contact_style={true} />
             </main>
             <FooterThree />
