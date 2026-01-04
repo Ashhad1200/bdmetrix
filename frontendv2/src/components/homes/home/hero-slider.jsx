@@ -1,246 +1,190 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
-
-// Metrics data
-const metrics = [
-  { value: "500+", label: "Projects Completed", icon: "🚀" },
-  { value: "250+", label: "Happy Clients", icon: "😊" },
-  { value: "10+", label: "Years Experience", icon: "⭐" },
-  { value: "99%", label: "Client Satisfaction", icon: "💯" }
-];
-
-// Trusted brands
-const trustedBy = [
-  "Fortune 500", "Startups", "Enterprises", "SMBs"
-];
+import Image from 'next/image';
 
 const HeroSlider = () => {
-  const canvasRef = useRef(null);
-  const sectionRef = useRef(null);
-  const animationRef = useRef(null);
-  const isVisibleRef = useRef(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const section = sectionRef.current;
-    if (!canvas || !section) return;
-
-    const ctx = canvas.getContext('2d', { alpha: false }); // Disable alpha for performance
-    const rect = canvas.getBoundingClientRect();
-
-    // Use lower resolution for better performance
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
-
-    let time = 0;
-    let lastFrameTime = 0;
-    const targetFPS = 30; // Reduced from 60 for better performance
-    const frameInterval = 1000 / targetFPS;
-
-    // Reduced particle count for performance
-    const particleCount = 15; // Reduced from 30
-
-    // Plasma wave animation - optimized
-    const drawPlasmaWave = (currentTime) => {
-      if (!isVisibleRef.current) return;
-
-      // Throttle to target FPS
-      const deltaTime = currentTime - lastFrameTime;
-      if (deltaTime < frameInterval) {
-        animationRef.current = requestAnimationFrame(drawPlasmaWave);
-        return;
-      }
-      lastFrameTime = currentTime - (deltaTime % frameInterval);
-
-      time += 0.003; // Slower animation
-
-      // Create gradient background
-      const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
-      gradient.addColorStop(0, '#0a0e27');
-      gradient.addColorStop(0.5, '#151a35');
-      gradient.addColorStop(1, '#0a0e27');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, rect.width, rect.height);
-
-      // Draw plasma waves - reduced resolution
-      const step = 8; // Increased from 4 for performance
-      for (let y = 0; y < rect.height; y += step) {
-        for (let x = 0; x < rect.width; x += step) {
-          const value = Math.sin(x * 0.01 + time) +
-            Math.sin(y * 0.01 + time * 1.2) +
-            Math.sin((x + y) * 0.008 + time * 0.8);
-
-          const normalized = (value + 3) / 6;
-          const hue = 200 + normalized * 60;
-          const saturation = 70 + normalized * 30;
-          const lightness = 20 + normalized * 25;
-          const alpha = 0.15 + normalized * 0.2;
-
-          ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-          ctx.fillRect(x, y, step, step);
-        }
-      }
-
-      // Add subtle particle overlay - reduced count
-      for (let i = 0; i < particleCount; i++) {
-        const px = Math.sin(time * 0.5 + i * 0.5) * rect.width * 0.3 + rect.width / 2;
-        const py = Math.cos(time * 0.7 + i * 0.3) * rect.height * 0.3 + rect.height / 2;
-
-        ctx.beginPath();
-        ctx.arc(px, py, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(5, 218, 195, ${0.3 + Math.sin(time + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      animationRef.current = requestAnimationFrame(drawPlasmaWave);
-    };
-
-    // Intersection Observer to only animate when visible
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisibleRef.current = entry.isIntersecting;
-        if (entry.isIntersecting && !animationRef.current) {
-          animationRef.current = requestAnimationFrame(drawPlasmaWave);
-        } else if (!entry.isIntersecting && animationRef.current) {
-          cancelAnimationFrame(animationRef.current);
-          animationRef.current = null;
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(section);
-
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReducedMotion) {
-      // Start animation if in viewport
-      if (isVisibleRef.current) {
-        animationRef.current = requestAnimationFrame(drawPlasmaWave);
-      }
-    } else {
-      // Static gradient for accessibility
-      const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
-      gradient.addColorStop(0, '#0a0e27');
-      gradient.addColorStop(1, '#151a35');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, rect.width, rect.height);
-    }
-
-    return () => {
-      observer.disconnect();
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} className="tp-hero-area tp-hero-space pb-95" style={{
+    <section className="tp-hero-area" style={{
       position: 'relative',
+      background: '#0a1a35',
       overflow: 'hidden',
-      willChange: 'transform' // Performance hint
+      height: '100vh',
+      // paddingTop: '-80px',
+      // paddingBottom: '80px',
+      // minHeight: '40vh',
+      display: 'flex',
+      alignItems: 'center'
     }}>
-      {/* Animated Plasma Wave Canvas */}
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          opacity: 0.8,
-          willChange: 'transform'
-        }}
-      />
+      {/* Background Image Layer with Low Opacity */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(/hero.avif)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.15,
+        zIndex: 0
+      }}></div>
 
-      {/* Dark Gradient Overlay for text readability */}
+      {/* Gradient Overlay on top of image */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(20, 30, 70, 0.5) 100%)',
-        pointerEvents: 'none'
+        // background: 'linear-gradient(135deg, rgba(10, 26, 53, 0.85) 0%, rgba(26, 45, 90, 0.75) 25%, rgba(15, 30, 66, 0.8) 50%, rgba(26, 45, 90, 0.75) 75%, rgba(10, 26, 53, 0.85) 100%)',
+        zIndex: 1
+      }}></div>
+      {/* Animated Mesh Gradient Overlay */}
+      <div style={{
+        position: 'absolute',
+        top: '-50%',
+        left: '-50%',
+        right: '-50%',
+        bottom: '-50%',
+        animation: 'meshMove 20s ease-in-out infinite',
+        pointerEvents: 'none',
+        zIndex: 2
       }}></div>
 
-      {/* Animated Dots Pattern */}
+      {/* Enhanced grid pattern overlay with BD Matrix colors */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)',
-        backgroundSize: '30px 30px',
-        opacity: 0.3,
-        pointerEvents: 'none'
+        // backgroundImage: `
+        //   radial-gradient(circle, rgba(5, 218, 195, 0.05) 1px, transparent 1px),
+        //   radial-gradient(circle, rgba(61, 108, 231, 0.03) 1px, transparent 1px)
+        // `,
+        backgroundSize: '40px 40px, 80px 80px',
+        backgroundPosition: '0 0, 20px 20px',
+        pointerEvents: 'none',
+        opacity: 0.6,
+        zIndex: 3
       }}></div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="row align-items-center" style={{ minHeight: '80vh', paddingTop: '80px', paddingBottom: '80px' }}>
+      {/* Spotlight effects */}
+      <div style={{
+        position: 'absolute',
+        top: '10%',
+        left: '10%',
+        width: '500px',
+        height: '500px',
+        // background: 'radial-gradient(circle, rgba(5, 218, 195, 0.1) 0%, transparent 70%)',
+        borderRadius: '50%',
+        filter: 'blur(80px)',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}></div>
+      <div style={{
+        position: 'absolute',
+        bottom: '10%',
+        right: '10%',
+        width: '600px',
+        height: '600px',
+        // background: 'radial-gradient(circle, rgba(61, 108, 231, 0.12) 0%, transparent 70%)',
+        borderRadius: '50%',
+        filter: 'blur(100px)',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}></div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <div className="row align-items-center" style={{ minHeight: '70vh' }}>
 
           {/* Main Hero Content */}
-          <div className="col-lg-7">
-            <div className="tp-hero-content">
-              {/* Subtitle Badge with Icon */}
-              <div style={{ marginBottom: '24px' }}>
-                <span className="bdm-badge" style={{
-                  background: 'linear-gradient(135deg, rgba(61, 108, 231, 0.2) 0%, rgba(5, 218, 195, 0.2) 100%)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  backdropFilter: 'blur(10px)',
-                  color: 'white',
-                  padding: '10px 20px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  borderRadius: '50px',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}>
-                  <span style={{ fontSize: '16px' }}>⚡</span>
-                  Custom Software Development · CRM · ERP · POS · SaaS · Mobile Apps
-                </span>
+          <div className="col-12">
+            <div className="tp-hero-content" style={{
+              // maxWidth: '1100px',
+              margin: '0 auto',
+              textAlign: 'left'
+            }}>
+
+              {/* Top Section: Badge */}
+              <div style={{
+                marginBottom: '22px'
+              }}>
+                {/* Badge */}
+                <div>
+                  <span style={{
+                    background: 'rgba(61, 108, 231, 0.12)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(61, 108, 231, 0.3)',
+                    color: '#ffffff',
+                    padding: '14px 28px',
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1.2px',
+                    borderRadius: '10px',
+                    display: 'inline-block',
+                    boxShadow: '0 4px 16px rgba(61, 108, 231, 0.2)'
+                  }}>
+                    🚀 Enterprise Solutions
+                  </span>
+                </div>
               </div>
 
-              {/* Main Headline with Gradient Text */}
-              <h1 style={{
-                fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-                fontWeight: '800',
-                marginBottom: '28px',
-                lineHeight: '1.1',
-                fontFamily: 'var(--tp-ff-heading)'
+              {/* Main Heading with Highlighted Text Boxes */}
+              <div style={{
+                position: 'relative',
+                marginBottom: '32px'
               }}>
-                Transform Your Business with{' '}
-                <span style={{
-                  background: 'linear-gradient(135deg, #05DAC3 0%, #3D6CE7 50%, #ffffff 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  display: 'inline-block'
+                <h1 style={{
+                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  fontWeight: '800',
+                  lineHeight: '1.2',
+                  marginBottom: '0',
+                  fontFamily: 'var(--tp-ff-heading)',
+                  color: 'white'
                 }}>
-                  Custom Software
-                </span>
-              </h1>
+                  <span style={{
+                    background: 'linear-gradient(135deg, #C4FF00 0%, #8FFF00 100%)',
+                    color: '#0a1a35',
+                    padding: '10px 20px',
+                    borderRadius: '12px',
+                    marginRight: '12px',
+                    display: 'inline-block',
+                    marginBottom: '12px',
+                    boxShadow: '0 4px 20px rgba(196, 255, 0, 0.3)',
+                    border: '2px solid rgba(255, 255, 255, 0.2)'
+                  }}>
+                    Business Intelligence
+                  </span>
+                  {' '}
+                  <br />
+                  built around{' '}
+                  <span style={{
+                    background: 'linear-gradient(135deg, #05DAC3 0%, #3D6CE7 100%)',
+                    color: 'white',
+                    padding: '10px 20px',
+                    borderRadius: '12px',
+                    display: 'inline-block',
+                    marginBottom: '12px',
+                    boxShadow: '0 4px 20px rgba(5, 218, 195, 0.4)',
+                    border: '2px solid rgba(255, 255, 255, 0.2)'
+                  }}>
+                    data teams
+                  </span>
+                </h1>
+              </div>
 
               {/* Description */}
               <p style={{
-                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
                 color: 'rgba(255, 255, 255, 0.9)',
                 marginBottom: '40px',
                 lineHeight: '1.7',
-                maxWidth: '600px'
+                maxWidth: '700px'
               }}>
-                We build scalable CRM, ERP, POS systems, SaaS platforms, and mobile apps that drive growth.
-                <strong style={{ color: '#05DAC3' }}> 500+ projects</strong> delivered across{' '}
-                <strong style={{ color: '#3D6CE7' }}>20+ countries</strong>.
+                BD Matrix is the central hub for your organization's analysis, unifying data teams and business teams around data to drive business outcomes.
               </p>
 
               {/* CTA Buttons */}
@@ -248,198 +192,129 @@ const HeroSlider = () => {
                 display: 'flex',
                 gap: '16px',
                 flexWrap: 'wrap',
-                marginBottom: '48px'
+                marginBottom: '80px'
               }}>
                 <Link
                   href="/contact"
                   style={{
-                    background: 'linear-gradient(135deg, #3D6CE7 0%, #05DAC3 100%)',
-                    color: 'white',
+                    background: 'white',
+                    color: '#0a1128',
                     padding: '16px 32px',
-                    borderRadius: '12px',
-                    fontSize: '1.0625rem',
+                    borderRadius: '8px',
+                    fontSize: '1rem',
                     fontWeight: '600',
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 8px 24px rgba(61, 108, 231, 0.3)'
+                    boxShadow: '0 4px 16px rgba(255, 255, 255, 0.2)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 32px rgba(61, 108, 231, 0.4)';
+                    e.currentTarget.style.boxShadow = '0 6px 24px rgba(255, 255, 255, 0.3)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(61, 108, 231, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(255, 255, 255, 0.2)';
                   }}
                 >
-                  Start Your Project
-                  <i className="fa-regular fa-arrow-right-long"></i>
+                  Try for free
                 </Link>
 
                 <Link
-                  href="/portfolio"
+                  href="/contact"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
+                    background: 'transparent',
                     color: 'white',
                     padding: '16px 32px',
-                    borderRadius: '12px',
-                    fontSize: '1.0625rem',
+                    borderRadius: '8px',
+                    fontSize: '1rem',
                     fontWeight: '600',
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
                     transition: 'all 0.3s ease'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
                   }}
                 >
-                  View Portfolio
-                  <i className="fa-regular fa-arrow-right-long"></i>
+                  Request demo
                 </Link>
               </div>
 
-              {/* Trusted By Section */}
+              {/* Secondary Section */}
               <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px'
+                textAlign: 'center',
+                paddingTop: '60px',
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                marginTop: '40px'
               }}>
-                <div style={{
-                  fontSize: '0.875rem',
-                  color: 'rgba(255, 255, 255, 0.6)',
-                  fontWeight: '600',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
+                <h2 style={{
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  fontWeight: '700',
+                  color: 'white',
+                  marginBottom: '20px',
+                  lineHeight: '1.3'
                 }}>
-                  Trusted By
-                </div>
-                <div style={{
-                  display: 'flex',
-                  gap: '32px',
-                  flexWrap: 'wrap'
+                  Clear the path from data<br />to insights, together
+                </h2>
+                <p style={{
+                  fontSize: '1.125rem',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  maxWidth: '700px',
+                  margin: '0 auto',
+                  lineHeight: '1.6'
                 }}>
-                  {trustedBy.map((brand, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        padding: '8px 16px',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        backdropFilter: 'blur(10px)',
-                        borderRadius: '8px',
-                        fontSize: '0.875rem',
-                        color: 'rgba(255, 255, 255, 0.8)',
-                        fontWeight: '600',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
-                      }}
-                    >
-                      {brand}
-                    </div>
-                  ))}
-                </div>
+                  Perform complex, ad hoc analysis and empower simple self-service reporting, all on the same platform.
+                </p>
               </div>
-            </div>
-          </div>
 
-          {/* Floating Metrics Cards */}
-          <div className="col-lg-5">
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '20px',
-              marginLeft: 'auto',
-              maxWidth: '500px'
-            }}>
-              {metrics.map((metric, index) => (
-                <div
-                  key={index}
-                  className="bdm-card bdm-hover-scale"
-                  style={{
-                    padding: '24px',
-                    textAlign: 'center',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    animationDelay: `${index * 0.1}s`
-                  }}
-                >
-                  <div style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
-                    {metric.icon}
-                  </div>
-                  <div style={{
-                    fontSize: '2rem',
-                    fontWeight: '800',
-                    marginBottom: '4px',
-                    background: 'linear-gradient(135deg, #ffffff 0%, #05DAC3 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>
-                    {metric.value}
-                  </div>
-                  <div style={{
-                    fontSize: '0.875rem',
-                    color: 'rgba(255, 255, 255, 0.8)',
-                    fontWeight: '500'
-                  }}>
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div style={{
-        position: 'absolute',
-        bottom: '40px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        animation: 'scroll 2s ease infinite'
-      }}>
-        <div style={{
-          width: '30px',
-          height: '50px',
-          border: '2px solid rgba(255, 255, 255, 0.3)',
-          borderRadius: '25px',
-          display: 'flex',
-          justifyContent: 'center',
-          paddingTop: '8px'
-        }}>
-          <div style={{
-            width: '4px',
-            height: '8px',
-            background: '#05DAC3',
-            borderRadius: '2px',
-            animation: 'scrollDot 2s ease infinite'
-          }}></div>
-        </div>
-      </div>
-
+      {/* Responsive CSS */}
       <style jsx>{`
-        @keyframes scroll {
-          0%, 100% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(-50%) translateY(10px); }
+        @keyframes meshMove {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(30px, -30px) rotate(120deg);
+          }
+          66% {
+            transform: translate(-20px, 20px) rotate(240deg);
+          }
         }
 
-        @keyframes scrollDot {
-          0% { transform: translateY(0); opacity: 1; }
-          50% { transform: translateY(20px); opacity: 0.3; }
-          100% { transform: translateY(0); opacity: 1; }
+        @media (min-width: 992px) {
+          .hero-chart-desktop {
+            display: block !important;
+          }
+        }
+
+        @media (max-width: 991px) {
+          .hero-chart-desktop {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          section {
+            padding-top: 80px !important;
+            padding-bottom: 60px !important;
+          }
         }
       `}</style>
     </section>

@@ -112,7 +112,7 @@ const HeaderOne = () => {
                            </div>
                         </div>
                         <div className="col-xxl-6 col-xl-6 d-none d-xl-block">
-                           <div className="tp-main-menu-area counter d-flex align-items-center">
+                           <div className="tp-main-menu-area d-flex align-items-center">
                               <div className="tp-main-menu menu-icon">
                                  <span className="header-icon"><HomeIcon /></span>
                                  <nav id="tp-mobile-menu">
