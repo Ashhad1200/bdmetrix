@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { trackLead } from "@/src/lib/fbpixel";
 
 const ContactForm = () => {
   // Form state
@@ -100,7 +101,12 @@ const ContactForm = () => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Success!
+        // Success! Track Lead conversion in Facebook Pixel
+        trackLead({
+          content_name: formData.service_type || 'Contact Form',
+          value: formData.budget || 'Not specified',
+        });
+
         setSuccessMessage('Thank you! We\'ll get back to you within 24 hours.');
 
         // Reset form
