@@ -79,13 +79,13 @@ function validateContactForm(data) {
         errors.phone = `Phone number must not exceed ${FIELD_CONSTRAINTS.phone.max} characters`;
     }
 
-    // Validate message
-    if (!data.message || typeof data.message !== 'string') {
-        errors.message = 'Message is required';
-    } else if (data.message.trim().length === 0) {
-        errors.message = 'Message cannot be empty';
-    } else if (data.message.length > FIELD_CONSTRAINTS.message.max) {
-        errors.message = `Message must not exceed ${FIELD_CONSTRAINTS.message.max} characters`;
+    // Validate message (optional field)
+    if (data.message && typeof data.message === 'string') {
+        if (data.message.trim().length === 0) {
+            errors.message = 'Message cannot be empty if provided';
+        } else if (data.message.length > FIELD_CONSTRAINTS.message.max) {
+            errors.message = `Message must not exceed ${FIELD_CONSTRAINTS.message.max} characters`;
+        }
     }
 
     // Validate budget (optional field with predefined values)
