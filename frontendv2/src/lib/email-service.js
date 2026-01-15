@@ -79,10 +79,17 @@ async function sendLeadNotification(leadData) {
             text: textContent,
             // Add reply-to header for easy response
             reply_to: leadData.email,
-            // Add tags for tracking
+            // Add tags for tracking (sanitize values to meet Resend requirements)
+            // Tags must only contain ASCII letters, numbers, underscores, or dashes
             tags: [
                 { name: 'type', value: 'lead_notification' },
-                { name: 'service', value: leadData.service_type }
+                {
+                    name: 'service',
+                    value: leadData.service_type
+                        .replace(/\s+/g, '-')  // Replace spaces with dashes
+                        .replace(/[^a-zA-Z0-9_-]/g, '') // Remove invalid characters
+                        .toLowerCase() // Convert to lowercase for consistency
+                }
             ]
         });
 
