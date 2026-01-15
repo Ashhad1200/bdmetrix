@@ -1,0 +1,248 @@
+.main {
+    padding-top: 100px;
+}
+
+/* Hero */
+.hero {
+    padding: 80px 0 100px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Services */
+.services {
+    padding-bottom: 100px;
+}
+
+.serviceCard {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 50px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 50px;
+    align-items: start;
+    transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateX(10px);
+}
+
+.serviceNumber {
+    font-size: 5rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+    line-height: 1;
+}
+
+.serviceTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.serviceDesc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.featuresList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.checkmark {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.serviceLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.serviceLink:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-accent);
+}
+
+/* Key Outcomes */
+.outcomes {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(183, 255, 0, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(183, 255, 0, 0.1);
+}
+
+.outcomesTitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.outcomesList {
+    display: flex;
+    gap: 30px;
+}
+
+.outcomeItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.outcomeCheck {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: var(--glass-bg);
+    border-top: 1px solid var(--glass-border);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.ctaDesc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 44px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-accent);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .serviceCard {
+        grid-template-columns: 80px 1fr;
+        gap: 30px;
+    }
+
+    .serviceLink {
+        grid-column: span 2;
+        justify-self: start;
+        margin-top: 10px;
+    }
+
+    .featuresList {
+        grid-template-columns: 1fr;
+    }
+
+    .outcomesList {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero {
+        padding: 60px 0 80px;
+    }
+
+    .serviceCard {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .serviceNumber {
+        font-size: 3rem;
+    }
+
+    .serviceLink {
+        grid-column: 1;
+    }
+
+    .ctaSection {
+        padding: 60px 0;
+    }
+}

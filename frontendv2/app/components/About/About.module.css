@@ -1,0 +1,231 @@
+.about {
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 30px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-accent);
+}
+
+/* Stats Section */
+.statsSection {
+    position: relative;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.statCard {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.statCard:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    transform: translateY(-5px);
+}
+
+.statCard:nth-child(3) {
+    grid-column: span 2;
+}
+
+.statNumber {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.statLabel {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* Years Badge */
+.yearsBadge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badgeInner {
+    text-align: center;
+    color: var(--bg-dark);
+}
+
+.badgeNumber {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.badgeText {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .statsSection {
+        max-width: 500px;
+    }
+
+    .yearsBadge {
+        right: 0;
+        bottom: -20px;
+        width: 140px;
+        height: 140px;
+    }
+
+    .badgeNumber {
+        font-size: 2.5rem;
+    }
+
+    .badgeText {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 80px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .heading {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+        margin-bottom: 20px;
+    }
+
+    .text {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+
+    .ctaButton {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .statCard {
+        padding: 25px;
+    }
+
+    .statCard:nth-child(3) {
+        grid-column: span 1;
+    }
+
+    .statNumber {
+        font-size: 2.2rem;
+    }
+
+    .statLabel {
+        font-size: 0.85rem;
+    }
+
+    .yearsBadge {
+        position: relative;
+        margin: 30px auto 0;
+        right: auto;
+        bottom: auto;
+        width: 120px;
+        height: 120px;
+    }
+
+    .badgeNumber {
+        font-size: 2rem;
+    }
+
+    .badgeText {
+        font-size: 0.7rem;
+    }
+}

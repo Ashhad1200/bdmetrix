@@ -1,1 +1,0 @@
-sass --watch D:\Dropbox\pranto\Bd Matrix\Bd Matrix-prev\assets\scss\main.scss:D:\Dropbox\pranto\Bd Matrix\Bd Matrix-prev\assets\css\main.css

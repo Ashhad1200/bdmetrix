@@ -1,0 +1,147 @@
+.process {
+    padding: 120px 0;
+    position: relative;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subtext {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Steps Grid */
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stepCard {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.stepCard:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    transform: translateY(-5px);
+}
+
+.stepIcon {
+    width: 80px;
+    height: 80px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: var(--bg-dark);
+    transition: all 0.3s ease;
+}
+
+.stepCard:hover .stepIcon {
+    transform: scale(1.1);
+}
+
+.stepNumber {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.stepTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.stepDesc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stepsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .process {
+        padding: 80px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .header {
+        margin-bottom: 50px;
+    }
+
+    .heading {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+    }
+
+    .subtext {
+        font-size: 0.95rem;
+    }
+
+    .stepsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stepCard {
+        padding: 30px 25px;
+    }
+
+    .stepIcon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .stepTitle {
+        font-size: 1.1rem;
+    }
+
+    .stepDesc {
+        font-size: 0.9rem;
+    }
+}
