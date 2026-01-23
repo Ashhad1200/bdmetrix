@@ -1,7 +1,7 @@
 'use client';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Link from 'next/link';
+
 import Image from 'next/image';
 import styles from './project.module.css';
 
@@ -73,9 +73,8 @@ export default function ProjectPage() {
                     <div className={styles.container}>
                         <div className={styles.projectsGrid}>
                             {projects.map((project, index) => (
-                                <Link
+                                <div
                                     key={project.id}
-                                    href={`/project/${project.id}`}
                                     className={styles.projectCard}
                                     data-aos="fade-up"
                                     data-aos-delay={100 + (index % 3) * 100}
@@ -100,7 +99,7 @@ export default function ProjectPage() {
                                         <h3 className={styles.projectTitle}>{project.title}</h3>
                                         <p className={styles.projectDesc}>{project.description}</p>
                                     </div>
-                                </Link>
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -113,12 +112,12 @@ export default function ProjectPage() {
                         <p className={styles.ctaDesc} data-aos="fade-up" data-aos-delay="100">
                             Let's discuss how we can bring your vision to life.
                         </p>
-                        <Link href="/contact" className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
+                        <div className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
                             Start Your Project
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </Link>
+                        </div>
                     </div>
                 </section>
             </main>

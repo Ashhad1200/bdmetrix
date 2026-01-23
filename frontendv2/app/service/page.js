@@ -1,7 +1,7 @@
 'use client';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Link from 'next/link';
+
 import styles from './service.module.css';
 
 export default function ServicePage() {
@@ -111,12 +111,12 @@ export default function ServicePage() {
                                         ))}
                                     </div>
                                 </div>
-                                <Link href={`/service/${service.id}`} className={styles.serviceLink}>
+                                <div className={styles.serviceLink}>
                                     Learn More
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
-                                </Link>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -129,12 +129,12 @@ export default function ServicePage() {
                         <p className={styles.ctaDesc} data-aos="fade-up" data-aos-delay="100">
                             Let's discuss how we can help you achieve your digital goals.
                         </p>
-                        <Link href="/contact" className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
+                        <div className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
                             Get Started
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </Link>
+                        </div>
                     </div>
                 </section>
             </main>

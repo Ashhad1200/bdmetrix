@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+
 import Image from 'next/image';
 import styles from './Portfolio.module.css';
 
@@ -48,20 +48,19 @@ export default function Portfolio() {
                             Explore how we've helped businesses transform their digital experiences and achieve measurable results.
                         </p>
                     </div>
-                    <Link href="/project" className={styles.viewAll} data-aos="fade-up" data-aos-delay="150">
+                    <div className={styles.viewAll} data-aos="fade-up" data-aos-delay="150">
                         View All Projects
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </Link>
+                    </div>
                 </div>
 
                 {/* Projects Grid */}
                 <div className={styles.projectsGrid}>
                     {projects.map((project, index) => (
-                        <Link
+                        <div
                             key={project.id}
-                            href={`/project/${project.id}`}
                             className={styles.projectCard}
                             data-aos="fade-up"
                             data-aos-delay={100 + index * 100}
@@ -85,7 +84,7 @@ export default function Portfolio() {
                                 </div>
                                 <h3 className={styles.projectTitle}>{project.title}</h3>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>

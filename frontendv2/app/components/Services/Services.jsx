@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+
 import styles from './Services.module.css';
 
 export default function Services() {
@@ -90,24 +90,24 @@ export default function Services() {
                                 </ul>
                             </div>
 
-                            <Link href={service.link} className={styles.serviceLink}>
+                            <div className={styles.serviceLink}>
                                 Learn More
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
-                            </Link>
+                            </div>
                         </div>
                     ))}
                 </div>
 
                 {/* View All Services Link */}
                 <div className={styles.viewAllWrapper} data-aos="fade-up">
-                    <Link href="/service" className={styles.viewAllBtn}>
+                    <div className={styles.viewAllBtn}>
                         View All Services
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </Link>
+                    </div>
                 </div>
             </div>
         </section>
