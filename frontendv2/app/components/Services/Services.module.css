@@ -2,6 +2,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
+    background-color: var(--slate-50); /* Alternating Background */
 }
 
 .container {
@@ -12,7 +13,7 @@
     z-index: 1;
 }
 
-/* Background Text */
+/* Background Text - Subtle & Professional */
 .bgText {
     position: absolute;
     left: 50%;
@@ -21,7 +22,7 @@
     font-size: clamp(100px, 20vw, 300px);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+    -webkit-text-stroke: 1px rgba(15, 23, 42, 0.03); /* Navy hint */
     text-transform: uppercase;
     pointer-events: none;
     white-space: nowrap;
@@ -38,15 +39,16 @@
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
+    color: var(--navy-fortress);
 }
 
 .accent {
-    color: var(--accent);
+    color: var(--profit-green);
 }
 
 .subtext {
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    color: var(--slate-light);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
@@ -60,26 +62,28 @@
 }
 
 .serviceCard {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--pure-white);
+    border: 1px solid rgba(15, 23, 42, 0.05);
     border-radius: var(--radius-lg);
     padding: 35px;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
 }
 
 .serviceCard:hover {
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
     transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(16, 185, 129, 0.3);
 }
 
 .serviceNumber {
     font-size: 2.5rem;
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 2px var(--accent);
+    -webkit-text-stroke: 1px var(--navy-fortress);
+    opacity: 0.2;
     line-height: 1;
     margin-bottom: 20px;
 }
@@ -88,11 +92,12 @@
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 15px;
+    color: var(--navy-fortress);
 }
 
 .serviceDesc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+    font-size: 1rem;
+    color: var(--slate-body);
     line-height: 1.7;
     margin-bottom: 20px;
     flex: 1;
@@ -102,15 +107,15 @@
 .outcomes {
     margin-bottom: 25px;
     padding: 20px;
-    background: rgba(183, 255, 0, 0.05);
+    background: rgba(16, 185, 129, 0.05); /* Light Profit Green */
     border-radius: var(--radius-md);
-    border: 1px solid rgba(183, 255, 0, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.1);
 }
 
 .outcomesTitle {
     font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
+    font-weight: 700;
+    color: var(--profit-green-dark);
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -127,7 +132,7 @@
     align-items: center;
     gap: 10px;
     font-size: 0.9rem;
-    color: var(--text-primary);
+    color: var(--slate-body);
     margin-bottom: 8px;
 }
 
@@ -136,7 +141,7 @@
 }
 
 .checkmark {
-    color: var(--accent);
+    color: var(--profit-green);
     font-weight: bold;
 }
 
@@ -144,23 +149,26 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 28px;
-    background: var(--accent);
-    color: var(--bg-dark);
-    font-size: 0.85rem;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--profit-green-dark);
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     transition: all 0.3s ease;
     white-space: nowrap;
     align-self: flex-start;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .serviceLink:hover {
-    background: var(--accent-hover);
+    background: var(--profit-green);
+    color: var(--pure-white);
     transform: translateY(-2px);
-    box-shadow: var(--glow-accent);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    border-color: var(--profit-green);
 }
 
 .serviceLink svg {
@@ -182,20 +190,21 @@
     align-items: center;
     gap: 12px;
     padding: 18px 40px;
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
+    background: var(--navy-fortress);
+    border: 2px solid var(--navy-fortress);
+    color: var(--pure-white);
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
 }
 
 .viewAllBtn:hover {
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: transparent;
+    color: var(--navy-fortress);
 }
 
 /* Responsive */

@@ -57,21 +57,19 @@ export default function Hero() {
                     <div className={styles.floatingCard} data-aos="fade-left" data-aos-delay="400">
                         <div className={styles.cardIcon}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                                <line x1="8" y1="21" x2="16" y2="21" />
-                                <line x1="12" y1="17" x2="12" y2="21" />
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                             </svg>
                         </div>
                         <div className={styles.cardContent}>
-                            <h4>Software Development</h4>
-                            <p>Custom enterprise solutions</p>
+                            <h4>Secure Infrastructure</h4>
+                            <p>Scalable & Compliant</p>
                         </div>
                     </div>
 
                     <div className={styles.floatingCard} data-aos="fade-left" data-aos-delay="500">
                         <div className={styles.cardStats}>
-                            <span className={styles.statNumber}>100+</span>
-                            <span className={styles.statLabel}>Projects Delivered</span>
+                            <span className={styles.statNumber}>100%</span>
+                            <span className={styles.statLabel}>Uptime Focus</span>
                         </div>
                     </div>
                 </div>

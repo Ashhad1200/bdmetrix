@@ -9,10 +9,11 @@
 }
 
 .header.scrolled {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 255, 255, 0.95); /* White Frosted Glass */
     backdrop-filter: blur(20px);
     padding: 15px 0;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
 }
 
 .container {
@@ -34,7 +35,7 @@
 .logoText {
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: var(--navy-fortress); /* Navy Logo */
     letter-spacing: -0.02em;
 }
 
@@ -47,14 +48,14 @@
 
 .navLink {
     font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: var(--slate-body);
     transition: color 0.3s ease;
     position: relative;
 }
 
 .navLink:hover {
-    color: var(--text-primary);
+    color: var(--navy-fortress);
 }
 
 .navLink::after {
@@ -64,7 +65,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--profit-green);
     transition: width 0.3s ease;
 }
 
@@ -77,20 +78,21 @@
     display: inline-flex;
     align-items: center;
     padding: 12px 28px;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: var(--profit-green);
+    color: var(--pure-white);
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md); /* Rounded */
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
 }
 
 .ctaButton:hover {
-    background: var(--accent-hover);
+    background: var(--profit-green-dark);
     transform: translateY(-2px);
-    box-shadow: var(--glow-accent);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
 }
 
 /* Mobile Menu Button */
@@ -108,7 +110,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background: var(--text-primary);
+    background: var(--navy-fortress);
     transition: all 0.3s ease;
 }
 
@@ -131,7 +133,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--bg-dark);
+    background: var(--pure-white);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -154,25 +156,25 @@
 
 .mobileNavLink {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    font-weight: 700;
+    color: var(--navy-fortress);
     transition: color 0.3s ease;
 }
 
 .mobileNavLink:hover {
-    color: var(--accent);
+    color: var(--profit-green);
 }
 
 .mobileCta {
     margin-top: 20px;
     padding: 14px 32px;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: var(--profit-green);
+    color: var(--pure-white);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
 }
 
 /* Responsive */

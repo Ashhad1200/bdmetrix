@@ -5,6 +5,7 @@
     position: relative;
     overflow: hidden;
     padding-top: 100px;
+    background-color: var(--pure-white);
 }
 
 .container {
@@ -18,28 +19,28 @@
     align-items: center;
 }
 
-/* Background Glows */
+/* Background Glows - Subtle & Professional */
 .bgGlow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.4;
+    filter: blur(120px);
+    opacity: 0.08; /* Very subtle */
     pointer-events: none;
 }
 
 .glowPurple {
-    background: #7B61FF;
-    top: -200px;
-    right: -100px;
+    background: var(--navy-fortress);
+    top: -300px;
+    right: -200px;
 }
 
 .glowBlue {
-    background: #00D4FF;
-    bottom: -200px;
-    left: -100px;
-    opacity: 0.2;
+    background: #0EA5E9; /* Corporate Blue */
+    bottom: -300px;
+    left: -200px;
+    opacity: 0.1;
 }
 
 /* Decorative Circles */
@@ -47,7 +48,7 @@
     position: absolute;
     width: 800px;
     height: 800px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.03); /* Navy hint */
     border-radius: 50%;
     top: -400px;
     right: -200px;
@@ -58,7 +59,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.03);
     border-radius: 50%;
     bottom: -300px;
     left: -200px;
@@ -74,51 +75,46 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 24px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    padding: 8px 20px;
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--text-secondary);
+    color: var(--navy-fortress);
     margin-bottom: 30px;
 }
 
 .pillDot {
     width: 8px;
     height: 8px;
-    background: var(--accent);
+    background: var(--profit-green);
     border-radius: 50%;
 }
 
 .heading {
-    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-size: clamp(3rem, 8vw, 5rem); /* Slightly smaller, more controlled */
     font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     margin-bottom: 30px;
+    color: var(--navy-fortress);
 }
 
 .accent {
-    color: var(--accent);
+    color: var(--profit-green);
     position: relative;
 }
 
-.accent::after {
-    content: '🌿';
-    position: absolute;
-    font-size: 0.4em;
-    top: -10px;
-    right: -20px;
-}
+/* Removed playful leaf accent */
 
 .subtext {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 480px;
+    color: var(--slate-body);
+    max-width: 540px;
     margin-bottom: 40px;
 }
 
@@ -133,21 +129,20 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 18px 36px;
-    background: var(--accent);
-    color: var(--bg-dark);
-    font-size: 0.95rem;
+    padding: 16px 32px;
+    background: var(--profit-green);
+    color: var(--pure-white);
+    font-size: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md); /* 60-30-10 Rule: Slightly rounded */
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
 }
 
 .ctaButton:hover {
-    background: var(--accent-hover);
-    transform: translateY(-3px);
-    box-shadow: var(--glow-accent);
+    background: var(--profit-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
 }
 
 .ctaButton svg {
@@ -162,32 +157,32 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 18px 36px;
+    padding: 16px 32px;
     background: transparent;
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
-    font-size: 0.95rem;
+    border: 2px solid var(--navy-fortress); /* Thicker border for authority */
+    color: var(--navy-fortress);
+    font-size: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     transition: all 0.3s ease;
 }
 
 .ctaButtonOutline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    background: var(--navy-fortress);
+    color: var(--pure-white);
 }
 
 .intro {
     font-size: 0.9rem;
-    color: var(--text-muted);
-    max-width: 480px;
+    color: var(--slate-light);
+    max-width: 500px;
     line-height: 1.7;
-    margin-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    padding-top: 20px;
 }
 
-/* Floating Cards */
+/* Floating Cards - High Trust/Bank Style */
 .floatingCards {
     position: relative;
     display: flex;
@@ -197,42 +192,44 @@
 }
 
 .floatingCard {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--pure-white);
+    border: 1px solid rgba(15, 23, 42, 0.05);
     border-radius: var(--radius-lg);
     padding: 25px 30px;
     display: flex;
     align-items: center;
     gap: 20px;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
 }
 
 .floatingCard:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(16, 185, 129, 0.2);
 }
 
 .cardIcon {
     width: 50px;
     height: 50px;
-    background: var(--accent);
-    border-radius: 12px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bg-dark);
+    color: var(--profit-green);
 }
 
 .cardContent h4 {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 5px;
+    color: var(--navy-fortress);
 }
 
 .cardContent p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--slate-light);
 }
 
 .cardStats {
@@ -245,12 +242,15 @@
 .statNumber {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--accent);
+    color: var(--profit-green);
 }
 
 .statLabel {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: var(--navy-fortress);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* Scroll Indicator */
@@ -263,7 +263,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: var(--text-muted);
+    color: var(--slate-muted);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -272,7 +272,7 @@
 .mouse {
     width: 26px;
     height: 42px;
-    border: 2px solid var(--text-muted);
+    border: 2px solid var(--slate-muted);
     border-radius: 20px;
     position: relative;
 }
@@ -280,7 +280,7 @@
 .wheel {
     width: 4px;
     height: 8px;
-    background: var(--accent);
+    background: var(--navy-fortress);
     border-radius: 2px;
     position: absolute;
     top: 8px;
@@ -359,12 +359,13 @@
         width: 100%;
         justify-content: center;
         padding: 16px 24px;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
 
     .intro {
         font-size: 0.85rem;
         text-align: center;
+        margin-top: 30px;
     }
 
     .floatingCard {

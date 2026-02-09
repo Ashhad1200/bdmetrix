@@ -56,13 +56,13 @@ export default function AboutPage() {
                 {/* Hero Section */}
                 <section className={styles.hero}>
                     <div className={styles.container}>
-                        <div className="pill-tag" data-aos="fade-up">About Us</div>
+                        <div className="pill-tag" data-aos="fade-up">About BD Matrix</div>
                         <h1 className={styles.title} data-aos="fade-up" data-aos-delay="100">
-                            We're a <span className={styles.accent}>Software House</span>
+                            Engineering <span className={styles.accent}>Digital Excellence</span>
                         </h1>
                         <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
-                            With 7+ years of experience, we've helped businesses worldwide
-                            transform their digital presence and achieve remarkable growth.
+                            We build high-integrity digital products for businesses that demand 
+                            reliability, security, and scalable growth in the modern economy.
                         </p>
                     </div>
                 </section>
@@ -72,33 +72,33 @@ export default function AboutPage() {
                     <div className={styles.container}>
                         <div className={styles.storyGrid}>
                             <div className={styles.storyContent} data-aos="fade-right">
-                                <div className="pill-tag">Our Story</div>
+                                <div className="pill-tag">Our Philosophy</div>
                                 <h2 className={styles.storyTitle}>
-                                    From Humble Beginnings to <span className={styles.accent}>Global Impact</span>
+                                    A Commitment to <span className={styles.accent}>Strategic Growth</span>
                                 </h2>
                                 <p className={styles.storyText}>
-                                    BD Matrix started as a team of passionate developers and digital strategists
-                                    with a vision to revolutionize software solutions. Based in Canada and UK,
-                                    now in Karachi, Pakistan, we've grown into a full-service digital agency with a global presence.
+                                    BD Matrix was founded by a team of software engineers and digital architects 
+                                    who recognized a gap in the market for high-trust, bank-grade digital solutions. 
+                                    Operating with a global mindset, we serve clients across Canada, UK, and Pakistan.
                                 </p>
                                 <p className={styles.storyText}>
-                                    Our journey has been marked by countless success stories, innovative
-                                    projects, and lasting partnerships with clients who share our vision
-                                    for excellence.
+                                    We don't just write code; we architect solutions. Our journey is defined by 
+                                    technical rigor and a quality-first approach that ensures every product we 
+                                    deliver is built to last and engineered for impact.
                                 </p>
                             </div>
                             <div className={styles.storyStats} data-aos="fade-left">
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>24+</span>
-                                    <span className={styles.statLabel}>Projects Completed</span>
+                                    <span className={styles.statNumber}>100%</span>
+                                    <span className={styles.statLabel}>Secure Architecture</span>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>99%</span>
-                                    <span className={styles.statLabel}>Client Satisfaction</span>
+                                    <span className={styles.statNumber}>99.9%</span>
+                                    <span className={styles.statLabel}>Infrastructure Uptime</span>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>5+</span>
-                                    <span className={styles.statLabel}>Years Experience</span>
+                                    <span className={styles.statNumber}>Quality</span>
+                                    <span className={styles.statLabel}>Standard Certified</span>
                                 </div>
                             </div>
                         </div>
