@@ -1,77 +1,112 @@
 'use client';
+import Image from 'next/image';
 import styles from './About.module.css';
 
 export default function About() {
-    const pillars = [
-        { 
-            title: 'Strategic Analysis', 
-            desc: 'We deep-dive into your business logic to ensure every line of code serves a purpose.' 
-        },
-        { 
-            title: 'Secure Architecture', 
-            desc: 'Bank-grade security protocols integrated from day one to protect your digital assets.' 
-        },
-        { 
-            title: 'Global Compliance', 
-            desc: 'Solutions built to meet international standards for reliability and data protection.' 
-        }
+    const stats = [
+        { number: '5+', label: 'Years of Experience' },
+        { number: '50+', label: 'Projects Completed' },
+    ];
+
+    const team = [
+        { name: 'John Doe', role: 'Lead Developer', image: '/images/team/member-1.png' },
+        { name: 'Jane Smith', role: 'UI/UX Designer', image: '/images/team/member-2.png' },
+        { name: 'Ali Khan', role: 'Full Stack Engineer', image: '/images/team/member-3.png' },
+        { name: 'Sara Ahmed', role: 'Project Manager', image: '/images/team/member-4.png' },
     ];
 
     return (
         <section className={styles.about} id="about">
             <div className={styles.container}>
+                {/* Section Header */}
+                <div className={styles.sectionHeader} data-aos="fade-up">
+                    <div className="pill-tag">About BD Matrix</div>
+                    <h2 className={styles.heading}>
+                        Meet the Team Behind <span className={styles.accent}>BD Matrix</span>
+                    </h2>
+                </div>
+
+                {/* Two-Column: Founder + Stats */}
                 <div className={styles.content}>
-                    {/* Left Side - Pillars */}
-                    <div className={styles.statsSection}>
+                    {/* Left Column — Founder */}
+                    <div className={styles.founderSection} data-aos="fade-right">
+                        <div className={styles.founderImageWrapper}>
+                            <Image
+                                src="/images/team/founder.png"
+                                alt="Founder of BD Matrix"
+                                width={400}
+                                height={480}
+                                className={styles.founderImage}
+                            />
+                        </div>
+                        <div className={styles.founderStory}>
+                            <h3 className={styles.founderName}>Our Founder</h3>
+                            <p className={styles.founderText}>
+                                BD Matrix was born from a simple frustration: businesses everywhere were being sold
+                                cookie-cutter digital solutions that didn't fit their real-world needs. Our founder
+                                started this company to bridge the gap — combining deep technical expertise with a
+                                genuine understanding of how businesses operate, to deliver software that actually
+                                drives growth and efficiency.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Right Column — Stats */}
+                    <div className={styles.statsSection} data-aos="fade-left">
                         <div className={styles.statsGrid}>
-                            {pillars.map((pillar, index) => (
+                            {stats.map((stat, index) => (
                                 <div
                                     key={index}
                                     className={styles.statCard}
                                     data-aos="fade-up"
                                     data-aos-delay={100 + index * 100}
                                 >
-                                    <h3 className={styles.pillarTitle}>{pillar.title}</h3>
-                                    <p className={styles.pillarDesc}>{pillar.desc}</p>
+                                    <span className={styles.statNumber}>{stat.number}</span>
+                                    <span className={styles.statLabel}>{stat.label}</span>
                                 </div>
                             ))}
                         </div>
-                        <div className={styles.yearsBadge} data-aos="fade-up" data-aos-delay="400">
-                            <div className={styles.badgeInner}>
-                                <span className={styles.badgeNumber}>Quality</span>
-                                <span className={styles.badgeText}>First Approach</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Side - Text */}
-                    <div className={styles.textSection} data-aos="fade-left">
-                        <div className="pill-tag">About BD Matrix</div>
-                        <h2 className={styles.heading}>
-                            Where Innovation Meets <span className={styles.accent}>Impact</span>
-                        </h2>
-                        <p className={styles.description}>
-                            At BD Matrix, we specialize in crafting digital solutions that empower businesses
-                            to thrive in the modern economy. From bespoke software platforms to engaging web
-                            and mobile experiences, we build products with performance, scalability, and growth in mind.
-                        </p>
-                        <p className={styles.description}>
+                        <p className={styles.statsDescription}>
                             Our team combines deep technical expertise with a strategic mindset — guiding each
                             project from concept to launch and beyond. We believe in transparent collaboration,
                             exceptional quality, and results that exceed expectations.
                         </p>
-
-                        <div className={styles.missionVision}>
-                            <div className={styles.missionCard}>
-                                <h4>Our Mission</h4>
-                                <p>To enable businesses with robust digital infrastructure and actionable marketing strategies that unlock growth and competitive advantage.</p>
-                            </div>
-                            <div className={styles.visionCard}>
-                                <h4>Our Vision</h4>
-                                <p>To be a globally recognized software and digital solutions provider trusted for innovation, reliability, and client success.</p>
-                            </div>
-                        </div>
                     </div>
+                </div>
+
+                {/* Team Photo */}
+                <div className={styles.teamPhotoWrapper} data-aos="fade-up">
+                    <Image
+                        src="/images/team/team-photo.png"
+                        alt="BD Matrix Team"
+                        width={1200}
+                        height={500}
+                        className={styles.teamPhoto}
+                    />
+                </div>
+
+                {/* Team Members Grid */}
+                <div className={styles.teamGrid}>
+                    {team.map((member, index) => (
+                        <div
+                            key={index}
+                            className={styles.teamCard}
+                            data-aos="fade-up"
+                            data-aos-delay={100 + index * 80}
+                        >
+                            <div className={styles.teamImageWrapper}>
+                                <Image
+                                    src={member.image}
+                                    alt={member.name}
+                                    width={200}
+                                    height={200}
+                                    className={styles.teamImage}
+                                />
+                            </div>
+                            <h4 className={styles.teamName}>{member.name}</h4>
+                            <p className={styles.teamRole}>{member.role}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

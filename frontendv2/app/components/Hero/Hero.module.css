@@ -172,14 +172,38 @@
     color: var(--pure-white);
 }
 
-.intro {
-    font-size: 0.9rem;
-    color: var(--slate-light);
-    max-width: 500px;
-    line-height: 1.7;
+/* Trust Badges */
+.trustBadges {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     margin-top: 40px;
-    border-top: 1px solid rgba(15, 23, 42, 0.1);
     padding-top: 20px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    flex-wrap: wrap;
+}
+
+.trustText {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--slate-body);
+    white-space: nowrap;
+}
+
+.clientLogos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.clientLogo {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+}
+
+.clientLogo:hover {
+    opacity: 0.9;
 }
 
 /* Floating Cards - High Trust/Bank Style */
@@ -321,6 +345,11 @@
         margin-right: auto;
     }
 
+    .trustBadges {
+        justify-content: center;
+        flex-direction: column;
+    }
+
     .floatingCards {
         align-items: center;
         margin-top: 40px;
@@ -366,6 +395,18 @@
         font-size: 0.85rem;
         text-align: center;
         margin-top: 30px;
+    }
+
+    .trustBadges {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .clientLogos {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
     }
 
     .floatingCard {

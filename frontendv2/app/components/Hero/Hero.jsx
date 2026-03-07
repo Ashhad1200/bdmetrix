@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -21,35 +22,35 @@ export default function Hero() {
 
                     {/* Main Heading */}
                     <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
-                        BD Matrix
-                        <br />
-                        <span className={styles.accent}>Digital Solutions</span>
+                        We Build Scalable Custom Software & Apps for{' '}
+                        <span className={styles.accent}>Growing Businesses.</span>
                     </h1>
 
                     {/* Subtext */}
                     <p className={styles.subtext} data-aos="fade-up" data-aos-delay="200">
-                        We build scalable software, digital products, and marketing solutions
-                        that help businesses grow online.
+                        Helping global brands and startups streamline operations and increase revenue with custom digital solutions.
                     </p>
 
-                    {/* CTA Buttons */}
+                    {/* Single CTA Button */}
                     <div className={styles.cta} data-aos="fade-up" data-aos-delay="300">
                         <Link href="/contact" className={styles.ctaButton}>
-                            <span>Get Started</span>
+                            <span>Book a Free Consultation</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </Link>
-                        <Link href="/contact" className={styles.ctaButtonOutline}>
-                            <span>Contact Us</span>
-                        </Link>
                     </div>
 
-                    {/* Short Intro */}
-                    <p className={styles.intro} data-aos="fade-up" data-aos-delay="350">
-                        BD Matrix is a full-service digital agency and software house based in Canada and UK, now in Karachi, Pakistan —
-                        delivering custom Web Apps, SaaS, ERP, CRM, POS, Mobile Apps, and Digital Marketing solutions.
-                    </p>
+                    {/* Trust Badges */}
+                    <div className={styles.trustBadges} data-aos="fade-up" data-aos-delay="350">
+                        <span className={styles.trustText}>Trusted by 50+ businesses globally</span>
+                        <div className={styles.clientLogos}>
+                            <Image src="/images/clients/client-logo-1.png" alt="Client Logo 1" width={80} height={32} className={styles.clientLogo} />
+                            <Image src="/images/clients/client-logo-2.png" alt="Client Logo 2" width={80} height={32} className={styles.clientLogo} />
+                            <Image src="/images/clients/client-logo-3.png" alt="Client Logo 3" width={80} height={32} className={styles.clientLogo} />
+                            <Image src="/images/clients/client-logo-4.png" alt="Client Logo 4" width={80} height={32} className={styles.clientLogo} />
+                        </div>
+                    </div>
                 </div>
 
                 {/* Floating Cards */}
