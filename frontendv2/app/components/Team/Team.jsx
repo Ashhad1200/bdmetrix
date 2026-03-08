@@ -4,24 +4,19 @@ import styles from './Team.module.css';
 export default function Team() {
     const team = [
         {
-            name: 'Mr. David Liam',
-            role: 'CEO & Founder',
+            name: 'Syed Ashhad',
+            role: 'CEO, Founder & Lead Developer',
             image: '/images/team/team-1.jpg'
         },
         {
-            name: 'Miss Alex Mika',
-            role: 'CTO',
+            name: 'Abdul Rafay',
+            role: 'Co-Founder',
             image: '/images/team/team-2.jpg'
         },
         {
-            name: 'Mr. John Smith',
-            role: 'Lead Developer',
+            name: 'Abdullah Farooqui',
+            role: 'Media & Sales Lead',
             image: '/images/team/team-3.jpg'
-        },
-        {
-            name: 'Jessika Joya',
-            role: 'Marketing Director',
-            image: '/images/team/team-4.jpg'
         }
     ];
 

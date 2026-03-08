@@ -8,33 +8,33 @@ import styles from './Testimonials.module.css';
 export default function Testimonials() {
     const testimonials = [
         {
-            name: 'Ms. Alex Mika',
-            role: 'CEO & Founder',
-            content: 'BD Matrix completely transformed our online presence! Their exceptional software development expertise went beyond expectations, creating a visually stunning and user-friendly platform.',
+            name: 'Ayesha Malik',
+            role: 'CEO at NovaTech Solutions',
+            content: 'BD Matrix built us a custom CRM that integrated with our existing ERP system and automated our entire sales pipeline. Within 3 months of launch, our lead-to-close rate improved by 34% and our sales team saves roughly 12 hours per week on manual data entry.',
             rating: 5
         },
         {
-            name: 'Mr. John Davis',
-            role: 'Marketing Director',
-            content: 'Working with BD Matrix was an absolute pleasure. They understood our vision and delivered a CRM system that exceeded all our expectations. Highly recommended!',
+            name: 'Daniel Fischer',
+            role: 'Marketing Director at GreenLeaf Agency',
+            content: 'We hired BD Matrix to redesign our agency website and build a client portal from scratch. The new site loads in under 1.5 seconds, our bounce rate dropped by 41%, and the portal has saved us 20+ hours per month in client reporting alone.',
             rating: 5
         },
         {
-            name: 'Sarah Johnson',
-            role: 'Startup Founder',
-            content: 'The team at BD Matrix is incredibly talented and professional. They helped us launch our SaaS platform with a stunning interface and robust backend.',
+            name: 'Fatima Raza',
+            role: 'Founder at MedTrack Health',
+            content: 'BD Matrix developed our patient management mobile app with real-time appointment scheduling and health metrics tracking. We went from paper-based processes to a fully digital system that now serves over 2,000 patients monthly across three clinics.',
             rating: 5
         },
         {
-            name: 'Michael Chen',
-            role: 'Product Manager',
-            content: 'Exceptional service from start to finish. BD Matrix delivered our e-commerce platform on time and it has significantly boosted our online sales.',
+            name: 'Ryan Okonkwo',
+            role: 'Product Manager at CloudStack Inc.',
+            content: 'We needed a SaaS analytics dashboard built fast and built right. BD Matrix delivered a production-ready platform in 10 weeks with real-time data visualization and role-based access. Our customer onboarding time dropped from 5 days to under 24 hours.',
             rating: 5
         },
         {
-            name: 'Emily Roberts',
-            role: 'Creative Director',
-            content: 'BD Matrix\'s attention to detail and innovative approach made all the difference. Our brand now stands out in a crowded marketplace.',
+            name: 'Hira Siddiqui',
+            role: 'Operations Lead at QuickServe POS',
+            content: 'BD Matrix built our cloud-based POS system that handles inventory, billing, and staff management in one place. Since going live, our checkout speed improved by 28% and inventory discrepancies dropped to near zero across all 6 of our retail locations.',
             rating: 5
         }
     ];

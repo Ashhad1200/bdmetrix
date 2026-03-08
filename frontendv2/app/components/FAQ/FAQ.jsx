@@ -28,7 +28,7 @@ export default function FAQ() {
         },
         {
             question: 'Do you work with international clients?',
-            answer: 'Yes! BD Matrix serves businesses worldwide. Based in Canada and UK, now in Karachi, Pakistan, we have successfully delivered projects for clients across multiple continents and time zones.'
+            answer: 'Absolutely. BD Matrix primarily serves clients in Pakistan and Canada — these are our core markets where we maintain dedicated teams and local business presence. We also work with select clients in the Middle East and Europe. Our distributed team structure means we deliver seamlessly across time zones, with overlapping working hours and regular check-ins to keep every project on track.'
         }
     ];
 

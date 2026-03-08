@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -40,16 +39,17 @@ export default function Hero() {
                             </svg>
                         </Link>
                     </div>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--slate-body)', marginTop: '12px', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--profit-green)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                        Free 30-min consultation. No commitment.
+                    </p>
 
-                    {/* Trust Badges */}
+                    {/* Stats Bar */}
                     <div className={styles.trustBadges} data-aos="fade-up" data-aos-delay="350">
-                        <span className={styles.trustText}>Trusted by 50+ businesses globally</span>
-                        <div className={styles.clientLogos}>
-                            <Image src="/images/clients/client-logo-1.png" alt="Client Logo 1" width={80} height={32} className={styles.clientLogo} />
-                            <Image src="/images/clients/client-logo-2.png" alt="Client Logo 2" width={80} height={32} className={styles.clientLogo} />
-                            <Image src="/images/clients/client-logo-3.png" alt="Client Logo 3" width={80} height={32} className={styles.clientLogo} />
-                            <Image src="/images/clients/client-logo-4.png" alt="Client Logo 4" width={80} height={32} className={styles.clientLogo} />
-                        </div>
+                        <span className={styles.trustText}>50+ Projects Delivered</span>
+                        <span className={styles.trustText}>5+ Years Experience</span>
+                        <span className={styles.trustText}>3 Countries Served</span>
+                        <span className={styles.trustText}>98% Client Retention</span>
                     </div>
                 </div>
 

@@ -8,24 +8,28 @@ export default function Portfolio() {
         {
             id: 'medical-mobile-app',
             title: 'Medical Mobile Design & Development',
+            description: 'A private healthcare network needed a unified app for patient intake, appointment scheduling, and vitals tracking across multiple clinics. We designed and built a cross-platform mobile app with HIPAA-aware data handling and real-time doctor-patient communication. The client onboarded 2,000+ patients in the first quarter, reducing front-desk wait times by 40%.',
             tags: ['Mobile App', 'UI/UX Design'],
             image: '/images/projects/medical-app.png'
         },
         {
             id: 'stacks-website',
             title: 'Stacks Website Design & Coding',
+            description: 'A B2B SaaS startup needed a high-converting marketing site with an integrated analytics dashboard for their existing product. We built a blazing-fast Next.js site with custom animations, a live demo sandbox, and embedded analytics views. The new site achieved a 92 Lighthouse score and increased demo signups by 3.2x within 60 days of launch.',
             tags: ['Web Design', 'Development'],
             image: '/images/projects/website-design.png'
         },
         {
             id: 'financial-wallet',
             title: 'Financial & Wallet Website Design',
+            description: 'A fintech company required a secure crypto wallet interface with portfolio tracking, transaction history, and real-time market data feeds. We delivered a responsive web application with multi-currency support, two-factor authentication, and institutional-grade encryption. The platform processed over $1.2M in transactions within its first 3 months of operation.',
             tags: ['Fintech', 'UI/UX Design'],
             image: '/images/projects/fintech-wallet.png'
         },
         {
             id: 'sales-management-app',
             title: 'Sales Management Mobile App Design',
+            description: 'An enterprise client with a 40-person sales team needed a mobile CRM to replace spreadsheets and disconnected tools. We built a custom mobile app with lead scoring, pipeline visualization, automated follow-up reminders, and manager dashboards. The sales team reported a 27% increase in quarterly revenue and cut their reporting time by over 60%.',
             tags: ['Mobile App', 'Enterprise'],
             image: '/images/projects/sales-app.png'
         }
@@ -83,6 +87,9 @@ export default function Portfolio() {
                                     ))}
                                 </div>
                                 <h3 className={styles.projectTitle}>{project.title}</h3>
+                                {project.description && (
+                                    <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '10px', opacity: 0.8 }}>{project.description}</p>
+                                )}
                             </div>
                         </div>
                     ))}

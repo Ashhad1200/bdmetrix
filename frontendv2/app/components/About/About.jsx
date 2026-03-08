@@ -9,10 +9,9 @@ export default function About() {
     ];
 
     const team = [
-        { name: 'John Doe', role: 'Lead Developer', image: '/images/team/member-1.png' },
-        { name: 'Jane Smith', role: 'UI/UX Designer', image: '/images/team/member-2.png' },
-        { name: 'Ali Khan', role: 'Full Stack Engineer', image: '/images/team/member-3.png' },
-        { name: 'Sara Ahmed', role: 'Project Manager', image: '/images/team/member-4.png' },
+        { name: 'Syed Ashhad', role: 'CEO, Founder & Lead Developer', bio: 'Syed Ashhad founded BD Matrix to deliver software that solves real business problems, not cookie-cutter templates. He leads both strategy and development, combining hands-on technical expertise with a deep understanding of what businesses actually need to grow.', image: '/images/team/member-1.png' },
+        { name: 'Abdul Rafay', role: 'Co-Founder', bio: 'Abdul Rafay co-founded BD Matrix and plays a key role in shaping the company\'s vision, partnerships, and operational strategy. His business acumen and client-first approach have been instrumental in scaling BD Matrix across multiple markets.', image: '/images/team/member-2.png' },
+        { name: 'Abdullah Farooqui', role: 'Media & Sales Lead', bio: 'Abdullah drives BD Matrix\'s brand presence, lead generation, and client outreach across all digital channels. From social media strategy to closing deals, he ensures the right clients find BD Matrix and have a seamless experience from first contact to kickoff.', image: '/images/team/member-3.png' },
     ];
 
     return (
@@ -33,17 +32,17 @@ export default function About() {
                         <div className={styles.founderImageWrapper}>
                             <Image
                                 src="/images/team/founder.png"
-                                alt="Founder of BD Matrix"
+                                alt="Syed Ashhad - Founder of BD Matrix"
                                 width={400}
                                 height={480}
                                 className={styles.founderImage}
                             />
                         </div>
                         <div className={styles.founderStory}>
-                            <h3 className={styles.founderName}>Our Founder</h3>
+                            <h3 className={styles.founderName}>Syed Ashhad — Founder</h3>
                             <p className={styles.founderText}>
                                 BD Matrix was born from a simple frustration: businesses everywhere were being sold
-                                cookie-cutter digital solutions that didn't fit their real-world needs. Our founder
+                                cookie-cutter digital solutions that didn't fit their real-world needs. Syed Ashhad
                                 started this company to bridge the gap — combining deep technical expertise with a
                                 genuine understanding of how businesses operate, to deliver software that actually
                                 drives growth and efficiency.
@@ -105,6 +104,7 @@ export default function About() {
                             </div>
                             <h4 className={styles.teamName}>{member.name}</h4>
                             <p className={styles.teamRole}>{member.role}</p>
+                            <p style={{ fontSize: '0.8rem', color: 'var(--slate-body)', lineHeight: 1.6, marginTop: '8px', opacity: 0.85 }}>{member.bio}</p>
                         </div>
                     ))}
                 </div>
