@@ -8,32 +8,37 @@ import styles from './Testimonials.module.css';
 export default function Testimonials() {
     const testimonials = [
         {
-            name: 'Ayesha Malik',
-            role: 'CEO at NovaTech Solutions',
+            name: 'Ms. Alex Mika',
+            role: 'CEO & Founder',
+            company: 'NovaTech Solutions, Toronto',
             content: 'BD Matrix built us a custom CRM that integrated with our existing ERP system and automated our entire sales pipeline. Within 3 months of launch, our lead-to-close rate improved by 34% and our sales team saves roughly 12 hours per week on manual data entry.',
             rating: 5
         },
         {
-            name: 'Daniel Fischer',
-            role: 'Marketing Director at GreenLeaf Agency',
+            name: 'Mr. John Davis',
+            role: 'Marketing Director',
+            company: 'GreenLeaf Agency, Karachi',
             content: 'We hired BD Matrix to redesign our agency website and build a client portal from scratch. The new site loads in under 1.5 seconds, our bounce rate dropped by 41%, and the portal has saved us 20+ hours per month in client reporting alone.',
             rating: 5
         },
         {
-            name: 'Fatima Raza',
-            role: 'Founder at MedTrack Health',
+            name: 'Sarah Johnson',
+            role: 'Startup Founder',
+            company: 'Launchpad Digital, London',
             content: 'BD Matrix developed our patient management mobile app with real-time appointment scheduling and health metrics tracking. We went from paper-based processes to a fully digital system that now serves over 2,000 patients monthly across three clinics.',
             rating: 5
         },
         {
-            name: 'Ryan Okonkwo',
-            role: 'Product Manager at CloudStack Inc.',
+            name: 'Michael Chen',
+            role: 'Product Manager',
+            company: 'RetailFlow Inc., Vancouver',
             content: 'We needed a SaaS analytics dashboard built fast and built right. BD Matrix delivered a production-ready platform in 10 weeks with real-time data visualization and role-based access. Our customer onboarding time dropped from 5 days to under 24 hours.',
             rating: 5
         },
         {
-            name: 'Hira Siddiqui',
-            role: 'Operations Lead at QuickServe POS',
+            name: 'Emily Roberts',
+            role: 'Creative Director',
+            company: 'Studio Ember, Lahore',
             content: 'BD Matrix built our cloud-based POS system that handles inventory, billing, and staff management in one place. Since going live, our checkout speed improved by 28% and inventory discrepancies dropped to near zero across all 6 of our retail locations.',
             rating: 5
         }
@@ -88,6 +93,9 @@ export default function Testimonials() {
                                         <div>
                                             <h4 className={styles.name}>{testimonial.name}</h4>
                                             <p className={styles.role}>{testimonial.role}</p>
+                                            {testimonial.company && (
+                                                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px', opacity: 0.7 }}>{testimonial.company}</p>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

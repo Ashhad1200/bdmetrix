@@ -31,7 +31,7 @@ export default function About() {
                     <div className={styles.founderSection} data-aos="fade-right">
                         <div className={styles.founderImageWrapper}>
                             <Image
-                                src="/images/team/founder.png"
+                                src="/images/team/member-1.png"
                                 alt="Syed Ashhad - Founder of BD Matrix"
                                 width={400}
                                 height={480}
@@ -73,15 +73,11 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* Team Photo */}
-                <div className={styles.teamPhotoWrapper} data-aos="fade-up">
-                    <Image
-                        src="/images/team/team-photo.png"
-                        alt="BD Matrix Team"
-                        width={1200}
-                        height={500}
-                        className={styles.teamPhoto}
-                    />
+                {/* Team Tagline */}
+                <div className={styles.teamPhotoWrapper} data-aos="fade-up" style={{ background: 'var(--navy-fortress, #0f172a)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', minHeight: '200px' }}>
+                    <p style={{ color: '#fff', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, textAlign: 'center', lineHeight: 1.4, margin: 0 }}>
+                        A small, focused team. <span style={{ color: 'var(--profit-green, #10b981)' }}>Big on delivery.</span>
+                    </p>
                 </div>
 
                 {/* Team Members Grid */}

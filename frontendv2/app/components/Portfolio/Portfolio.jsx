@@ -8,28 +8,28 @@ export default function Portfolio() {
         {
             id: 'medical-mobile-app',
             title: 'Medical Mobile Design & Development',
-            description: 'A private healthcare network needed a unified app for patient intake, appointment scheduling, and vitals tracking across multiple clinics. We designed and built a cross-platform mobile app with HIPAA-aware data handling and real-time doctor-patient communication. The client onboarded 2,000+ patients in the first quarter, reducing front-desk wait times by 40%.',
+            description: 'A healthcare provider needed a patient-facing mobile app to manage appointments and medical records. We designed and built a clean, HIPAA-conscious interface with appointment booking, prescription tracking, and push notifications. The app launched in 8 weeks and achieved a 4.7-star rating in its first month.',
             tags: ['Mobile App', 'UI/UX Design'],
             image: '/images/projects/medical-app.png'
         },
         {
             id: 'stacks-website',
             title: 'Stacks Website Design & Coding',
-            description: 'A B2B SaaS startup needed a high-converting marketing site with an integrated analytics dashboard for their existing product. We built a blazing-fast Next.js site with custom animations, a live demo sandbox, and embedded analytics views. The new site achieved a 92 Lighthouse score and increased demo signups by 3.2x within 60 days of launch.',
+            description: 'Stacks needed a high-performance marketing website to support their product launch and drive sign-ups. We built a fully responsive Next.js site with custom animations, SEO optimization, and a 94 Lighthouse performance score. The site went live in 3 weeks and conversion rates exceeded their initial target by 40%.',
             tags: ['Web Design', 'Development'],
             image: '/images/projects/website-design.png'
         },
         {
             id: 'financial-wallet',
             title: 'Financial & Wallet Website Design',
-            description: 'A fintech company required a secure crypto wallet interface with portfolio tracking, transaction history, and real-time market data feeds. We delivered a responsive web application with multi-currency support, two-factor authentication, and institutional-grade encryption. The platform processed over $1.2M in transactions within its first 3 months of operation.',
+            description: 'A fintech startup required a trust-building web presence for their digital wallet product targeting young professionals. We designed a modern, conversion-focused landing page with interactive UI elements and a seamless onboarding flow. The design helped them close their first round of seed funding within 60 days of launch.',
             tags: ['Fintech', 'UI/UX Design'],
             image: '/images/projects/fintech-wallet.png'
         },
         {
             id: 'sales-management-app',
             title: 'Sales Management Mobile App Design',
-            description: 'An enterprise client with a 40-person sales team needed a mobile CRM to replace spreadsheets and disconnected tools. We built a custom mobile app with lead scoring, pipeline visualization, automated follow-up reminders, and manager dashboards. The sales team reported a 27% increase in quarterly revenue and cut their reporting time by over 60%.',
+            description: 'An enterprise sales team was struggling with lost leads and no visibility into their pipeline. We built a custom mobile CRM and sales management app with real-time dashboards, lead tracking, and automated follow-up reminders. The client reported a 35% increase in lead conversion within the first quarter.',
             tags: ['Mobile App', 'Enterprise'],
             image: '/images/projects/sales-app.png'
         }
