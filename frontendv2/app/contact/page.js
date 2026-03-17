@@ -17,7 +17,6 @@ export default function ContactPage() {
         timeline: '',
         message: ''
     });
-    const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -50,10 +49,8 @@ export default function ContactPage() {
                     value: formData.budget || 'Not specified',
                 });
 
-                // Show success state
-                setSubmitted(true);
-                // Optional: Redirect to thank you page after delay or immediately
-                // router.push('/thank-you'); 
+                // Redirect to thank you page
+                router.push('/thank-you');
             } else {
                 console.error('Submission failed:', data.message);
                 alert(data.message || 'Something went wrong. Please try again.');
@@ -198,17 +195,7 @@ export default function ContactPage() {
                                 <h2 className={styles.formTitle}>Contact Us</h2>
                                 <p className={styles.requiredNote}>Your email address will not be published. Required fields are marked *</p>
 
-                                {submitted ? (
-                                    <div className={styles.successMessage}>
-                                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                            <polyline points="22 4 12 14.01 9 11.01" />
-                                        </svg>
-                                        <h3>Thank You!</h3>
-                                        <p>Your message has been sent successfully. We'll get back to you soon.</p>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit}>
                                         <div className={styles.formRow}>
                                             <div className={styles.formGroup}>
                                                 <input
@@ -304,8 +291,7 @@ export default function ContactPage() {
                                                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
                                             </svg>
                                         </button>
-                                    </form>
-                                )}
+                                </form>
                             </div>
                         </div>
                     </div>
