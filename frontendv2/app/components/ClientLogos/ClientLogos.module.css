@@ -1,0 +1,93 @@
+.section {
+    background: #F8FAFC;
+    padding: 40px 0 50px;
+    border-top: 1px solid #E2E8F0;
+    border-bottom: 1px solid #E2E8F0;
+    overflow: hidden;
+}
+
+/* "Clients We've Served" label */
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #94A3B8;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    background: #10B981;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Mask fades on edges */
+.tickerWrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.ticker {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: scrollTicker 28s linear infinite;
+}
+
+.ticker:hover {
+    animation-play-state: paused;
+}
+
+/* Each client item */
+.clientItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 48px;
+    border-right: 1px solid #E2E8F0;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.clientItem:hover .clientName {
+    color: #10B981;
+}
+
+.clientName {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #94A3B8;
+    letter-spacing: 0.03em;
+    transition: color 0.3s;
+}
+
+@keyframes scrollTicker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 32px 0 40px;
+    }
+
+    .label {
+        font-size: 0.7rem;
+        margin-bottom: 24px;
+    }
+
+    .clientItem {
+        padding: 10px 24px;
+    }
+
+    .clientName {
+        font-size: 0.9rem;
+    }
+}

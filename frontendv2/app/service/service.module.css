@@ -1,11 +1,13 @@
 .main {
     padding-top: 100px;
+    background-color: #0F172A;
 }
 
-/* Hero */
 .hero {
     padding: 80px 0 100px;
     text-align: center;
+    background-color: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
 }
 
 .container {
@@ -16,32 +18,34 @@
 
 .title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .accent {
-    color: var(--accent);
+    color: #10B981;
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
 }
 
-/* Services */
 .services {
     padding-bottom: 100px;
+    padding-top: 60px;
 }
 
 .serviceCard {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
     padding: 50px;
     margin-bottom: 30px;
     display: grid;
@@ -49,18 +53,20 @@
     gap: 50px;
     align-items: start;
     transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .serviceCard:hover {
-    border-color: var(--glass-border-hover);
-    transform: translateX(10px);
+    border-color: rgba(16,185,129,0.3);
+    transform: translateX(6px);
+    box-shadow: 0 20px 40px rgba(16,185,129,0.08);
 }
 
 .serviceNumber {
     font-size: 5rem;
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 2px var(--accent);
+    -webkit-text-stroke: 2px rgba(16,185,129,0.4);
     line-height: 1;
 }
 
@@ -68,11 +74,12 @@
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 15px;
+    color: #0F172A;
 }
 
 .serviceDesc {
     font-size: 1.05rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
     line-height: 1.7;
     margin-bottom: 25px;
 }
@@ -88,11 +95,11 @@
     align-items: center;
     gap: 10px;
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
 }
 
 .checkmark {
-    color: var(--accent);
+    color: #10B981;
     font-weight: 700;
 }
 
@@ -101,37 +108,36 @@
     align-items: center;
     gap: 10px;
     padding: 16px 32px;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    color: #0F172A;
     font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    font-weight: 700;
+    border-radius: 8px;
     transition: all 0.3s ease;
     white-space: nowrap;
     align-self: center;
+    cursor: pointer;
+    border: none;
 }
 
 .serviceLink:hover {
-    background: var(--accent-hover);
+    background: #059669;
     transform: translateY(-2px);
-    box-shadow: var(--glow-accent);
+    box-shadow: 0 8px 24px rgba(16,185,129,0.3);
 }
 
-/* Key Outcomes */
 .outcomes {
     margin-bottom: 25px;
     padding: 20px;
-    background: rgba(183, 255, 0, 0.05);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(183, 255, 0, 0.1);
+    background: rgba(16,185,129,0.06);
+    border-radius: 8px;
+    border: 1px solid rgba(16,185,129,0.15);
 }
 
 .outcomesTitle {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--accent);
+    color: #10B981;
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -147,31 +153,32 @@
     align-items: center;
     gap: 10px;
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: #0F172A;
 }
 
 .outcomeCheck {
-    color: var(--accent);
+    color: #10B981;
     font-weight: bold;
 }
 
-/* CTA Section */
 .ctaSection {
-    background: var(--glass-bg);
-    border-top: 1px solid var(--glass-border);
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
     padding: 100px 0;
     text-align: center;
 }
 
 .ctaTitle {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 20px;
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .ctaDesc {
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
     margin-bottom: 40px;
 }
 
@@ -180,23 +187,22 @@
     align-items: center;
     gap: 12px;
     padding: 20px 44px;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    color: #0F172A;
     font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
+    font-weight: 700;
+    border-radius: 8px;
     transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
 }
 
 .ctaButton:hover {
-    background: var(--accent-hover);
+    background: #059669;
     transform: translateY(-3px);
-    box-shadow: var(--glow-accent);
+    box-shadow: 0 12px 32px rgba(16,185,129,0.3);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .serviceCard {
         grid-template-columns: 80px 1fr;
@@ -246,3 +252,4 @@
         padding: 60px 0;
     }
 }
+

@@ -1,7 +1,7 @@
 .footer {
     padding: 80px 0 40px;
-    background: var(--bg-dark-secondary);
-    border-top: 1px solid var(--glass-border);
+    background: #060C18;
+    border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .container {
@@ -10,16 +10,14 @@
     padding: 0 40px;
 }
 
-/* Top Section */
 .topSection {
     display: grid;
     grid-template-columns: 1.5fr 2fr 1.2fr;
     gap: 60px;
     padding-bottom: 60px;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Brand Section */
 .brandSection {
     display: flex;
     flex-direction: column;
@@ -28,14 +26,15 @@
 .logo {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #ffffff;
     margin-bottom: 20px;
+    letter-spacing: -0.02em;
 }
 
 .brandDesc {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 25px;
 }
 
@@ -50,20 +49,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 50%;
-    color: var(--text-secondary);
+    color: #94A3B8;
     transition: all 0.3s ease;
 }
 
 .socialLink:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    border-color: #10B981;
+    color: #ffffff;
 }
 
-/* Links Section */
 .linksSection {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -77,20 +75,20 @@
 
 .linkTitle {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 25px;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .footerLink {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 12px;
     transition: color 0.3s ease;
 }
 
 .footerLink:hover {
-    color: var(--accent);
+    color: #10B981;
 }
 
 .contactItem {
@@ -98,7 +96,7 @@
     align-items: flex-start;
     gap: 12px;
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 15px;
     line-height: 1.5;
 }
@@ -106,10 +104,9 @@
 .contactItem svg {
     flex-shrink: 0;
     margin-top: 3px;
-    color: var(--accent);
+    color: #10B981;
 }
 
-/* Newsletter Section */
 .newsletterSection {
     display: flex;
     flex-direction: column;
@@ -117,7 +114,7 @@
 
 .newsletterDesc {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #475569;
     margin-bottom: 20px;
     line-height: 1.6;
 }
@@ -130,30 +127,30 @@
 .newsletterInput {
     flex: 1;
     padding: 14px 20px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    color: #ffffff;
     font-size: 0.95rem;
     transition: border-color 0.3s ease;
 }
 
 .newsletterInput::placeholder {
-    color: var(--text-muted);
+    color: #475569;
 }
 
 .newsletterInput:focus {
     outline: none;
-    border-color: var(--accent);
+    border-color: #10B981;
 }
 
 .newsletterBtn {
     width: 50px;
     height: 50px;
-    background: var(--accent);
+    background: #10B981;
     border: none;
-    border-radius: var(--radius-md);
-    color: var(--bg-dark);
+    border-radius: 8px;
+    color: #ffffff;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -162,21 +159,20 @@
 }
 
 .newsletterBtn:hover {
-    background: var(--accent-hover);
+    background: #059669;
     transform: translateY(-2px);
 }
 
 .successMessage {
     padding: 14px 20px;
-    background: rgba(183, 255, 0, 0.1);
-    border: 1px solid var(--accent);
-    border-radius: var(--radius-md);
-    color: var(--accent);
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 8px;
+    color: #10B981;
     font-size: 0.95rem;
     font-weight: 500;
 }
 
-/* Bottom Section */
 .bottomSection {
     display: flex;
     justify-content: space-between;
@@ -186,7 +182,7 @@
 
 .copyright {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #475569;
 }
 
 .bottomLinks {
@@ -196,19 +192,22 @@
 
 .bottomLink {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #475569;
     transition: color 0.3s ease;
 }
 
 .bottomLink:hover {
-    color: var(--accent);
+    color: #10B981;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .topSection {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .container {
+        padding: 0 30px;
     }
 
     .linksSection {
@@ -243,8 +242,8 @@
     }
 
     .socialLink {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
     }
 
     .linksSection {

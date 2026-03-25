@@ -74,9 +74,9 @@ export default function About() {
                 </div>
 
                 {/* Team Tagline */}
-                <div className={styles.teamPhotoWrapper} data-aos="fade-up" style={{ background: 'var(--navy-fortress, #0f172a)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', minHeight: '200px' }}>
-                    <p style={{ color: '#fff', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, textAlign: 'center', lineHeight: 1.4, margin: 0 }}>
-                        A small, focused team. <span style={{ color: 'var(--profit-green, #10b981)' }}>Big on delivery.</span>
+                <div className={styles.teamPhotoWrapper} data-aos="fade-up" style={{ background: '#F0FDF4', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', minHeight: '200px' }}>
+                    <p style={{ color: '#0F172A', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, textAlign: 'center', lineHeight: 1.4, margin: 0 }}>
+                        A small, focused team. <span style={{ color: '#10b981' }}>Big on delivery.</span>
                     </p>
                 </div>
 
@@ -100,7 +100,7 @@ export default function About() {
                             </div>
                             <h4 className={styles.teamName}>{member.name}</h4>
                             <p className={styles.teamRole}>{member.role}</p>
-                            <p style={{ fontSize: '0.8rem', color: 'var(--slate-body)', lineHeight: 1.6, marginTop: '8px', opacity: 0.85 }}>{member.bio}</p>
+                            <p style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.6, marginTop: '8px' }}>{member.bio}</p>
                         </div>
                     ))}
                 </div>

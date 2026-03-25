@@ -1,5 +1,6 @@
 /* ========================================
    BD MATRIX - Global Styles & Design System
+   Light / White Premium Theme
    ======================================== */
 
 @import "tailwindcss";
@@ -8,39 +9,43 @@
    CSS Variables - Design Tokens
    ======================================== */
 :root {
-  /* Core Palette (Corporate Fintech) */
-  --navy-fortress: #0F172A; /* Primary - Structure (30%) */
-  --profit-green: #10B981;  /* Secondary - Action (10%) */
+  /* Light Theme Palette */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-card: #E2E8F0;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --accent: #10B981;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16,185,129,0.12);
+  --gradient-light: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+
+  /* Legacy variable aliases (keep for backward compat) */
+  --navy-fortress: #0F172A;
+  --profit-green: #10B981;
   --profit-green-dark: #059669;
-  --pure-white: #FFFFFF;    /* Dominant - Canvas (60%) */
-  --slate-50: #F8FAFC;      /* Alternating Background */
-  --slate-body: #334155;    /* Text Body */
-  --slate-light: #64748B;   /* Text Secondary */
-  --slate-muted: #94A3B8;   /* Text Muted */
-  --alert-gold: #F59E0B;    /* Accent/Alert */
+  --pure-white: #FFFFFF;
+  --slate-50: #F8FAFC;
+  --slate-body: #475569;
+  --slate-light: #64748B;
+  --slate-muted: #94A3B8;
+  --alert-gold: #F59E0B;
 
-  /* Mapped Variables (Legacy Support + Refactor) */
-  --bg-dark: var(--pure-white);             /* Was Black, now White */
-  --bg-dark-secondary: var(--slate-50);     /* Was Dark Grey, now Light Grey */
-  --accent: var(--profit-green);            /* Was Lime, now Green */
-  --accent-hover: var(--profit-green-dark);
-  
-  --text-primary: var(--slate-body);        /* Was White, now Slate */
-  --text-secondary: var(--slate-light);
-  --text-muted: var(--slate-muted);
+  --bg-dark: #0F172A;
+  --bg-dark-secondary: #1E293B;
 
-  --heading-color: var(--navy-fortress);
+  --heading-color: #0F172A;
 
-  /* Glassmorphism -> Card Style */
-  --glass-bg: #FFFFFF;
-  --glass-bg-hover: #F8FAFC;
-  --glass-border: rgba(15, 23, 42, 0.1);
-  --glass-border-hover: rgba(16, 185, 129, 0.3);
+  --glass-bg: rgba(0,0,0,0.02);
+  --glass-bg-hover: rgba(0,0,0,0.03);
+  --glass-border: #E2E8F0;
+  --glass-border-hover: rgba(16,185,129,0.4);
 
-  /* Shadows & Effects */
-  --glow-accent: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
-  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+  --glow-accent: 0 0 30px rgba(16,185,129,0.15);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
 
   /* Spacing */
   --section-padding: 100px 0;
@@ -52,7 +57,7 @@
   --font-size-h1: clamp(2.5rem, 5vw, 4rem);
   --font-size-h2: clamp(2rem, 4vw, 3rem);
   --font-size-h3: clamp(1.5rem, 3vw, 2rem);
-  --font-size-body: 1.125rem; /* Increased for readability */
+  --font-size-body: 1.125rem;
   --font-size-small: 0.875rem;
 
   /* Transitions */
@@ -83,8 +88,8 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
+  background-color: #FFFFFF;
+  color: #0F172A;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -185,22 +190,22 @@ button {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.1); /* Light Green */
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   border-radius: var(--radius-full);
   font-size: var(--font-size-small);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--navy-fortress);
+  letter-spacing: 0.08em;
+  color: #059669;
   margin-bottom: 20px;
 }
 
 .pill-tag::before {
   content: '';
-  width: 8px;
-  height: 8px;
-  background: var(--profit-green);
+  width: 6px;
+  height: 6px;
+  background: #10B981;
   border-radius: 50%;
 }
 
@@ -217,33 +222,35 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-radius: var(--radius-md); /* Professional rounded corners */
+  border-radius: var(--radius-md);
   transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary {
-  background: var(--profit-green);
-  color: var(--pure-white);
-  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+  background: #10B981;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--profit-green-dark);
+  background: #059669;
   transform: translateY(-2px);
-  box-shadow: 0 6px 10px -1px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.3);
 }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--navy-fortress);
-  color: var(--navy-fortress);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #0F172A;
 }
 
 .btn-outline:hover {
-  background: var(--navy-fortress);
-  color: var(--pure-white);
+  border-color: #10B981;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.04);
 }
 
 .btn-icon {
@@ -251,34 +258,33 @@ button {
   height: 50px;
   padding: 0;
   border-radius: 50%;
-  background: var(--pure-white);
-  border: 1px solid var(--glass-border);
-  color: var(--navy-fortress);
-  box-shadow: var(--shadow-card);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid #E2E8F0;
+  color: #0F172A;
 }
 
 .btn-icon:hover {
-  background: var(--navy-fortress);
-  color: var(--pure-white);
-  border-color: var(--navy-fortress);
+  background: #10B981;
+  color: #ffffff;
+  border-color: #10B981;
 }
 
 /* ========================================
-   Cards (Was Glassmorphism)
+   Cards
    ======================================== */
 .glass-card {
-  background: var(--pure-white);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
   padding: 30px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   transition: var(--transition-normal);
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--profit-green);
+  transform: translateY(-4px);
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.1);
 }
 
 /* ========================================
@@ -290,28 +296,17 @@ button {
   height: 500px;
   border-radius: 50%;
   filter: blur(150px);
-  opacity: 0.15; /* Subtler */
+  opacity: 0.08;
   pointer-events: none;
   z-index: -1;
 }
 
 .bg-glow-accent {
-  background: var(--profit-green);
-}
-
-.bg-glow-purple {
-  background: var(--navy-fortress);
+  background: #10B981;
 }
 
 .bg-glow-blue {
-  background: #0EA5E9; /* Sky Blue */
-}
-
-.decorative-circle {
-  position: absolute;
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  pointer-events: none;
+  background: #0EA5E9;
 }
 
 /* Outlined background text */
@@ -320,7 +315,7 @@ button {
   font-size: clamp(100px, 15vw, 300px);
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(15, 23, 42, 0.05); /* Navy stroke */
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.04);
   text-transform: uppercase;
   pointer-events: none;
   z-index: 0;
@@ -333,23 +328,24 @@ button {
 .form-input {
   width: 100%;
   padding: 16px 24px;
-  background: var(--pure-white);
-  border: 1px solid var(--glass-border);
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-md);
-  color: var(--navy-fortress);
+  color: #0F172A;
   font-size: var(--font-size-body);
   font-family: inherit;
   transition: var(--transition-fast);
 }
 
 .form-input::placeholder {
-  color: var(--text-muted);
+  color: #94A3B8;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: var(--profit-green);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  border-color: #10B981;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
 }
 
 .form-textarea {
@@ -439,7 +435,7 @@ button {
    Swiper Custom Styles
    ======================================== */
 .swiper-pagination-bullet {
-  background: var(--text-muted) !important;
+  background: #CBD5E1 !important;
   opacity: 1 !important;
 }
 
@@ -455,20 +451,20 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: #10B981;
 }
 
 /* Selection */
 ::selection {
-  background: var(--accent);
-  color: var(--bg-dark);
+  background: #10B981;
+  color: #FFFFFF;
 }

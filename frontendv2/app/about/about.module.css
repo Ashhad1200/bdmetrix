@@ -1,14 +1,14 @@
 .main {
     padding-top: 100px;
-    background-color: var(--pure-white);
+    background-color: #0F172A;
 }
 
-/* Hero */
 .hero {
     padding: 80px 0 100px;
     text-align: center;
     position: relative;
-    background-color: var(--pure-white);
+    background-color: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
 }
 
 .container {
@@ -19,28 +19,28 @@
 
 .title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: var(--navy-fortress);
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .accent {
-    color: var(--profit-green);
+    color: #10B981;
 }
 
 .subtitle {
     font-size: 1.25rem;
-    color: var(--slate-light);
+    color: #94A3B8;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.7;
 }
 
-/* Story */
 .story {
     padding: 120px 0;
-    background: var(--slate-50); /* Alternating background */
+    background: #FFFFFF;
 }
 
 .storyGrid {
@@ -52,15 +52,16 @@
 
 .storyTitle {
     font-size: clamp(2rem, 4vw, 2.5rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
     margin-bottom: 25px;
-    color: var(--navy-fortress);
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .storyText {
     font-size: 1.1rem;
-    color: var(--slate-body);
+    color: #94A3B8;
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -72,19 +73,19 @@
 }
 
 .statItem {
-    background: var(--pure-white);
-    border: 1px solid rgba(15, 23, 42, 0.05);
-    border-radius: var(--radius-lg);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
     padding: 35px 25px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .statItem:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(16,185,129,0.3);
+    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
 }
 
 .statItem:last-child {
@@ -95,7 +96,7 @@
     display: block;
     font-size: 3rem;
     font-weight: 800;
-    color: var(--profit-green);
+    color: #10B981;
     line-height: 1;
     margin-bottom: 10px;
 }
@@ -103,15 +104,14 @@
 .statLabel {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--navy-fortress);
+    color: #0F172A;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-/* Values */
 .values {
     padding: 120px 0;
-    background-color: var(--pure-white);
+    background-color: #F8FAFC;
 }
 
 .valuesHeader {
@@ -121,9 +121,10 @@
 
 .valuesTitle {
     font-size: clamp(2rem, 4vw, 2.5rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
-    color: var(--navy-fortress);
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .valuesGrid {
@@ -133,47 +134,46 @@
 }
 
 .valueCard {
-    background: var(--pure-white);
-    border: 1px solid rgba(15, 23, 42, 0.05);
-    border-radius: var(--radius-lg);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
     padding: 40px 30px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .valueCard:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(16,185,129,0.3);
+    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
 }
 
 .valueIcon {
     width: 70px;
     height: 70px;
-    background: rgba(16, 185, 129, 0.1);
-    border-radius: var(--radius-md);
+    background: rgba(16,185,129,0.1);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 25px;
-    color: var(--profit-green);
+    color: #10B981;
 }
 
 .valueTitle {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--navy-fortress);
+    color: #0F172A;
     margin-bottom: 15px;
 }
 
 .valueDesc {
     font-size: 1rem;
-    color: var(--slate-body);
+    color: #94A3B8;
     line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .storyGrid {
         grid-template-columns: 1fr;
@@ -201,6 +201,10 @@
 
     .storyStats {
         grid-template-columns: 1fr;
+    }
+
+    .statItem:last-child {
+        grid-column: 1;
     }
 
     .valuesGrid {

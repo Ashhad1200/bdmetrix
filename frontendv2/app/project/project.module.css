@@ -1,11 +1,13 @@
 .main {
     padding-top: 100px;
+    background-color: #0F172A;
 }
 
-/* Hero */
 .hero {
     padding: 80px 0 100px;
     text-align: center;
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
 }
 
 .container {
@@ -16,26 +18,27 @@
 
 .title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .accent {
-    color: var(--accent);
+    color: #10B981;
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
 }
 
-/* Projects */
 .projects {
-    padding-bottom: 100px;
+    padding: 60px 0 100px;
 }
 
 .projectsGrid {
@@ -46,22 +49,24 @@
 
 .projectCard {
     display: block;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .projectCard:hover {
-    border-color: var(--glass-border-hover);
-    transform: translateY(-5px);
+    border-color: rgba(16,185,129,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
 }
 
 .projectImage {
     position: relative;
     height: 280px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
     overflow: hidden;
 }
 
@@ -70,7 +75,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--text-muted);
+    color: #475569;
 }
 
 .projectOverlay {
@@ -79,7 +84,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,19 +99,19 @@
 .plusIcon {
     width: 60px;
     height: 60px;
-    border: 2px solid var(--accent);
+    border: 2px solid #10B981;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: var(--accent);
+    color: #10B981;
     transition: all 0.3s ease;
 }
 
 .projectCard:hover .plusIcon {
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    color: #0F172A;
 }
 
 .projectInfo {
@@ -121,23 +126,75 @@
 }
 
 .projectTag {
-    padding: 6px 14px;
+    padding: 5px 12px;
     background: transparent;
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    color: #10B981;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .projectTitle {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     line-height: 1.4;
+    color: #0F172A;
+    margin-bottom: 10px;
 }
 
-/* Responsive */
+.projectDesc {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ctaSection {
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #0F172A;
+    letter-spacing: -0.02em;
+}
+
+.ctaDesc {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    margin-bottom: 40px;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 44px;
+    background: #10B981;
+    color: #0F172A;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background: #059669;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(16,185,129,0.3);
+}
+
 @media (max-width: 1024px) {
     .projectsGrid {
         grid-template-columns: repeat(2, 1fr);
@@ -155,5 +212,13 @@
 
     .projectsGrid {
         grid-template-columns: 1fr;
+    }
+
+    .projectImage {
+        height: 200px;
+    }
+
+    .ctaSection {
+        padding: 60px 0;
     }
 }

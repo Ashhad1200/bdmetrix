@@ -3,6 +3,13 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 
+const DiagonalArrow = () => (
+    <svg width="14" height="14" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.14 1.527L4.473 20.14" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4.689 3.589L18.14 1.527L20.201 14.978" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,9 +48,12 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* CTA Button */}
+                {/* CTA Button — Cubix pill style */}
                 <Link href="/contact" className={styles.ctaButton}>
-                    Let's Talk
+                    Let's Discuss
+                    <span className={styles.ctaArrow}>
+                        <DiagonalArrow />
+                    </span>
                 </Link>
 
                 {/* Mobile Menu Button */}
@@ -72,7 +82,7 @@ export default function Header() {
                         </Link>
                     ))}
                     <Link href="/contact" className={styles.mobileCta}>
-                        Let's Talk
+                        Let's Discuss Your Idea
                     </Link>
                 </nav>
             </div>

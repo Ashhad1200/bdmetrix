@@ -4,16 +4,18 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 20px 0;
-    transition: all 0.3s ease;
+    padding: 24px 0;
+    transition: all 0.35s ease;
+    background: transparent;
 }
 
 .header.scrolled {
-    background: rgba(255, 255, 255, 0.95); /* White Frosted Glass */
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(20px);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .container {
@@ -35,7 +37,7 @@
 .logoText {
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--navy-fortress); /* Navy Logo */
+    color: #0F172A;
     letter-spacing: -0.02em;
 }
 
@@ -49,13 +51,13 @@
 .navLink {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--slate-body);
+    color: #475569;
     transition: color 0.3s ease;
     position: relative;
 }
 
 .navLink:hover {
-    color: var(--navy-fortress);
+    color: #0F172A;
 }
 
 .navLink::after {
@@ -65,7 +67,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--profit-green);
+    background: #10B981;
     transition: width 0.3s ease;
 }
 
@@ -73,26 +75,41 @@
     width: 100%;
 }
 
-/* CTA Button */
+/* CTA Button — Cubix style: pill with diagonal arrow */
 .ctaButton {
     display: inline-flex;
     align-items: center;
-    padding: 12px 28px;
-    background: var(--profit-green);
-    color: var(--pure-white);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-md); /* Rounded */
+    gap: 10px;
+    padding: 11px 20px 11px 24px;
+    background: #10B981;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    border-radius: 9999px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    white-space: nowrap;
 }
 
 .ctaButton:hover {
-    background: var(--profit-green-dark);
+    background: #059669;
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.ctaArrow {
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.ctaButton:hover .ctaArrow {
+    background: rgba(255,255,255,0.85);
 }
 
 /* Mobile Menu Button */
@@ -100,17 +117,22 @@
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 6px;
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
+    padding: 7px;
     z-index: 1001;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .mobileMenuBtn span {
     display: block;
     width: 100%;
     height: 2px;
-    background: var(--navy-fortress);
+    background: #0F172A;
     transition: all 0.3s ease;
 }
 
@@ -133,7 +155,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--pure-white);
+    background: #FFFFFF;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -157,24 +179,22 @@
 .mobileNavLink {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--navy-fortress);
+    color: #475569;
     transition: color 0.3s ease;
 }
 
 .mobileNavLink:hover {
-    color: var(--profit-green);
+    color: #10B981;
 }
 
 .mobileCta {
     margin-top: 20px;
     padding: 14px 32px;
-    background: var(--profit-green);
-    color: var(--pure-white);
+    background: #10B981;
+    color: #ffffff;
     font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-md);
+    font-weight: 700;
+    border-radius: 8px;
 }
 
 /* Responsive */

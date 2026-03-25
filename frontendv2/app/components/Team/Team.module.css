@@ -1,6 +1,6 @@
 .team {
     padding: 120px 0;
-    background: var(--bg-dark-secondary);
+    background: #0D1526;
 }
 
 .container {
@@ -9,7 +9,6 @@
     padding: 0 40px;
 }
 
-/* Header */
 .header {
     text-align: center;
     margin-bottom: 60px;
@@ -17,15 +16,16 @@
 
 .heading {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
+    color: #ffffff;
+    letter-spacing: -0.02em;
 }
 
 .accent {
-    color: var(--accent);
+    color: #10B981;
 }
 
-/* Team Grid */
 .teamGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -34,18 +34,18 @@
 }
 
 .memberCard {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
     padding: 30px;
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .memberCard:hover {
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
-    transform: translateY(-5px);
+    border-color: rgba(16,185,129,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
 }
 
 .memberImage {
@@ -54,7 +54,7 @@
     margin: 0 auto 25px;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    background: rgba(255,255,255,0.05);
     filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
@@ -69,7 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: #475569;
 }
 
 .memberInfo {
@@ -80,11 +80,12 @@
     font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 5px;
+    color: #ffffff;
 }
 
 .memberRole {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #10B981;
 }
 
 .socialLinks {
@@ -99,24 +100,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 50%;
-    color: var(--text-secondary);
+    color: #94A3B8;
     transition: all 0.3s ease;
 }
 
 .socialLink:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    border-color: #10B981;
+    color: #ffffff;
 }
 
-/* Trusted Points */
 .trustedPoints {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
     padding: 40px;
 }
 
@@ -131,7 +131,7 @@
     align-items: center;
     gap: 15px;
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: #94A3B8;
 }
 
 .checkmark {
@@ -140,15 +140,14 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: #10B981;
+    color: #0A0F1E;
     border-radius: 50%;
     font-size: 0.75rem;
     font-weight: 700;
     flex-shrink: 0;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .teamGrid {
         grid-template-columns: repeat(2, 1fr);

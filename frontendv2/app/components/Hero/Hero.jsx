@@ -2,86 +2,68 @@
 import Link from 'next/link';
 import styles from './Hero.module.css';
 
+const DiagonalArrow = ({ color = '#0A0F1E', size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.14 1.527L4.473 20.14" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4.689 3.589L18.14 1.527L20.201 14.978" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+const stats = [
+    { number: '50+', label: 'Projects Delivered' },
+    { number: '5+', label: 'Years Experience' },
+    { number: '3', label: 'Countries Served' },
+    { number: '98%', label: 'Client Retention' },
+];
+
 export default function Hero() {
     return (
         <section className={styles.hero}>
-            {/* Background Elements */}
-            <div className={`${styles.bgGlow} ${styles.glowPurple}`}></div>
-            <div className={`${styles.bgGlow} ${styles.glowBlue}`}></div>
-            <div className={styles.decorativeCircle1}></div>
-            <div className={styles.decorativeCircle2}></div>
+            <div className={styles.bgGlow}></div>
 
-            <div className={styles.container}>
-                <div className={styles.content}>
-                    {/* Pill Tag */}
-                    <div className={styles.pillTag} data-aos="fade-up">
-                        <span className={styles.pillDot}></span>
-                        Digital Growth Partner
-                    </div>
-
-                    {/* Main Heading */}
-                    <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
-                        We Build Scalable Custom Software & Apps for{' '}
-                        <span className={styles.accent}>Growing Businesses.</span>
-                    </h1>
-
-                    {/* Subtext */}
-                    <p className={styles.subtext} data-aos="fade-up" data-aos-delay="200">
-                        Helping global brands and startups streamline operations and increase revenue with custom digital solutions.
-                    </p>
-
-                    {/* Single CTA Button */}
-                    <div className={styles.cta} data-aos="fade-up" data-aos-delay="300">
-                        <Link href="/contact" className={styles.ctaButton}>
-                            <span>Book a Free Consultation</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </Link>
-                    </div>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--slate-body)', marginTop: '12px', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--profit-green)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                        Free 30-min consultation. No commitment.
-                    </p>
-
-                    {/* Stats Bar */}
-                    <div className={styles.trustBadges} data-aos="fade-up" data-aos-delay="350">
-                        <span className={styles.trustText}>50+ Projects Delivered</span>
-                        <span className={styles.trustText}>5+ Years Experience</span>
-                        <span className={styles.trustText}>3 Countries Served</span>
-                        <span className={styles.trustText}>98% Client Retention</span>
-                    </div>
+            <div className={styles.inner}>
+                <div className={styles.topLabel} data-aos="fade-up">
+                    <span className={styles.labelDot}></span>
+                    Your Trusted Software Development Partner
                 </div>
 
-                {/* Floating Cards */}
-                <div className={styles.floatingCards}>
-                    <div className={styles.floatingCard} data-aos="fade-left" data-aos-delay="400">
-                        <div className={styles.cardIcon}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
-                        </div>
-                        <div className={styles.cardContent}>
-                            <h4>Secure Infrastructure</h4>
-                            <p>Scalable & Compliant</p>
-                        </div>
-                    </div>
+                <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="80">
+                    We are your trusted development partner with just one goal in focus — to build products that generate a{' '}
+                    <span className={styles.accent}>lasting, profitable impact.</span>
+                </h1>
 
-                    <div className={styles.floatingCard} data-aos="fade-left" data-aos-delay="500">
-                        <div className={styles.cardStats}>
-                            <span className={styles.statNumber}>100%</span>
-                            <span className={styles.statLabel}>Uptime Focus</span>
+                <div className={styles.ctaRow} data-aos="fade-up" data-aos-delay="180">
+                    <Link href="/contact" className={styles.ctaPill}>
+                        <span>Let's Discuss Your Idea</span>
+                        <span className={styles.arrowCircle}>
+                            <DiagonalArrow color="#0F172A" size={18} />
+                        </span>
+                    </Link>
+                    <Link href="/project" className={styles.ctaOutline}>
+                        View Our Work →
+                    </Link>
+                </div>
+
+                <p className={styles.subNote} data-aos="fade-up" data-aos-delay="220">
+                    Free 30-min consultation · No commitment required
+                </p>
+            </div>
+
+            {/* Stats Band */}
+            <div className={styles.statsBand} data-aos="fade-up" data-aos-delay="300">
+                <div className={styles.statsInner}>
+                    {stats.map((s, i) => (
+                        <div key={i} className={styles.statItem}>
+                            <span className={styles.statNumber}>{s.number}</span>
+                            <span className={styles.statLabel}>{s.label}</span>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
             <div className={styles.scrollIndicator}>
-                <div className={styles.mouse}>
-                    <div className={styles.wheel}></div>
-                </div>
-                <span>Scroll Down</span>
+                <div className={styles.mouse}><div className={styles.wheel}></div></div>
+                <span>Scroll</span>
             </div>
         </section>
     );

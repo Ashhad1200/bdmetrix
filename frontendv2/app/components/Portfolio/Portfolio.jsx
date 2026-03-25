@@ -88,7 +88,7 @@ export default function Portfolio() {
                                 </div>
                                 <h3 className={styles.projectTitle}>{project.title}</h3>
                                 {project.description && (
-                                    <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '10px', opacity: 0.8 }}>{project.description}</p>
+                                    <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, marginTop: '10px' }}>{project.description}</p>
                                 )}
                             </div>
                         </div>

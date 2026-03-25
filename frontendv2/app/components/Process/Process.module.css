@@ -1,6 +1,7 @@
 .process {
     padding: 120px 0;
     position: relative;
+    background: #F8FAFC;
 }
 
 .container {
@@ -9,7 +10,6 @@
     padding: 0 40px;
 }
 
-/* Header */
 .header {
     text-align: center;
     margin-bottom: 80px;
@@ -17,24 +17,25 @@
 
 .heading {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
+    color: #0F172A;
+    letter-spacing: -0.02em;
 }
 
 .accent {
-    color: var(--accent);
+    color: #10B981;
 }
 
 .subtext {
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    color: #475569;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
 }
 
-/* Steps Grid */
 .stepsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -42,35 +43,38 @@
 }
 
 .stepCard {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
     padding: 40px 30px;
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .stepCard:hover {
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
-    transform: translateY(-5px);
+    border-color: rgba(16,185,129,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(16,185,129,0.08);
 }
 
 .stepIcon {
     width: 80px;
     height: 80px;
-    background: var(--accent);
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 25px;
-    color: var(--bg-dark);
+    color: #10B981;
     transition: all 0.3s ease;
 }
 
 .stepCard:hover .stepIcon {
+    background: rgba(16,185,129,0.15);
     transform: scale(1.1);
 }
 
@@ -80,22 +84,23 @@
     right: 20px;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: #10B981;
+    opacity: 0.6;
 }
 
 .stepTitle {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 15px;
+    color: #0F172A;
 }
 
 .stepDesc {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #475569;
     line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .stepsGrid {
         grid-template-columns: repeat(2, 1fr);
