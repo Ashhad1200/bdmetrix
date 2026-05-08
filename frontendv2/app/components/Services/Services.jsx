@@ -54,7 +54,7 @@ export default function Services() {
                 {/* Header */}
                 <div className={styles.header}>
                     <div className={styles.headerLeft}>
-                        <div className="pill-tag" data-aos="fade-up">What We Do</div>
+                        {/* <div className="pill-tag" data-aos="fade-up">What We Do</div> */}
                         <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
                             Digital Solutions Engineered{' '}
                             <span className={styles.accent}>For Growth</span>

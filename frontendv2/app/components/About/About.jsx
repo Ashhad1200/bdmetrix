@@ -17,11 +17,9 @@ export default function About() {
     return (
         <section className={styles.about} id="about">
             <div className={styles.container}>
-                {/* Team Tagline */}
-                <div className={styles.teamPhotoWrapper} data-aos="fade-up" style={{ background: '#F0FDF4', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', minHeight: '200px' }}>
-                    <p style={{ color: '#0F172A', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, textAlign: 'center', lineHeight: 1.4, margin: 0 }}>
-                        A small, focused team. <span style={{ color: '#10b981' }}>Big on delivery.</span>
-                    </p>
+                <div className={styles.teamHeading} data-aos="fade-up">
+                    <p className={styles.teamKicker}>Build on Reliability and Trust.</p>
+                    <h2 className={styles.teamTitle}>Why Choose BD Matrix</h2>
                 </div>
 
                 {/* Team Members Grid */}
@@ -44,7 +42,7 @@ export default function About() {
                             </div>
                             <h4 className={styles.teamName}>{member.name}</h4>
                             <p className={styles.teamRole}>{member.role}</p>
-                            <p style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.6, marginTop: '8px' }}>{member.bio}</p>
+                            <p className={styles.teamBio}>{member.bio}</p>
                         </div>
                     ))}
                 </div>
