@@ -1,5 +1,3 @@
-'use client';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -56,14 +54,25 @@ const projects = [
 ];
 
 const darkCard = {
-  background: 'rgba(255,255,255,0.03)',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: '#FFFFFF',
+  border: '1px solid #E2E8F0',
   borderRadius: '16px',
   padding: '32px',
+  boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
 };
 
-export default function ProjectDetailPage() {
-  const { id } = useParams();
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) return { title: 'Project Not Found | BD Matrix' };
+  return {
+    title: `${project.title} | BD Matrix`,
+    description: project.description.slice(0, 160),
+  };
+}
+
+export default async function ProjectDetailPage({ params }) {
+  const { id } = await params;
   const project = projects.find((p) => p.id === id);
 
   if (!project) {
@@ -79,9 +88,9 @@ export default function ProjectDetailPage() {
   return (
     <>
       <Header />
-      <main style={{ background: '#0A0F1E', paddingTop: '100px' }}>
+      <main style={{ background: '#FFFFFF', paddingTop: '100px' }}>
         {/* Hero */}
-        <section style={{ padding: '80px 0 60px', background: '#0D1526', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <section style={{ padding: '80px 0 60px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)' }}>
             <Link href="/project" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#94A3B8', fontSize: '0.9rem', marginBottom: '32px', textDecoration: 'none' }}>
               ← Back to Projects
@@ -93,7 +102,7 @@ export default function ProjectDetailPage() {
                 </span>
               ))}
             </div>
-            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '24px' }}>
+            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '24px' }}>
               {project.title}
             </h1>
           </div>
@@ -104,7 +113,7 @@ export default function ProjectDetailPage() {
           <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)', display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
             {/* Image placeholder */}
-            <div style={{ height: 'clamp(200px, 40vw, 400px)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: 'clamp(200px, 40vw, 400px)', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="1">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
                 <circle cx="8.5" cy="8.5" r="1.5" />
@@ -114,22 +123,22 @@ export default function ProjectDetailPage() {
 
             {/* Description */}
             <div style={darkCard}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>About This Project</h2>
-              <p style={{ color: '#94A3B8', lineHeight: 1.8, fontSize: '1.05rem' }}>{project.description}</p>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>About This Project</h2>
+              <p style={{ color: '#475569', lineHeight: 1.8, fontSize: '1.05rem' }}>{project.description}</p>
             </div>
 
             {/* Outcome */}
             <div style={{ ...darkCard, background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#10B981', marginBottom: '12px' }}>Results Achieved</h2>
-              <p style={{ color: '#ffffff', fontSize: '1.1rem', fontWeight: 500 }}>{project.outcome}</p>
+              <p style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: 500 }}>{project.outcome}</p>
             </div>
 
             {/* Tech Stack */}
             <div style={darkCard}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '20px' }}>Tech Stack</h2>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '20px' }}>Tech Stack</h2>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 {project.tech.map((t, i) => (
-                  <span key={i} style={{ padding: '8px 20px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#94A3B8', fontSize: '0.9rem', fontWeight: 600 }}>
+                  <span key={i} style={{ padding: '8px 20px', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', color: '#475569', fontSize: '0.9rem', fontWeight: 600 }}>
                     {t}
                   </span>
                 ))}
@@ -138,7 +147,7 @@ export default function ProjectDetailPage() {
 
             {/* CTA */}
             <div style={{ ...darkCard, textAlign: 'center' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px' }}>Have a Similar Project?</h2>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '12px' }}>Have a Similar Project?</h2>
               <p style={{ color: '#94A3B8', marginBottom: '24px' }}>Let&apos;s talk about how we can help you achieve the same results.</p>
               <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10B981', color: '#ffffff', padding: '16px 36px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
                 Start Your Project ↗

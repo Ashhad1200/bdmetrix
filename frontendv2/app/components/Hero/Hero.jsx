@@ -1,6 +1,9 @@
 'use client';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
+
+const videos = ['/vid/hero-1.mp4', '/vid/hero-2.mp4', '/vid/hero-3.mp4'];
 
 const DiagonalArrow = ({ color = '#0A0F1E', size = 20 }) => (
     <svg width={size} height={size} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,37 +19,78 @@ const stats = [
     { number: '98%', label: 'Client Retention' },
 ];
 
+const outcomes = [
+    { label: 'Product Architecture', value: 96 },
+    { label: 'On-time Delivery', value: 94 },
+    { label: 'Client Satisfaction', value: 98 },
+];
+
+const recentWork = [
+    { name: 'HealthCare Pro', type: 'Mobile App', status: 'Delivered' },
+    { name: 'FinVault', type: 'SaaS Platform', status: 'Live' },
+    { name: 'Stacks Inc.', type: 'Web Product', status: 'Live' },
+];
+
 export default function Hero() {
+    const videoRef = useRef(null);
+    const [vidIndex, setVidIndex] = useState(0);
+
+    useEffect(() => {
+        const el = videoRef.current;
+        if (!el) return;
+        el.src = videos[vidIndex];
+        el.load();
+        el.play().catch(() => {});
+    }, [vidIndex]);
+
+    const handleEnded = () => setVidIndex((i) => (i + 1) % videos.length);
+
     return (
         <section className={styles.hero}>
-            <div className={styles.bgGlow}></div>
+            {/* Video background */}
+            <video
+                ref={videoRef}
+                className={styles.videoBg}
+                autoPlay
+                muted
+                playsInline
+                onEnded={handleEnded}
+            />
+            <div className={styles.videoOverlay} />
 
             <div className={styles.inner}>
-                <div className={styles.topLabel} data-aos="fade-up">
-                    <span className={styles.labelDot}></span>
-                    Your Trusted Software Development Partner
+                <div className={styles.copyCol}>
+                    {/* <div className={styles.topLabel} data-aos="fade-up">
+                        <span className={styles.labelDot}></span>
+                        Strategic Software Partner For Ambitious Teams
+                    </div> */}
+
+                    <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="80">
+                        We build software that drives
+                        <span className={styles.accent}> revenue, efficiency,<br />and real growth.</span>
+                    </h1>
+
+                    <p className={styles.subHeading} data-aos="fade-up" data-aos-delay="130">
+                        Custom CRM, SaaS, mobile apps and web platforms — engineered to deliver measurable business outcomes.
+                    </p>
+
+                    <div className={styles.ctaRow} data-aos="fade-up" data-aos-delay="180">
+                        <Link href="/contact" className={styles.ctaPill}>
+                            <span>Start Your Project</span>
+                            <span className={styles.arrowCircle}>
+                                <DiagonalArrow color="#0F172A" size={18} />
+                            </span>
+                        </Link>
+                        <Link href="/project" className={styles.ctaOutline}>
+                            View Case Studies →
+                        </Link>
+                    </div>
+
+                    <p className={styles.subNote} data-aos="fade-up" data-aos-delay="220">
+                        Free 30-min consultation · No commitment required
+                    </p>
                 </div>
 
-                <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="80">
-                    We are your trusted development partner with just one goal in focus — to build products that generate a{' '}
-                    <span className={styles.accent}>lasting, profitable impact.</span>
-                </h1>
-
-                <div className={styles.ctaRow} data-aos="fade-up" data-aos-delay="180">
-                    <Link href="/contact" className={styles.ctaPill}>
-                        <span>Let's Discuss Your Idea</span>
-                        <span className={styles.arrowCircle}>
-                            <DiagonalArrow color="#0F172A" size={18} />
-                        </span>
-                    </Link>
-                    <Link href="/project" className={styles.ctaOutline}>
-                        View Our Work →
-                    </Link>
-                </div>
-
-                <p className={styles.subNote} data-aos="fade-up" data-aos-delay="220">
-                    Free 30-min consultation · No commitment required
-                </p>
             </div>
 
             {/* Stats Band */}

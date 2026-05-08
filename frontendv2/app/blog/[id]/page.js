@@ -1,5 +1,3 @@
-'use client';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -62,14 +60,25 @@ const posts = [
 ];
 
 const darkCard = {
-  background: 'rgba(255,255,255,0.03)',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: '#FFFFFF',
+  border: '1px solid #E2E8F0',
   borderRadius: '16px',
   padding: '32px',
+  boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
 };
 
-export default function BlogPostPage() {
-  const { id } = useParams();
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const post = posts.find((p) => p.id === id);
+  if (!post) return { title: 'Post Not Found | BD Matrix' };
+  return {
+    title: `${post.title} | BD Matrix`,
+    description: post.excerpt,
+  };
+}
+
+export default async function BlogPostPage({ params }) {
+  const { id } = await params;
   const post = posts.find((p) => p.id === id);
 
   if (!post) {
@@ -85,9 +94,9 @@ export default function BlogPostPage() {
   return (
     <>
       <Header />
-      <main style={{ background: '#0A0F1E', paddingTop: '100px' }}>
+      <main style={{ background: '#FFFFFF', paddingTop: '100px' }}>
         {/* Hero */}
-        <section style={{ padding: '80px 0 60px', background: '#0D1526', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <section style={{ padding: '80px 0 60px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)' }}>
             <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#94A3B8', fontSize: '0.9rem', marginBottom: '32px', textDecoration: 'none' }}>
               ← Back to Blog
@@ -96,10 +105,10 @@ export default function BlogPostPage() {
               <span style={{ padding: '5px 14px', background: 'transparent', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '9999px', color: '#10B981', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 {post.category}
               </span>
-              <span style={{ color: '#475569', fontSize: '0.875rem' }}>{post.date}</span>
-              <span style={{ color: '#475569', fontSize: '0.875rem' }}>· {post.readTime}</span>
+              <span style={{ color: '#94A3B8', fontSize: '0.875rem' }}>{post.date}</span>
+              <span style={{ color: '#94A3B8', fontSize: '0.875rem' }}>· {post.readTime}</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: '20px' }}>
+            <h1 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: '20px' }}>
               {post.title}
             </h1>
             <p style={{ fontSize: '1.15rem', color: '#94A3B8', lineHeight: 1.6 }}>{post.excerpt}</p>
@@ -111,7 +120,7 @@ export default function BlogPostPage() {
           <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 clamp(20px, 5vw, 40px)', display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
             {/* Image Placeholder */}
-            <div style={{ height: 'clamp(180px, 40vw, 360px)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: 'clamp(180px, 40vw, 360px)', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="1">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
                 <circle cx="8.5" cy="8.5" r="1.5" />
@@ -122,7 +131,7 @@ export default function BlogPostPage() {
             {/* Article */}
             <div style={darkCard}>
               {post.content.split('\n\n').map((para, i) => (
-                <p key={i} style={{ color: '#94A3B8', lineHeight: 1.9, fontSize: '1.05rem', marginBottom: '20px' }}>
+                <p key={i} style={{ color: '#475569', lineHeight: 1.9, fontSize: '1.05rem', marginBottom: '20px' }}>
                   {para}
                 </p>
               ))}
@@ -130,7 +139,7 @@ export default function BlogPostPage() {
 
             {/* CTA */}
             <div style={{ ...darkCard, textAlign: 'center', background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px' }}>Want to grow your digital presence?</h2>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '12px' }}>Want to grow your digital presence?</h2>
               <p style={{ color: '#94A3B8', marginBottom: '24px' }}>BD Matrix helps businesses build scalable software and digital strategies.</p>
               <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10B981', color: '#ffffff', padding: '14px 32px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
                 Get in Touch ↗

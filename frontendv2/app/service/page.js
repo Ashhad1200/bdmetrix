@@ -1,8 +1,13 @@
-'use client';
+import Link from 'next/link';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 import styles from './service.module.css';
+
+export const metadata = {
+  title: 'Our Services | BD Matrix',
+  description: 'Custom CRM, ERP, POS, SaaS, mobile apps, and web development services. Engineered for growth.',
+};
 
 export default function ServicePage() {
     const services = [
@@ -111,12 +116,12 @@ export default function ServicePage() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className={styles.serviceLink}>
+                                <Link href={`/service/${service.id}`} className={styles.serviceLink}>
                                     Learn More
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -129,12 +134,12 @@ export default function ServicePage() {
                         <p className={styles.ctaDesc} data-aos="fade-up" data-aos-delay="100">
                             Let's discuss how we can help you achieve your digital goals.
                         </p>
-                        <div className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
+                        <Link href="/contact" className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
                             Get Started
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </Link>
                     </div>
                 </section>
             </main>

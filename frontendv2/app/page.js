@@ -1,7 +1,5 @@
-'use client';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import ClientLogos from './components/ClientLogos/ClientLogos';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
@@ -17,7 +15,6 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <ClientLogos />
       <About />
       <Services />
       <Portfolio />

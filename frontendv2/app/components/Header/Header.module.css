@@ -4,18 +4,18 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 24px 0;
+    padding: 18px 0;
     transition: all 0.35s ease;
     background: transparent;
 }
 
 .header.scrolled {
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 14px 0;
-    border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: 12px 0;
+    border-bottom: 1px solid #E1E9F8;
+    box-shadow: 0 10px 30px rgba(10, 23, 51, 0.08);
 }
 
 .container {
@@ -25,6 +25,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid rgba(221, 229, 246, 0.9);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 9999px;
+    height: 74px;
+    box-shadow: 0 10px 30px rgba(10, 23, 51, 0.06);
 }
 
 /* Logo */
@@ -35,29 +40,33 @@
 }
 
 .logoText {
-    font-size: 1.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
     font-weight: 800;
-    color: #0F172A;
-    letter-spacing: -0.02em;
+    color: #0A1733;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
 }
 
 /* Navigation */
 .nav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 34px;
 }
 
 .navLink {
-    font-size: 0.95rem;
+    font-size: 0.84rem;
     font-weight: 600;
-    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #3D4E72;
     transition: color 0.3s ease;
     position: relative;
 }
 
 .navLink:hover {
-    color: #0F172A;
+    color: #0A1733;
 }
 
 .navLink::after {
@@ -81,19 +90,21 @@
     align-items: center;
     gap: 10px;
     padding: 11px 20px 11px 24px;
-    background: #10B981;
+    background: linear-gradient(120deg, #1F6FFF, #1757CC);
     color: #ffffff;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     border-radius: 9999px;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
 
 .ctaButton:hover {
-    background: #059669;
+    background: linear-gradient(120deg, #1757CC, #0F49B5);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 12px 36px rgba(31, 111, 255, 0.35);
 }
 
 .ctaArrow {
@@ -155,7 +166,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #FFFFFF;
+    background: linear-gradient(160deg, #FFFFFF 0%, #F4F8FF 100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -177,28 +188,35 @@
 }
 
 .mobileNavLink {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
     font-weight: 700;
-    color: #475569;
+    color: #0A1733;
     transition: color 0.3s ease;
 }
 
 .mobileNavLink:hover {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .mobileCta {
     margin-top: 20px;
     padding: 14px 32px;
-    background: #10B981;
+    background: linear-gradient(120deg, #1F6FFF, #1757CC);
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-radius: 9999px;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
+    .container {
+        height: 64px;
+    }
+
     .nav {
         display: none;
     }
@@ -215,9 +233,10 @@
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
+        border-radius: 18px;
     }
 
     .logoText {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 }

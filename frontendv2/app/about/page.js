@@ -1,7 +1,11 @@
-'use client';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import styles from './about.module.css';
+
+export const metadata = {
+  title: 'About Us | BD Matrix',
+  description: 'BD Matrix is a software development agency building high-integrity digital products for businesses in Canada, UK, and Pakistan.',
+};
 
 export default function AboutPage() {
     const values = [

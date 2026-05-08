@@ -1,19 +1,12 @@
 'use client';
+import Image from 'next/image';
 import styles from './ClientLogos.module.css';
 
 const clients = [
-    { name: 'HealthCare Pro' },
-    { name: 'Stacks Inc.' },
-    { name: 'FinVault' },
-    { name: 'ShopNova' },
-    { name: 'DataBridge' },
-    { name: 'PulseMedia' },
-    { name: 'CloudNest' },
-    { name: 'RetailEdge' },
-    { name: 'TechForge' },
-    { name: 'MedTrack' },
-    { name: 'BuildSmart' },
-    { name: 'SalesFlow' },
+    { name: 'Client One', logo: '/images/clients/client-logo-1.png' },
+    { name: 'Client Two', logo: '/images/clients/client-logo-2.png' },
+    { name: 'Client Three', logo: '/images/clients/client-logo-3.png' },
+    { name: 'Client Four', logo: '/images/clients/client-logo-4.png' },
 ];
 
 export default function ClientLogos() {
@@ -27,6 +20,14 @@ export default function ClientLogos() {
                 <div className={styles.ticker}>
                     {[...clients, ...clients].map((client, i) => (
                         <div key={i} className={styles.clientItem}>
+                            <div className={styles.logoWrap}>
+                                <Image
+                                    src={client.logo}
+                                    alt={client.name}
+                                    fill
+                                    className={styles.clientLogo}
+                                />
+                            </div>
                             <span className={styles.clientName}>{client.name}</span>
                         </div>
                     ))}

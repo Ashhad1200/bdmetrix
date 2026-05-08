@@ -17,62 +17,6 @@ export default function About() {
     return (
         <section className={styles.about} id="about">
             <div className={styles.container}>
-                {/* Section Header */}
-                <div className={styles.sectionHeader} data-aos="fade-up">
-                    <div className="pill-tag">About BD Matrix</div>
-                    <h2 className={styles.heading}>
-                        Meet the Team Behind <span className={styles.accent}>BD Matrix</span>
-                    </h2>
-                </div>
-
-                {/* Two-Column: Founder + Stats */}
-                <div className={styles.content}>
-                    {/* Left Column — Founder */}
-                    <div className={styles.founderSection} data-aos="fade-right">
-                        <div className={styles.founderImageWrapper}>
-                            <Image
-                                src="/images/team/member-1.png"
-                                alt="Syed Ashhad - Founder of BD Matrix"
-                                width={400}
-                                height={480}
-                                className={styles.founderImage}
-                            />
-                        </div>
-                        <div className={styles.founderStory}>
-                            <h3 className={styles.founderName}>Syed Ashhad — Founder</h3>
-                            <p className={styles.founderText}>
-                                BD Matrix was born from a simple frustration: businesses everywhere were being sold
-                                cookie-cutter digital solutions that didn't fit their real-world needs. Syed Ashhad
-                                started this company to bridge the gap — combining deep technical expertise with a
-                                genuine understanding of how businesses operate, to deliver software that actually
-                                drives growth and efficiency.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Right Column — Stats */}
-                    <div className={styles.statsSection} data-aos="fade-left">
-                        <div className={styles.statsGrid}>
-                            {stats.map((stat, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.statCard}
-                                    data-aos="fade-up"
-                                    data-aos-delay={100 + index * 100}
-                                >
-                                    <span className={styles.statNumber}>{stat.number}</span>
-                                    <span className={styles.statLabel}>{stat.label}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <p className={styles.statsDescription}>
-                            Our team combines deep technical expertise with a strategic mindset — guiding each
-                            project from concept to launch and beyond. We believe in transparent collaboration,
-                            exceptional quality, and results that exceed expectations.
-                        </p>
-                    </div>
-                </div>
-
                 {/* Team Tagline */}
                 <div className={styles.teamPhotoWrapper} data-aos="fade-up" style={{ background: '#F0FDF4', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', minHeight: '200px' }}>
                     <p style={{ color: '#0F172A', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, textAlign: 'center', lineHeight: 1.4, margin: 0 }}>

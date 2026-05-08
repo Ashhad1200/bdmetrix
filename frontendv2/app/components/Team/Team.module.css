@@ -1,180 +1,224 @@
 .team {
     padding: 120px 0;
-    background: #0D1526;
+    background:
+        linear-gradient(rgba(13, 23, 51, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 23, 51, 0.04) 1px, transparent 1px),
+        #ffffff;
+    background-size: 52px 52px, 52px 52px, auto;
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 28px;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 60px;
+    max-width: 760px;
+    margin: 0 auto 52px;
 }
 
 .heading {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    line-height: 1.2;
-    color: #ffffff;
-    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+    font-size: clamp(2.1rem, 4.5vw, 4rem);
+    font-weight: 700;
+    color: #0a1733;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin-bottom: 18px;
 }
 
-.accent {
-    color: #10B981;
+.subtitle {
+    font-size: 1.18rem;
+    line-height: 1.55;
+    color: #3d4e72;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.actions {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btnGhost,
+.btnPrimary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.97rem;
+    transition: all 0.25s ease;
+}
+
+.btnGhost {
+    color: #0a1733;
+    border: 1px solid #d6dff2;
+    background: #ffffff;
+}
+
+.btnGhost:hover {
+    border-color: #becbe6;
+    transform: translateY(-2px);
+}
+
+.btnPrimary {
+    color: #ffffff;
+    background: linear-gradient(120deg, #1f6fff, #1757cc);
+    border: 1px solid #1f6fff;
+}
+
+.btnPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(31, 111, 255, 0.22);
 }
 
 .teamGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 62px;
 }
 
 .memberCard {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.memberCard:hover {
-    border-color: rgba(16,185,129,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
+    position: relative;
+    background: #eceff6;
+    border-radius: 0;
+    overflow: hidden;
+    min-height: 390px;
 }
 
 .memberImage {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: rgba(255,255,255,0.05);
+    position: absolute;
+    inset: 0;
     filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    transition: transform 0.35s ease, filter 0.35s ease;
 }
 
 .memberCard:hover .memberImage {
+    transform: scale(1.03);
     filter: grayscale(0%);
 }
 
-.imagePlaceholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #475569;
-}
-
-.memberInfo {
-    margin-bottom: 20px;
+.memberInfoBox {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #e4eaf7;
+    padding: 14px 14px 12px;
 }
 
 .memberName {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #ffffff;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #0a1733;
+    margin-bottom: 4px;
 }
 
 .memberRole {
-    font-size: 0.9rem;
-    color: #10B981;
+    color: #3d4e72;
+    font-size: 0.92rem;
+    line-height: 1.35;
 }
 
-.socialLinks {
-    display: flex;
-    justify-content: center;
+.testimonial {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.22rem, 2vw, 1.62rem);
+    color: #0a1733;
+    line-height: 1.45;
+    margin-bottom: 26px;
+}
+
+.author {
+    display: inline-flex;
+    align-items: center;
     gap: 12px;
+    text-align: left;
 }
 
-.socialLink {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
+.avatarWrap {
+    position: relative;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    color: #94A3B8;
-    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 2px solid #dbe4f7;
 }
 
-.socialLink:hover {
-    background: #10B981;
-    border-color: #10B981;
-    color: #ffffff;
-}
-
-.trustedPoints {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 40px;
-}
-
-.pointsGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px 50px;
-}
-
-.point {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1rem;
-    color: #94A3B8;
-}
-
-.checkmark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: #10B981;
-    color: #0A0F1E;
-    border-radius: 50%;
-    font-size: 0.75rem;
+.authorName {
+    font-size: 0.95rem;
     font-weight: 700;
-    flex-shrink: 0;
+    color: #0a1733;
+    line-height: 1.2;
 }
 
-@media (max-width: 1024px) {
+.authorRole {
+    font-size: 0.85rem;
+    color: #6e7e9f;
+}
+
+@media (max-width: 1280px) {
     .teamGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pointsGrid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .team {
-        padding: 80px 0;
+        padding: 90px 0;
+        background-size: 40px 40px, 40px 40px, auto;
     }
 
+    .subtitle {
+        font-size: 1.02rem;
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, minmax(170px, 1fr));
+    }
+
+    .memberCard {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 640px) {
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .teamGrid {
         grid-template-columns: 1fr;
-        max-width: 350px;
-        margin-left: auto;
-        margin-right: auto;
+        gap: 14px;
     }
 
-    .trustedPoints {
-        padding: 30px 20px;
+    .memberCard {
+        min-height: 360px;
+    }
+
+    .memberInfoBox {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .quote {
+        font-size: 1.12rem;
     }
 }

@@ -1,103 +1,92 @@
 'use client';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Team.module.css';
 
 export default function Team() {
     const team = [
         {
             name: 'Syed Ashhad',
-            role: 'CEO, Founder & Lead Developer',
-            image: '/images/team/team-1.jpg'
+            role: 'CEO & Lead Engineer',
+            image: '/images/team/member-1.png'
         },
         {
             name: 'Abdul Rafay',
             role: 'Co-Founder',
-            image: '/images/team/team-2.jpg'
+            image: '/images/team/member-2.png'
         },
         {
             name: 'Abdullah Farooqui',
             role: 'Media & Sales Lead',
-            image: '/images/team/team-3.jpg'
+            image: '/images/team/member-3.png'
+        },
+        {
+            name: 'Aimen Tariq',
+            role: 'Product Design Lead',
+            image: '/images/team/member-4.png'
+        },
+        {
+            name: 'Muhammad Danish',
+            role: 'Technical Director',
+            image: '/images/team/founder.png'
         }
     ];
 
     return (
         <section className={styles.team} id="team">
             <div className={styles.container}>
-                {/* Header */}
                 <div className={styles.header}>
-                    <div className="pill-tag" data-aos="fade-up">
-                        Our Specialist
-                    </div>
-                    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
-                        Your Trusted Agency for<br />
-                        <span className={styles.accent}>Digital Success</span>
+                    <h2 className={styles.heading} data-aos="fade-up">
+                        Meet our beautiful team
                     </h2>
+                    <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="80">
+                        Our philosophy is simple: hire great people and give them the resources and support to do their best work.
+                    </p>
+
+                    <div className={styles.actions} data-aos="fade-up" data-aos-delay="120">
+                        <Link href="/contact" className={styles.btnGhost}>Book a demo</Link>
+                        <Link href="/contact" className={styles.btnPrimary}>Get in touch</Link>
+                    </div>
                 </div>
 
-                {/* Team Grid */}
-                <div className={styles.teamGrid}>
+                <div className={styles.teamGrid} data-aos="fade-up" data-aos-delay="160">
                     {team.map((member, index) => (
                         <div
                             key={index}
                             className={styles.memberCard}
-                            data-aos="fade-up"
-                            data-aos-delay={100 + index * 100}
                         >
                             <div className={styles.memberImage}>
-                                <div className={styles.imagePlaceholder}>
-                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                </div>
+                                <Image
+                                    src={member.image}
+                                    alt={member.name}
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                />
                             </div>
-                            <div className={styles.memberInfo}>
+                            <div className={styles.memberInfoBox}>
                                 <h3 className={styles.memberName}>{member.name}</h3>
                                 <p className={styles.memberRole}>{member.role}</p>
-                            </div>
-                            <div className={styles.socialLinks}>
-                                <a href="#" className={styles.socialLink}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                        <rect x="2" y="9" width="4" height="12" />
-                                        <circle cx="4" cy="4" r="2" />
-                                    </svg>
-                                </a>
-                                <a href="#" className={styles.socialLink}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                                    </svg>
-                                </a>
-                                <a href="#" className={styles.socialLink}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                                    </svg>
-                                </a>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Trusted Points */}
-                <div className={styles.trustedPoints} data-aos="fade-up" data-aos-delay="400">
-                    <div className={styles.pointsGrid}>
-                        <div className={styles.point}>
-                            <span className={styles.checkmark}>✓</span>
-                            Passionate Problem-Solvers For Your Business
+                <div className={styles.testimonial} data-aos="fade-up" data-aos-delay="220">
+                    <p className={styles.quote}>
+                        We have been blown away by the support from BD Matrix. We suggested an improvement to our account manager and they implemented it in just a few days.
+                    </p>
+                    <div className={styles.author}>
+                        <div className={styles.avatarWrap}>
+                            <Image
+                                src="/images/team/member-2.png"
+                                alt="Client avatar"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                            />
                         </div>
-                        <div className={styles.point}>
-                            <span className={styles.checkmark}>✓</span>
-                            Business & Financial Creative Innovators
-                        </div>
-                        <div className={styles.point}>
-                            <span className={styles.checkmark}>✓</span>
-                            Provide National Trusted Client-Centered
-                        </div>
-                        <div className={styles.point}>
-                            <span className={styles.checkmark}>✓</span>
-                            Perfect & Modern Work Results-Driven
+                        <div>
+                            <p className={styles.authorName}>Amelie Laurent</p>
+                            <p className={styles.authorRole}>CTO, Beyond Systems</p>
                         </div>
                     </div>
                 </div>

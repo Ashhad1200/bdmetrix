@@ -1,9 +1,14 @@
-'use client';
+import Link from 'next/link';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 import Image from 'next/image';
 import styles from './project.module.css';
+
+export const metadata = {
+  title: 'Our Projects | BD Matrix',
+  description: 'Case studies and client projects: mobile apps, SaaS platforms, fintech, healthcare, and enterprise software.',
+};
 
 export default function ProjectPage() {
     const projects = [
@@ -73,8 +78,9 @@ export default function ProjectPage() {
                     <div className={styles.container}>
                         <div className={styles.projectsGrid}>
                             {projects.map((project, index) => (
-                                <div
+                                <Link
                                     key={project.id}
+                                    href={`/project/${project.id}`}
                                     className={styles.projectCard}
                                     data-aos="fade-up"
                                     data-aos-delay={100 + (index % 3) * 100}
@@ -99,7 +105,7 @@ export default function ProjectPage() {
                                         <h3 className={styles.projectTitle}>{project.title}</h3>
                                         <p className={styles.projectDesc}>{project.description}</p>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -112,12 +118,12 @@ export default function ProjectPage() {
                         <p className={styles.ctaDesc} data-aos="fade-up" data-aos-delay="100">
                             Let's discuss how we can bring your vision to life.
                         </p>
-                        <div className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
+                        <Link href="/contact" className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
                             Start Your Project
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </Link>
                     </div>
                 </section>
             </main>

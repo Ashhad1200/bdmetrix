@@ -34,7 +34,7 @@
 .brandDesc {
     font-size: 1rem;
     line-height: 1.7;
-    color: #475569;
+    color: #94A3B8;
     margin-bottom: 25px;
 }
 
@@ -82,7 +82,7 @@
 
 .footerLink {
     font-size: 0.95rem;
-    color: #475569;
+    color: #94A3B8;
     margin-bottom: 12px;
     transition: color 0.3s ease;
 }
@@ -96,7 +96,7 @@
     align-items: flex-start;
     gap: 12px;
     font-size: 0.95rem;
-    color: #475569;
+    color: #94A3B8;
     margin-bottom: 15px;
     line-height: 1.5;
 }
@@ -114,7 +114,7 @@
 
 .newsletterDesc {
     font-size: 0.95rem;
-    color: #475569;
+    color: #94A3B8;
     margin-bottom: 20px;
     line-height: 1.6;
 }
@@ -136,7 +136,7 @@
 }
 
 .newsletterInput::placeholder {
-    color: #475569;
+    color: #64748B;
 }
 
 .newsletterInput:focus {
@@ -182,7 +182,7 @@
 
 .copyright {
     font-size: 0.9rem;
-    color: #475569;
+    color: #94A3B8;
 }
 
 .bottomLinks {
@@ -192,7 +192,7 @@
 
 .bottomLink {
     font-size: 0.9rem;
-    color: #475569;
+    color: #94A3B8;
     transition: color 0.3s ease;
 }
 
