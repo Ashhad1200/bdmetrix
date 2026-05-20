@@ -3,7 +3,7 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import { Suspense } from 'react';
 import PixelEvents from '../src/components/PixelEvents';
-import AOSInit from './components/AOSInit/AOSInit';
+import GSAPInit from './components/AOSInit/AOSInit';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${sora.variable}`}>
-        <AOSInit />
+        <GSAPInit />
         <Suspense fallback={null}>
           <PixelEvents />
         </Suspense>

@@ -25,8 +25,8 @@
 
   /* Legacy variable aliases (keep for backward compat) */
   --navy-fortress: #0F172A;
-  --profit-green: #10B981;
-  --profit-green-dark: #059669;
+  --profit-green: #1F6FFF;
+  --profit-green-dark: #1757CC;
   --pure-white: #FFFFFF;
   --slate-50: #F8FAFC;
   --slate-body: #475569;
@@ -42,9 +42,9 @@
   --glass-bg: rgba(0,0,0,0.02);
   --glass-bg-hover: rgba(0,0,0,0.03);
   --glass-border: #E2E8F0;
-  --glass-border-hover: rgba(16,185,129,0.4);
+  --glass-border-hover: rgba(31,111,255,0.4);
 
-  --glow-accent: 0 0 30px rgba(16,185,129,0.15);
+  --glow-accent: 0 0 30px rgba(31,111,255,0.15);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
   --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
 
@@ -198,14 +198,14 @@ button {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: rgba(31,111,255,0.08);
+  border: 1px solid rgba(31,111,255,0.25);
   border-radius: var(--radius-full);
   font-size: var(--font-size-small);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #059669;
+  color: #1757CC;
   margin-bottom: 20px;
 }
 
@@ -213,7 +213,7 @@ button {
   content: '';
   width: 6px;
   height: 6px;
-  background: #10B981;
+  background: #1F6FFF;
   border-radius: 50%;
 }
 
@@ -237,16 +237,16 @@ button {
 }
 
 .btn-primary {
-  background: #10B981;
+  background: #1F6FFF;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 20px rgba(31,111,255,0.25);
 }
 
 .btn-primary:hover {
-  background: #059669;
+  background: #1757CC;
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 12px 32px rgba(31,111,255,0.3);
 }
 
 .btn-outline {
@@ -256,9 +256,9 @@ button {
 }
 
 .btn-outline:hover {
-  border-color: #10B981;
-  color: #10B981;
-  background: rgba(16, 185, 129, 0.04);
+  border-color: #1F6FFF;
+  color: #1F6FFF;
+  background: rgba(31,111,255,0.04);
 }
 
 .btn-icon {
@@ -272,9 +272,9 @@ button {
 }
 
 .btn-icon:hover {
-  background: #10B981;
+  background: #1F6FFF;
   color: #ffffff;
-  border-color: #10B981;
+  border-color: #1F6FFF;
 }
 
 /* ========================================
@@ -291,8 +291,8 @@ button {
 
 .glass-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.1);
+  border-color: rgba(31,111,255,0.3);
+  box-shadow: 0 12px 32px rgba(31,111,255,0.1);
 }
 
 /* ========================================
@@ -310,7 +310,7 @@ button {
 }
 
 .bg-glow-accent {
-  background: #10B981;
+  background: #1F6FFF;
 }
 
 .bg-glow-blue {
@@ -351,9 +351,9 @@ button {
 
 .form-input:focus {
   outline: none;
-  border-color: #10B981;
+  border-color: #1F6FFF;
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 0 3px rgba(31,111,255,0.08);
 }
 
 .form-textarea {
@@ -429,17 +429,6 @@ button {
 }
 
 /* ========================================
-   AOS Animation Overrides
-   ======================================== */
-[data-aos] {
-  pointer-events: none;
-}
-
-[data-aos].aos-animate {
-  pointer-events: auto;
-}
-
-/* ========================================
    Swiper Custom Styles
    ======================================== */
 .swiper-pagination-bullet {
@@ -468,11 +457,11 @@ button {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #10B981;
+  background: #1F6FFF;
 }
 
 /* Selection */
 ::selection {
-  background: #10B981;
+  background: #1F6FFF;
   color: #FFFFFF;
 }

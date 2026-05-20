@@ -1,16 +1,21 @@
+'use client';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 import Image from 'next/image';
 import styles from './project.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export const metadata = {
-  title: 'Our Projects | BD Matrix',
-  description: 'Case studies and client projects: mobile apps, SaaS platforms, fintech, healthcare, and enterprise software.',
-};
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectPage() {
+    const heroRef = useRef(null);
+    const projectsGridRef = useRef(null);
+    const ctaRef = useRef(null);
+
     const projects = [
         {
             id: 'medical-mobile-app',
@@ -56,18 +61,90 @@ export default function ProjectPage() {
         }
     ];
 
+    useEffect(() => {
+        // Animate hero section
+        if (heroRef.current) {
+            const pillTag = heroRef.current.querySelector('.pill-tag');
+            const title = heroRef.current.querySelector(`.${styles.title}`);
+            const subtitle = heroRef.current.querySelector(`.${styles.subtitle}`);
+
+            const tl = gsap.timeline();
+            if (pillTag) tl.fromTo(pillTag, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0);
+            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.1);
+            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.2);
+        }
+
+        // Animate project cards with stagger
+        if (projectsGridRef.current) {
+            const projectCards = projectsGridRef.current.querySelectorAll(`.${styles.projectCard}`);
+            gsap.fromTo(
+                projectCards,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: projectsGridRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+
+            // Add hover animations
+            projectCards.forEach((card) => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        y: -12,
+                        boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        y: 0,
+                        boxShadow: '0 4px 24px rgba(0, 0, 0, 0.08)',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+            });
+        }
+
+        // Animate CTA section
+        if (ctaRef.current) {
+            const ctaTitle = ctaRef.current.querySelector(`.${styles.ctaTitle}`);
+            const ctaDesc = ctaRef.current.querySelector(`.${styles.ctaDesc}`);
+            const ctaButton = ctaRef.current.querySelector(`.${styles.ctaButton}`);
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ctaRef.current,
+                    start: 'top 80%',
+                },
+            });
+            if (ctaTitle) tl.fromTo(ctaTitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0);
+            if (ctaDesc) tl.fromTo(ctaDesc, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.1);
+            if (ctaButton) tl.fromTo(ctaButton, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.2);
+        }
+    }, []);
+
     return (
         <>
             <Header />
             <main className={styles.main}>
                 {/* Hero */}
-                <section className={styles.hero}>
+                <section className={styles.hero} ref={heroRef}>
                     <div className={styles.container}>
-                        <div className="pill-tag" data-aos="fade-up">Our Projects</div>
-                        <h1 className={styles.title} data-aos="fade-up" data-aos-delay="100">
+                        <div className="pill-tag">Our Projects</div>
+                        <h1 className={styles.title}>
                             Our Latest <span className={styles.accent}>Case Studies</span>
                         </h1>
-                        <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
+                        <p className={styles.subtitle}>
                             Explore how we've helped businesses transform their digital experiences and achieve measurable results.
                         </p>
                     </div>
@@ -76,14 +153,12 @@ export default function ProjectPage() {
                 {/* Projects Grid */}
                 <section className={styles.projects}>
                     <div className={styles.container}>
-                        <div className={styles.projectsGrid}>
+                        <div className={styles.projectsGrid} ref={projectsGridRef}>
                             {projects.map((project, index) => (
                                 <Link
                                     key={project.id}
                                     href={`/project/${project.id}`}
                                     className={styles.projectCard}
-                                    data-aos="fade-up"
-                                    data-aos-delay={100 + (index % 3) * 100}
                                 >
                                     <div className={styles.projectImage}>
                                         <Image
@@ -112,13 +187,13 @@ export default function ProjectPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className={styles.ctaSection}>
+                <section className={styles.ctaSection} ref={ctaRef}>
                     <div className={styles.container}>
-                        <h2 className={styles.ctaTitle} data-aos="fade-up">Have a Project in Mind?</h2>
-                        <p className={styles.ctaDesc} data-aos="fade-up" data-aos-delay="100">
+                        <h2 className={styles.ctaTitle}>Have a Project in Mind?</h2>
+                        <p className={styles.ctaDesc}>
                             Let's discuss how we can bring your vision to life.
                         </p>
-                        <Link href="/contact" className={styles.ctaButton} data-aos="fade-up" data-aos-delay="200">
+                        <Link href="/contact" className={styles.ctaButton}>
                             Start Your Project
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />

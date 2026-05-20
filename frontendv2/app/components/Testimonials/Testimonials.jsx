@@ -1,11 +1,20 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import styles from './Testimonials.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Testimonials() {
+    const headerRef = useRef(null);
+    const headingRef = useRef(null);
+    const sliderRef = useRef(null);
+
     const testimonials = [
         {
             name: 'Ms. Alex Mika',
@@ -44,22 +53,81 @@ export default function Testimonials() {
         }
     ];
 
+    useEffect(() => {
+        // Animate header pill tag
+        if (headerRef.current) {
+            const pillTag = headerRef.current.querySelector('.pill-tag');
+            if (pillTag) {
+                gsap.fromTo(
+                    pillTag,
+                    { opacity: 0, y: 20 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: headerRef.current,
+                            start: 'top 80%',
+                        },
+                    }
+                );
+            }
+        }
+
+        // Animate heading
+        if (headingRef.current) {
+            gsap.fromTo(
+                headingRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate slider
+        if (sliderRef.current) {
+            gsap.fromTo(
+                sliderRef.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: sliderRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+    }, []);
+
     return (
         <section className={styles.testimonials} id="testimonials">
             <div className={styles.container}>
                 {/* Header */}
-                <div className={styles.header}>
-                    <div className="pill-tag" data-aos="fade-up">
+                <div className={styles.header} ref={headerRef}>
+                    <div className="pill-tag">
                         Testimonials
                     </div>
-                    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+                    <h2 className={styles.heading} ref={headingRef}>
                         Success Stories From<br />
                         <span className={styles.accent}>Around the Globe</span>
                     </h2>
                 </div>
 
                 {/* Testimonials Slider */}
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div ref={sliderRef}>
                     <Swiper
                         modules={[Autoplay, Pagination]}
                         spaceBetween={30}

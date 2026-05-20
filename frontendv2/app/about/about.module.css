@@ -27,7 +27,7 @@
 }
 
 .accent {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .subtitle {
@@ -84,8 +84,8 @@
 
 .statItem:hover {
     transform: translateY(-4px);
-    border-color: rgba(16,185,129,0.3);
-    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
+    border-color: rgba(31,111,255,0.3);
+    box-shadow: 0 20px 40px rgba(31,111,255,0.1);
 }
 
 .statItem:last-child {
@@ -96,7 +96,7 @@
     display: block;
     font-size: 3rem;
     font-weight: 800;
-    color: #10B981;
+    color: #1F6FFF;
     line-height: 1;
     margin-bottom: 10px;
 }
@@ -145,20 +145,20 @@
 
 .valueCard:hover {
     transform: translateY(-4px);
-    border-color: rgba(16,185,129,0.3);
-    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
+    border-color: rgba(31,111,255,0.3);
+    box-shadow: 0 20px 40px rgba(31,111,255,0.1);
 }
 
 .valueIcon {
     width: 70px;
     height: 70px;
-    background: rgba(16,185,129,0.1);
+    background: rgba(31,111,255,0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 25px;
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .valueTitle {

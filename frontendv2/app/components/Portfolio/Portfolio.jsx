@@ -2,58 +2,134 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import styles from './Portfolio.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio() {
+    const headerRef = useRef(null);
+    const headingRef = useRef(null);
+    const descRef = useRef(null);
+    const viewAllRef = useRef(null);
+    const projectsGridRef = useRef(null);
+
     const projects = [
         {
             id: 'medical-mobile-app',
             title: 'Medical Mobile Design & Development',
-            description: 'A healthcare provider needed a patient-facing mobile app to manage appointments and medical records. We designed and built a clean, HIPAA-conscious interface with appointment booking, prescription tracking, and push notifications. The app launched in 8 weeks and achieved a 4.7-star rating in its first month.',
+            description: 'A healthcare provider needed a patient-facing mobile app for appointments and records. We delivered a secure, regulation-ready interface with booking workflows, prescription tracking, and notifications. The app launched in eight weeks and reached a 4.7-star rating in its first month.',
             tags: ['Mobile App', 'UI/UX Design'],
             image: '/images/projects/medical-app.png'
         },
         {
             id: 'stacks-website',
             title: 'Stacks Website Design & Coding',
-            description: 'Stacks needed a high-performance marketing website to support their product launch and drive sign-ups. We built a fully responsive Next.js site with custom animations, SEO optimization, and a 94 Lighthouse performance score. The site went live in 3 weeks and conversion rates exceeded their initial target by 40%.',
+            description: 'Stacks needed a high-performance marketing website to support product launch and acquisition goals. We delivered a fully responsive Next.js build with custom motion, strong technical SEO, and a 94 Lighthouse performance score. The site launched in three weeks and exceeded conversion targets by 40%.',
             tags: ['Web Design', 'Development'],
             image: '/images/projects/website-design.png'
         },
         {
             id: 'financial-wallet',
             title: 'Financial & Wallet Website Design',
-            description: 'A fintech startup required a trust-building web presence for their digital wallet product targeting young professionals. We designed a modern, conversion-focused landing page with interactive UI elements and a seamless onboarding flow. The design helped them close their first round of seed funding within 60 days of launch.',
+            description: 'A fintech startup needed a credible digital presence for its wallet product. We designed a modern, conversion-focused website with interactive UI patterns and streamlined onboarding. The platform helped the client close its first seed round within 60 days of launch.',
             tags: ['Fintech', 'UI/UX Design'],
             image: '/images/projects/fintech-wallet.png'
         },
         {
             id: 'sales-management-app',
             title: 'Sales Management Mobile App Design',
-            description: 'An enterprise sales team was struggling with lost leads and no visibility into their pipeline. We built a custom mobile CRM and sales management app with real-time dashboards, lead tracking, and automated follow-up reminders. The client reported a 35% increase in lead conversion within the first quarter.',
+            description: 'An enterprise sales team lacked pipeline visibility and follow-up consistency. We delivered a custom mobile CRM with real-time dashboards, lead tracking, and automated reminders. The client reported a 35% increase in lead conversion during the first quarter.',
             tags: ['Mobile App', 'Enterprise'],
             image: '/images/projects/sales-app.png'
         }
     ];
 
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const introTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: headerRef.current,
+                    start: 'top 82%'
+                }
+            });
+
+            const pillTag = headerRef.current?.querySelector('.pill-tag');
+            if (pillTag) {
+                introTl.fromTo(pillTag, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' });
+            }
+
+            introTl.fromTo(
+                [headingRef.current, descRef.current, viewAllRef.current],
+                { opacity: 0, y: 26 },
+                { opacity: 1, y: 0, duration: 0.75, stagger: 0.12, ease: 'power3.out' },
+                '-=0.15'
+            );
+
+            if (projectsGridRef.current) {
+                const projectCards = projectsGridRef.current.querySelectorAll(`.${styles.projectCard}`);
+                projectCards.forEach((card, idx) => {
+                    const image = card.querySelector(`.${styles.projectImage}`);
+                    const offsetX = idx % 2 === 0 ? -48 : 48;
+
+                    gsap.fromTo(
+                        card,
+                        { opacity: 0, y: 36, x: offsetX },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            x: 0,
+                            duration: 0.9,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 84%'
+                            }
+                        }
+                    );
+
+                    if (image) {
+                        gsap.fromTo(
+                            image,
+                            { scale: 1.12 },
+                            {
+                                scale: 1,
+                                duration: 1.1,
+                                ease: 'power3.out',
+                                scrollTrigger: {
+                                    trigger: card,
+                                    start: 'top 84%'
+                                }
+                            }
+                        );
+                    }
+                });
+            }
+        });
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section className={styles.portfolio} id="portfolio">
             <div className={styles.container}>
                 {/* Header */}
-                <div className={styles.header}>
+                <div className={styles.header} ref={headerRef}>
                     <div>
-                        <div className="pill-tag" data-aos="fade-up">
+                        <div className="pill-tag">
                             Our Work
                         </div>
-                        <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+                        <h2 className={styles.heading} ref={headingRef}>
                             Our Latest Projects &<br />
                             <span className={styles.accent}>Case Studies</span>
                         </h2>
-                        <p className={styles.headerDesc} data-aos="fade-up" data-aos-delay="150">
+                        <p className={styles.headerDesc} ref={descRef}>
                             Explore how we've helped businesses transform their digital experiences and achieve measurable results.
                         </p>
                     </div>
-                    <Link href="/project" className={styles.viewAll} data-aos="fade-up" data-aos-delay="150">
+                    <Link href="/project" className={styles.viewAll} ref={viewAllRef}>
                         View All Projects
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -62,14 +138,12 @@ export default function Portfolio() {
                 </div>
 
                 {/* Projects Grid */}
-                <div className={styles.projectsGrid}>
+                <div className={styles.projectsGrid} ref={projectsGridRef}>
                     {projects.map((project, index) => (
                         <Link
                             key={project.id}
                             href={`/project/${project.id}`}
-                            className={styles.projectCard}
-                            data-aos="fade-up"
-                            data-aos-delay={100 + index * 100}
+                            className={`${styles.projectCard} ${index % 2 === 1 ? styles.reverse : ''}`}
                         >
                             <div className={styles.projectImage}>
                                 <Image
@@ -79,7 +153,7 @@ export default function Portfolio() {
                                     style={{ objectFit: 'cover' }}
                                 />
                                 <div className={styles.projectOverlay}>
-                                    <span className={styles.plusIcon}>+</span>
+                                    <span className={styles.plusIcon}>Case Study</span>
                                 </div>
                             </div>
                             <div className={styles.projectInfo}>
@@ -89,9 +163,8 @@ export default function Portfolio() {
                                     ))}
                                 </div>
                                 <h3 className={styles.projectTitle}>{project.title}</h3>
-                                {project.description && (
-                                    <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.6, marginTop: '10px' }}>{project.description}</p>
-                                )}
+                                <p className={styles.projectDesc}>{project.description}</p>
+                                <span className={styles.projectCta}>Open Case Study →</span>
                             </div>
                         </Link>
                     ))}

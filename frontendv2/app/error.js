@@ -30,7 +30,7 @@ export default function Error({ error, reset }) {
         <button
           onClick={() => reset()}
           style={{
-            background: '#10B981',
+            background: '#1F6FFF',
             color: '#ffffff',
             padding: '14px 28px',
             borderRadius: '8px',

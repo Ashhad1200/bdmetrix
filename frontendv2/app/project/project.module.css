@@ -26,7 +26,7 @@
 }
 
 .accent {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .subtitle {
@@ -58,9 +58,9 @@
 }
 
 .projectCard:hover {
-    border-color: rgba(16,185,129,0.3);
+    border-color: rgba(31,111,255,0.3);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(16,185,129,0.1);
+    box-shadow: 0 20px 40px rgba(31,111,255,0.1);
 }
 
 .projectImage {
@@ -99,18 +99,18 @@
 .plusIcon {
     width: 60px;
     height: 60px;
-    border: 2px solid #10B981;
+    border: 2px solid #1F6FFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: #10B981;
+    color: #1F6FFF;
     transition: all 0.3s ease;
 }
 
 .projectCard:hover .plusIcon {
-    background: #10B981;
+    background: #1F6FFF;
     color: #0F172A;
 }
 
@@ -128,10 +128,10 @@
 .projectTag {
     padding: 5px 12px;
     background: transparent;
-    border: 1px solid rgba(16,185,129,0.25);
+    border: 1px solid rgba(31,111,255,0.25);
     border-radius: 9999px;
     font-size: 0.7rem;
-    color: #10B981;
+    color: #1F6FFF;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -180,7 +180,7 @@
     align-items: center;
     gap: 12px;
     padding: 20px 44px;
-    background: #10B981;
+    background: #1F6FFF;
     color: #0F172A;
     font-size: 0.95rem;
     font-weight: 700;
@@ -190,9 +190,9 @@
 }
 
 .ctaButton:hover {
-    background: #059669;
+    background: #1757CC;
     transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(16,185,129,0.3);
+    box-shadow: 0 12px 32px rgba(31,111,255,0.3);
 }
 
 @media (max-width: 1024px) {

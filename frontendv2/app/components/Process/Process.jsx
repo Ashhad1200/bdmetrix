@@ -1,7 +1,16 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import styles from './Process.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Process() {
+    const headerRef = useRef(null);
+    const headingRef = useRef(null);
+    const stepsGridRef = useRef(null);
+
     const steps = [
         {
             number: '01',
@@ -62,27 +71,107 @@ export default function Process() {
         }
     ];
 
+    useEffect(() => {
+        // Animate header pill tag
+        if (headerRef.current) {
+            const pillTag = headerRef.current.querySelector('.pill-tag');
+            if (pillTag) {
+                gsap.fromTo(
+                    pillTag,
+                    { opacity: 0, y: 20 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: headerRef.current,
+                            start: 'top 80%',
+                        },
+                    }
+                );
+            }
+        }
+
+        // Animate heading
+        if (headingRef.current) {
+            gsap.fromTo(
+                headingRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate step cards with stagger
+        if (stepsGridRef.current) {
+            const stepCards = stepsGridRef.current.querySelectorAll(`.${styles.stepCard}`);
+            gsap.fromTo(
+                stepCards,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: stepsGridRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+
+            // Add hover animations
+            stepCards.forEach((card) => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        y: -12,
+                        boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        y: 0,
+                        boxShadow: '0 4px 24px rgba(0, 0, 0, 0.08)',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+            });
+        }
+    }, []);
+
     return (
         <section className={styles.process} id="process">
             <div className={styles.container}>
                 {/* Header */}
-                <div className={styles.header}>
-                    <div className="pill-tag" data-aos="fade-up">
+                <div className={styles.header} ref={headerRef}>
+                    <div className="pill-tag">
                         How We Work
                     </div>
-                    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+                    <h2 className={styles.heading} ref={headingRef}>
                         Our Proven <span className={styles.accent}>Delivery Process</span>
                     </h2>
                 </div>
 
                 {/* Steps Grid */}
-                <div className={styles.stepsGrid}>
+                <div className={styles.stepsGrid} ref={stepsGridRef}>
                     {steps.map((step, index) => (
                         <div
                             key={index}
                             className={styles.stepCard}
-                            data-aos="fade-up"
-                            data-aos-delay={100 + index * 100}
                         >
                             <div className={styles.stepIcon}>
                                 {step.icon}

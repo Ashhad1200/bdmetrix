@@ -1,13 +1,21 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import styles from './contact.module.css';
 import { trackLead } from '../../src/lib/fbpixel';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactPage() {
     const router = useRouter();
+    const heroRef = useRef(null);
+    const contactInfoRef = useRef(null);
+    const contactFormRef = useRef(null);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -63,13 +71,65 @@ export default function ContactPage() {
         }
     };
 
+    useEffect(() => {
+        // Animate hero section
+        if (heroRef.current) {
+            const pillTag = heroRef.current.querySelector('.pill-tag');
+            const title = heroRef.current.querySelector(`.${styles.title}`);
+            const subtitle = heroRef.current.querySelector(`.${styles.subtitle}`);
+
+            const tl = gsap.timeline();
+            if (pillTag) tl.fromTo(pillTag, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0);
+            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.1);
+            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.2);
+        }
+
+        // Animate contact info - fade-right
+        if (contactInfoRef.current) {
+            gsap.fromTo(
+                contactInfoRef.current,
+                { opacity: 0, x: -40 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: contactInfoRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate contact form - fade-left
+        if (contactFormRef.current) {
+            gsap.fromTo(
+                contactFormRef.current,
+                { opacity: 0, x: 40 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: contactFormRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+    }, []);
+
     const serviceTypes = [
         'CRM Software Development',
         'ERP System Development',
         'POS System Development',
-        'Landing Sites & Web Development',
+        'Web Platforms & Landing Pages',
         'SaaS Platform Development',
         'Mobile Application Development',
+        'UI/UX Design & Strategy',
+        'Workflow Automation (n8n)',
         'Digital Marketing & SEO',
         'Other'
     ];
@@ -126,13 +186,13 @@ export default function ContactPage() {
             <Header />
             <main className={styles.main}>
                 {/* Hero */}
-                <section className={styles.hero}>
+                <section className={styles.hero} ref={heroRef}>
                     <div className={styles.container}>
-                        <div className="pill-tag" data-aos="fade-up">Contact Us</div>
-                        <h1 className={styles.title} data-aos="fade-up" data-aos-delay="100">
+                        <div className="pill-tag">Contact Us</div>
+                        <h1 className={styles.title}>
                             Ready to Grow Your <span className={styles.accent}>Digital Presence?</span>
                         </h1>
-                        <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
+                        <p className={styles.subtitle}>
                             Let's build something extraordinary together. Contact us today for a free consultation.
                         </p>
                     </div>
@@ -143,7 +203,7 @@ export default function ContactPage() {
                     <div className={styles.container}>
                         <div className={styles.contactGrid}>
                             {/* Contact Info */}
-                            <div className={styles.contactInfo} data-aos="fade-right">
+                            <div className={styles.contactInfo} ref={contactInfoRef}>
                                 <h2 className={styles.infoTitle}>Get in Touch</h2>
                                 <p className={styles.infoDesc}>
                                     Ready to discuss your project? We're here to help you bring your vision to life
@@ -191,7 +251,7 @@ export default function ContactPage() {
                             </div>
 
                             {/* Contact Form */}
-                            <div className={styles.contactForm} data-aos="fade-left">
+                            <div className={styles.contactForm} ref={contactFormRef}>
                                 <h2 className={styles.formTitle}>Contact Us</h2>
                                 <p className={styles.requiredNote}>Your email address will not be published. Required fields are marked *</p>
 

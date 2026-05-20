@@ -56,6 +56,24 @@ const services = [
     outcomes: ['4.5+ average app store rating', '60fps smooth performance'],
     features: ['iOS & Android Development', 'Cross-platform Solutions', 'UI/UX Design', 'Push Notifications', 'App Store Optimization'],
     details: 'Mobile apps built by BD Matrix are designed for the end user first. We combine beautiful UI with performance-optimized code to deliver apps that users love and return to.'
+  },
+  {
+    id: 'ui-ux-design',
+    number: '07',
+    title: 'UI/UX Design & Strategy',
+    description: 'Stunning user interfaces and intuitive experiences that drive engagement and conversion. We combine user research, strategic design, and best practices to create digital products users love.',
+    outcomes: ['95%+ user satisfaction ratings', '40% increase in engagement metrics'],
+    features: ['User Research & Personas', 'Wireframing & Prototyping', 'Visual Design Systems', 'Usability Testing', 'Responsive Design', 'Design to Development Handoff'],
+    details: 'Beautiful design goes beyond aesthetics. Our UI/UX solutions are rooted in user research, backed by data, and built to convert. We create design systems that scale, interfaces that delight, and experiences that drive measurable business results.'
+  },
+  {
+    id: 'workflow-automation',
+    number: '08',
+    title: 'Workflow Automation (n8n)',
+    description: 'Eliminate repetitive work with secure, event-driven automation across CRM, ERP, email, and internal tools. We design n8n workflows that increase speed, consistency, and visibility.',
+    outcomes: ['40%+ reduction in manual operations', 'Lower operational error rates'],
+    features: ['n8n Workflow Architecture', 'API Integrations & Webhooks', 'Automated Alerts & Approvals', 'Data Sync & Enrichment', 'AI-assisted Process Steps'],
+    details: 'Our automation services combine process mapping, robust n8n orchestration, and safe deployment practices. We build workflows that connect your stack, reduce manual effort, and provide full observability so your team can scale operations with confidence.'
   }
 ];
 
@@ -84,9 +102,9 @@ export default async function ServiceDetailPage({ params }) {
   if (!service) {
     return (
       <main style={{ minHeight: '100vh', background: '#0A0F1E', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', textAlign: 'center', padding: '40px 20px' }}>
-        <div style={{ fontSize: '60px', fontWeight: 900, color: '#10B981' }}>404</div>
+        <div style={{ fontSize: '60px', fontWeight: 900, color: '#1F6FFF' }}>404</div>
         <h1 style={{ color: '#ffffff', fontSize: '28px', fontWeight: 700, margin: 0 }}>Service Not Found</h1>
-        <Link href="/service" style={{ color: '#10B981', textDecoration: 'none', fontWeight: 600 }}>← Back to Services</Link>
+        <Link href="/service" style={{ color: '#1F6FFF', textDecoration: 'none', fontWeight: 600 }}>← Back to Services</Link>
       </main>
     );
   }
@@ -101,7 +119,7 @@ export default async function ServiceDetailPage({ params }) {
             <Link href="/service" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#94A3B8', fontSize: '0.9rem', marginBottom: '32px', textDecoration: 'none', transition: 'color 0.3s' }}>
               ← Back to Services
             </Link>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '9999px', color: '#10B981', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'rgba(31,111,255,0.1)', border: '1px solid rgba(31,111,255,0.3)', borderRadius: '9999px', color: '#1F6FFF', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>
               Service {service.number}
             </div>
             <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '24px' }}>
@@ -129,7 +147,7 @@ export default async function ServiceDetailPage({ params }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {service.outcomes.map((outcome, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#0F172A', fontSize: '1.05rem' }}>
-                    <span style={{ width: '28px', height: '28px', background: 'rgba(16,185,129,0.15)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10B981', fontWeight: 700, fontSize: '0.8rem', flexShrink: 0 }}>✓</span>
+                    <span style={{ width: '28px', height: '28px', background: 'rgba(31,111,255,0.15)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F6FFF', fontWeight: 700, fontSize: '0.8rem', flexShrink: 0 }}>✓</span>
                     {outcome}
                   </div>
                 ))}
@@ -142,7 +160,7 @@ export default async function ServiceDetailPage({ params }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>
                 {service.features.map((feature, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#94A3B8', fontSize: '0.95rem' }}>
-                    <span style={{ color: '#10B981', fontWeight: 700, fontSize: '1rem', flexShrink: 0 }}>→</span>
+                    <span style={{ color: '#1F6FFF', fontWeight: 700, fontSize: '1rem', flexShrink: 0 }}>→</span>
                     {feature}
                   </div>
                 ))}
@@ -150,10 +168,10 @@ export default async function ServiceDetailPage({ params }) {
             </div>
 
             {/* CTA */}
-            <div style={{ ...darkCard, textAlign: 'center', background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
+            <div style={{ ...darkCard, textAlign: 'center', background: 'rgba(31,111,255,0.05)', borderColor: 'rgba(31,111,255,0.2)' }}>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>Ready to Get Started?</h2>
               <p style={{ color: '#94A3B8', marginBottom: '28px', fontSize: '1.05rem' }}>Let&apos;s discuss how we can build this solution for your business.</p>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10B981', color: '#ffffff', padding: '16px 36px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'background 0.3s' }}>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1F6FFF', color: '#ffffff', padding: '16px 36px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'background 0.3s' }}>
                 Start Your Project ↗
               </Link>
             </div>

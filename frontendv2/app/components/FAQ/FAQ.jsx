@@ -1,9 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './FAQ.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState(0);
+    const headerRef = useRef(null);
+    const headingRef = useRef(null);
+    const faqListRef = useRef(null);
 
     const faqs = [
         {
@@ -32,6 +39,67 @@ export default function FAQ() {
         }
     ];
 
+    useEffect(() => {
+        // Animate header pill tag
+        if (headerRef.current) {
+            const pillTag = headerRef.current.querySelector('.pill-tag');
+            if (pillTag) {
+                gsap.fromTo(
+                    pillTag,
+                    { opacity: 0, y: 20 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: headerRef.current,
+                            start: 'top 80%',
+                        },
+                    }
+                );
+            }
+        }
+
+        // Animate heading
+        if (headingRef.current) {
+            gsap.fromTo(
+                headingRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate FAQ items with stagger
+        if (faqListRef.current) {
+            const faqItems = faqListRef.current.querySelectorAll(`.${styles.faqItem}`);
+            gsap.fromTo(
+                faqItems,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.08,
+                    scrollTrigger: {
+                        trigger: faqListRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+    }, []);
+
     return (
         <section className={styles.faq} id="faq">
             {/* Background Text */}
@@ -39,23 +107,21 @@ export default function FAQ() {
 
             <div className={styles.container}>
                 {/* Header */}
-                <div className={styles.header}>
-                    <div className="pill-tag" data-aos="fade-up">
+                <div className={styles.header} ref={headerRef}>
+                    <div className="pill-tag">
                         FAQ
                     </div>
-                    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+                    <h2 className={styles.heading} ref={headingRef}>
                         Frequently Asked <span className={styles.accent}>Questions</span>
                     </h2>
                 </div>
 
                 {/* FAQ List */}
-                <div className={styles.faqList}>
+                <div className={styles.faqList} ref={faqListRef}>
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
                             className={`${styles.faqItem} ${openIndex === index ? styles.open : ''}`}
-                            data-aos="fade-up"
-                            data-aos-delay={100 + index * 50}
                         >
                             <button
                                 className={styles.faqQuestion}

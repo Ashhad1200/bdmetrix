@@ -78,9 +78,9 @@ export default async function ProjectDetailPage({ params }) {
   if (!project) {
     return (
       <main style={{ minHeight: '100vh', background: '#0A0F1E', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', textAlign: 'center', padding: '40px 20px' }}>
-        <div style={{ fontSize: '60px', fontWeight: 900, color: '#10B981' }}>404</div>
+        <div style={{ fontSize: '60px', fontWeight: 900, color: '#1F6FFF' }}>404</div>
         <h1 style={{ color: '#ffffff', fontSize: '28px', fontWeight: 700, margin: 0 }}>Project Not Found</h1>
-        <Link href="/project" style={{ color: '#10B981', textDecoration: 'none', fontWeight: 600 }}>← Back to Projects</Link>
+        <Link href="/project" style={{ color: '#1F6FFF', textDecoration: 'none', fontWeight: 600 }}>← Back to Projects</Link>
       </main>
     );
   }
@@ -97,7 +97,7 @@ export default async function ProjectDetailPage({ params }) {
             </Link>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
               {project.tags.map((tag, i) => (
-                <span key={i} style={{ padding: '5px 14px', background: 'transparent', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '9999px', color: '#10B981', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <span key={i} style={{ padding: '5px 14px', background: 'transparent', border: '1px solid rgba(31,111,255,0.3)', borderRadius: '9999px', color: '#1F6FFF', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   {tag}
                 </span>
               ))}
@@ -128,8 +128,8 @@ export default async function ProjectDetailPage({ params }) {
             </div>
 
             {/* Outcome */}
-            <div style={{ ...darkCard, background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
-              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#10B981', marginBottom: '12px' }}>Results Achieved</h2>
+            <div style={{ ...darkCard, background: 'rgba(31,111,255,0.05)', borderColor: 'rgba(31,111,255,0.2)' }}>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1F6FFF', marginBottom: '12px' }}>Results Achieved</h2>
               <p style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: 500 }}>{project.outcome}</p>
             </div>
 
@@ -149,7 +149,7 @@ export default async function ProjectDetailPage({ params }) {
             <div style={{ ...darkCard, textAlign: 'center' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '12px' }}>Have a Similar Project?</h2>
               <p style={{ color: '#94A3B8', marginBottom: '24px' }}>Let&apos;s talk about how we can help you achieve the same results.</p>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10B981', color: '#ffffff', padding: '16px 36px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1F6FFF', color: '#ffffff', padding: '16px 36px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
                 Start Your Project ↗
               </Link>
             </div>

@@ -26,7 +26,7 @@
 }
 
 .accent {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .content {
@@ -97,14 +97,14 @@
 
 .statCard:hover {
     transform: translateY(-4px);
-    border-color: rgba(16,185,129,0.3);
-    box-shadow: 0 12px 32px rgba(16,185,129,0.08);
+    border-color: rgba(31,111,255,0.3);
+    box-shadow: 0 12px 32px rgba(31,111,255,0.08);
 }
 
 .statNumber {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #10B981;
+    color: #1F6FFF;
     line-height: 1;
     margin-bottom: 8px;
 }
@@ -169,7 +169,7 @@
 }
 
 .taglineAccent {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .teamBio {
@@ -208,7 +208,7 @@
 }
 
 .teamCard:hover .teamImageWrapper {
-    border-color: #10B981;
+    border-color: #1F6FFF;
 }
 
 .teamImage {
@@ -226,7 +226,7 @@
 
 .teamRole {
     font-size: 0.875rem;
-    color: #10B981;
+    color: #1F6FFF;
     font-weight: 500;
 }
 

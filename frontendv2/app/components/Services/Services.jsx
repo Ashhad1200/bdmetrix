@@ -1,14 +1,23 @@
 'use client';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import styles from './Services.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Services() {
+    const headingRef = useRef(null);
+    const descRef = useRef(null);
+    const servicesListRef = useRef(null);
+
     const services = [
         {
             number: '01',
             title: 'CRM Software Development',
             description: 'Build powerful CRM systems that centralize customer data, automate workflows, and drive revenue growth.',
-            outcomes: ['13-15% average sales growth', '30% faster lead tracking'],
+            outcomes: ['13-15% average sales growth', '30% faster lead management'],
             link: '/service/crm-software'
         },
         {
@@ -27,9 +36,9 @@ export default function Services() {
         },
         {
             number: '04',
-            title: 'Landing Sites & Web Development',
-            description: 'Premium landing pages and websites that convert visitors into customers. SEO-optimized and high-performance.',
-            outcomes: ['3x improvement in conversion rates', '90+ Lighthouse performance scores'],
+            title: 'Web Platforms & Landing Pages',
+            description: 'High-performance websites and landing pages designed to convert qualified traffic into opportunities.',
+            outcomes: ['Up to 3x conversion uplift', '90+ Lighthouse performance score'],
             link: '/service/web-development'
         },
         {
@@ -43,10 +52,103 @@ export default function Services() {
             number: '06',
             title: 'Mobile Application Development',
             description: 'Native and cross-platform mobile apps that delight users. Feature-rich applications optimized for engagement.',
-            outcomes: ['4.5+ average app store rating', '60fps smooth performance'],
+            outcomes: ['4.5+ average app store rating', 'Consistent 60fps performance'],
             link: '/service/mobile-app'
+        },
+        {
+            number: '07',
+            title: 'UI/UX Design & Strategy',
+            description: 'Stunning user interfaces and intuitive experiences that drive engagement and conversion.',
+            outcomes: ['95%+ user satisfaction ratings', '40% increase in engagement metrics'],
+            link: '/service/ui-ux-design'
+        },
+        {
+            number: '08',
+            title: 'Workflow Automation (n8n)',
+            description: 'Automate repetitive operations across your tools using n8n-based workflows, AI steps, and secure integrations.',
+            outcomes: ['40%+ reduction in manual tasks', 'Faster, error-resistant operations'],
+            link: '/service/workflow-automation'
         }
     ];
+
+    useEffect(() => {
+        // Animate heading
+        if (headingRef.current) {
+            gsap.fromTo(
+                headingRef.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate description
+        if (descRef.current) {
+            gsap.fromTo(
+                descRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: descRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        }
+
+        // Animate service rows with stagger
+        if (servicesListRef.current) {
+            const serviceRows = servicesListRef.current.querySelectorAll(`.${styles.serviceRow}`);
+            gsap.fromTo(
+                serviceRows,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: servicesListRef.current,
+                        start: 'top 80%',
+                    },
+                }
+            );
+
+            // Add hover animations to each service row
+            serviceRows.forEach((row) => {
+                row.addEventListener('mouseenter', () => {
+                    gsap.to(row, {
+                        x: 16,
+                        backgroundColor: 'rgba(31, 111, 255, 0.04)',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+
+                row.addEventListener('mouseleave', () => {
+                    gsap.to(row, {
+                        x: 0,
+                        backgroundColor: 'transparent',
+                        duration: 0.3,
+                        ease: 'power2.out',
+                    });
+                });
+            });
+        }
+    }, []);
 
     return (
         <section className={styles.services} id="services">
@@ -54,26 +156,23 @@ export default function Services() {
                 {/* Header */}
                 <div className={styles.header}>
                     <div className={styles.headerLeft}>
-                        {/* <div className="pill-tag" data-aos="fade-up">What We Do</div> */}
-                        <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+                        <h2 className={styles.heading} ref={headingRef}>
                             Digital Solutions Engineered{' '}
                             <span className={styles.accent}>For Growth</span>
                         </h2>
                     </div>
-                    <p className={styles.headerRight} data-aos="fade-up" data-aos-delay="150">
-                        From CRM to SaaS platforms, we engineer software that solves real business problems and drives measurable outcomes.
+                    <p className={styles.headerRight} ref={descRef}>
+                        From CRM and SaaS platforms to workflow automation, we engineer solutions that solve real business problems and drive measurable outcomes.
                     </p>
                 </div>
 
-                {/* Services List — Cubix style numbered rows */}
-                <div className={styles.servicesList}>
+                {/* Services List */}
+                <div className={styles.servicesList} ref={servicesListRef}>
                     {services.map((service, index) => (
                         <Link
                             key={index}
                             href={service.link}
                             className={styles.serviceRow}
-                            data-aos="fade-up"
-                            data-aos-delay={50 + index * 50}
                         >
                             <span className={styles.serviceNumber}>{service.number}</span>
                             <div className={styles.serviceMain}>

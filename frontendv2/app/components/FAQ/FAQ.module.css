@@ -41,7 +41,7 @@
 }
 
 .accent {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .faqList {
@@ -65,7 +65,7 @@
 }
 
 .faqItem.open {
-    border-color: #10B981;
+    border-color: #1F6FFF;
     border-left-width: 3px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .faqQuestion:hover {
-    color: #10B981;
+    color: #1F6FFF;
 }
 
 .icon {
@@ -102,7 +102,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: #10B981;
+    background: #1F6FFF;
     transform: translateY(-50%);
     transition: transform 0.3s ease;
 }

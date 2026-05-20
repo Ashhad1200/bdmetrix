@@ -1,15 +1,21 @@
 'use client';
 import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function AOSInit() {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function GSAPInit() {
     useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-out-cubic'
-        });
+        // Initialize GSAP configuration
+        gsap.config({ trialWarn: false });
+
+        // Optional: You can add any global GSAP event listeners here if needed
+        // For example, listening to scroll events or window resize
+
+        return () => {
+            // Optional cleanup
+        };
     }, []);
 
     return null;

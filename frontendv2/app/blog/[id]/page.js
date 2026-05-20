@@ -84,9 +84,9 @@ export default async function BlogPostPage({ params }) {
   if (!post) {
     return (
       <main style={{ minHeight: '100vh', background: '#0A0F1E', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', textAlign: 'center', padding: '40px 20px' }}>
-        <div style={{ fontSize: '60px', fontWeight: 900, color: '#10B981' }}>404</div>
+        <div style={{ fontSize: '60px', fontWeight: 900, color: '#1F6FFF' }}>404</div>
         <h1 style={{ color: '#ffffff', fontSize: '28px', fontWeight: 700, margin: 0 }}>Post Not Found</h1>
-        <Link href="/blog" style={{ color: '#10B981', textDecoration: 'none', fontWeight: 600 }}>← Back to Blog</Link>
+        <Link href="/blog" style={{ color: '#1F6FFF', textDecoration: 'none', fontWeight: 600 }}>← Back to Blog</Link>
       </main>
     );
   }
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }) {
               ← Back to Blog
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
-              <span style={{ padding: '5px 14px', background: 'transparent', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '9999px', color: '#10B981', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <span style={{ padding: '5px 14px', background: 'transparent', border: '1px solid rgba(31,111,255,0.3)', borderRadius: '9999px', color: '#1F6FFF', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 {post.category}
               </span>
               <span style={{ color: '#94A3B8', fontSize: '0.875rem' }}>{post.date}</span>
@@ -138,10 +138,10 @@ export default async function BlogPostPage({ params }) {
             </div>
 
             {/* CTA */}
-            <div style={{ ...darkCard, textAlign: 'center', background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}>
+            <div style={{ ...darkCard, textAlign: 'center', background: 'rgba(31,111,255,0.05)', borderColor: 'rgba(31,111,255,0.2)' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '12px' }}>Want to grow your digital presence?</h2>
               <p style={{ color: '#94A3B8', marginBottom: '24px' }}>BD Matrix helps businesses build scalable software and digital strategies.</p>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10B981', color: '#ffffff', padding: '14px 32px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1F6FFF', color: '#ffffff', padding: '14px 32px', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
                 Get in Touch ↗
               </Link>
             </div>

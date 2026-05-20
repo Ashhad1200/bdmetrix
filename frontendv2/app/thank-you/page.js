@@ -1,17 +1,39 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
 import styles from './thankyou.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ThankYouPage() {
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        if (contentRef.current) {
+            gsap.fromTo(
+                contentRef.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                }
+            );
+        }
+    }, []);
+
     return (
         <>
             <Header />
             <main className={styles.main}>
                 <section className={styles.thankYou}>
                     <div className={styles.container}>
-                        <div className={styles.content} data-aos="fade-up">
+                        <div className={styles.content} ref={contentRef}>
                             <div className={styles.iconWrapper}>
                                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />

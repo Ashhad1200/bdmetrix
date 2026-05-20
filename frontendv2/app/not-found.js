@@ -14,7 +14,7 @@ export default function NotFound() {
       padding: '40px 20px',
       gap: '24px'
     }}>
-      <div style={{ fontSize: 'clamp(50px, 15vw, 80px)', fontWeight: 900, color: '#10B981', lineHeight: 1 }}>404</div>
+      <div style={{ fontSize: 'clamp(50px, 15vw, 80px)', fontWeight: 900, color: '#1F6FFF', lineHeight: 1 }}>404</div>
       <h1 style={{ fontSize: 'clamp(20px, 5vw, 32px)', fontWeight: 700, color: '#ffffff', margin: 0 }}>Page Not Found</h1>
       <p style={{ color: '#94A3B8', fontSize: 'clamp(0.95rem, 2.5vw, 18px)', maxWidth: '400px', margin: 0 }}>
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
@@ -23,7 +23,7 @@ export default function NotFound() {
         display: 'inline-flex',
         alignItems: 'center',
         gap: '8px',
-        background: '#10B981',
+        background: '#1F6FFF',
         color: '#ffffff',
         padding: '14px 28px',
         borderRadius: '8px',
