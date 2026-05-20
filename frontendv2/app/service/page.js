@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ServicePage() {
     const heroRef = useRef(null);
     const servicesRef = useRef(null);
+    const techRef = useRef(null);
     const ctaRef = useRef(null);
 
     const services = [
@@ -96,6 +97,13 @@ export default function ServicePage() {
         { value: '98%', label: 'Client Retention' }
     ];
 
+    const techStack = {
+        frontend: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux / Zustand'],
+        backend: ['Node.js', 'C# (.NET)', 'Python', 'Java (Spring)', 'Laravel (PHP)'],
+        databases: ['PostgreSQL', 'MongoDB', 'MS SQL Server', 'MariaDB', 'MySQL'],
+        addons: ['Redis Caching', 'RabbitMQ / Kafka', 'GraphQL APIs', 'Elasticsearch', 'Docker & Kubernetes', 'CI/CD Pipelines', 'Cloud Deployments (AWS/Azure/GCP)', 'Monitoring & Observability']
+    };
+
     useEffect(() => {
         // Animate hero section
         if (heroRef.current) {
@@ -149,6 +157,26 @@ export default function ServicePage() {
                     }
                 );
             });
+        }
+
+        // Animate tech stack cards
+        if (techRef.current) {
+            const techCards = techRef.current.querySelectorAll(`.${styles.techCard}`);
+            gsap.fromTo(
+                techCards,
+                { opacity: 0, y: 32 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.75,
+                    ease: 'power3.out',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: techRef.current,
+                        start: 'top 82%'
+                    }
+                }
+            );
         }
 
         // Animate CTA section
@@ -213,7 +241,7 @@ export default function ServicePage() {
                         {services.map((service, index) => (
                             <div
                                 key={service.id}
-                                className={styles.serviceCard}
+                                className={`${styles.serviceCard} ${index % 2 === 1 ? styles.reverseCard : ''}`}
                             >
                                 <div className={styles.serviceGrid}>
                                     <div className={styles.serviceContent}>
@@ -261,6 +289,43 @@ export default function ServicePage() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </section>
+
+                {/* Tech Stack */}
+                <section className={styles.techSection} ref={techRef}>
+                    <div className={styles.container}>
+                        <div className={styles.techHeader}>
+                            <div className="pill-tag">Tech Stack</div>
+                            <h2 className={styles.techTitle}>Technology Stack for Full-Stack Applications</h2>
+                            <p className={styles.techDesc}>We select technologies based on product goals, scale requirements, and long-term maintainability.</p>
+                        </div>
+                        <div className={styles.techGrid}>
+                            <div className={styles.techCard}>
+                                <h3>Frontend</h3>
+                                <div className={styles.techList}>
+                                    {techStack.frontend.map((item) => <span key={item} className={styles.techBadge}>{item}</span>)}
+                                </div>
+                            </div>
+                            <div className={styles.techCard}>
+                                <h3>Backend</h3>
+                                <div className={styles.techList}>
+                                    {techStack.backend.map((item) => <span key={item} className={styles.techBadge}>{item}</span>)}
+                                </div>
+                            </div>
+                            <div className={styles.techCard}>
+                                <h3>Databases</h3>
+                                <div className={styles.techList}>
+                                    {techStack.databases.map((item) => <span key={item} className={styles.techBadge}>{item}</span>)}
+                                </div>
+                            </div>
+                            <div className={styles.techCard}>
+                                <h3>Add-ons</h3>
+                                <div className={styles.techList}>
+                                    {techStack.addons.map((item) => <span key={item} className={styles.techBadge}>{item}</span>)}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
