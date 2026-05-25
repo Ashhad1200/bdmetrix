@@ -4,6 +4,7 @@ import About from './components/About/About';
 import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
 import Process from './components/Process/Process';
+import Pricing from './components/Pricing/Pricing';
 import Testimonials from './components/Testimonials/Testimonials';
 import FAQ from './components/FAQ/FAQ';
 import CTABanner from './components/CTABanner/CTABanner';
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Process />
+      <Pricing />
       <Testimonials />
       <FAQ />
       <CTABanner />

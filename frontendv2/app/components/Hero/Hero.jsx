@@ -16,23 +16,11 @@ const DiagonalArrow = ({ color = '#0A0F1E', size = 20 }) => (
     </svg>
 );
 
-const stats = [
-    { number: '50+', label: 'Projects Delivered' },
-    { number: '5+', label: 'Years Experience' },
-    { number: '3', label: 'Markets Served' },
-    { number: '98%', label: 'Client Retention' },
-];
-
-const outcomes = [
-    { label: 'Product Architecture', value: 96 },
-    { label: 'On-time Delivery', value: 94 },
-    { label: 'Client Satisfaction', value: 98 },
-];
-
-const recentWork = [
-    { name: 'HealthCare Pro', type: 'Mobile App', status: 'Delivered' },
-    { name: 'FinVault', type: 'SaaS Platform', status: 'Deployed' },
-    { name: 'Stacks Inc.', type: 'Web Platform', status: 'Deployed' },
+const deploymentPhases = [
+    'Week 1: Discovery & setup',
+    'Week 2–3: Build & customize',
+    'Week 4: Pilot deployment',
+    'Ongoing: Support & training',
 ];
 
 export default function Hero() {
@@ -44,7 +32,6 @@ export default function Hero() {
     const ctaRowRef = useRef(null);
     const subNoteRef = useRef(null);
     const visualColRef = useRef(null);
-    const statsBandRef = useRef(null);
 
     useEffect(() => {
         const el = videoRef.current;
@@ -111,43 +98,6 @@ export default function Hero() {
                     repeat: -1
                 });
             }
-
-            if (statsBandRef.current) {
-                const statItems = statsBandRef.current.querySelectorAll(`.${styles.statItem}`);
-                gsap.fromTo(
-                    statItems,
-                    { opacity: 0, y: 20 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        stagger: 0.1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: statsBandRef.current,
-                            start: 'top 90%'
-                        }
-                    }
-                );
-            }
-
-            const progressBars = gsap.utils.toArray(`.${styles.progressFill}`);
-            progressBars.forEach((bar) => {
-                const target = bar.dataset.value || '0';
-                gsap.fromTo(
-                    bar,
-                    { width: '0%' },
-                    {
-                        width: `${target}%`,
-                        duration: 1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: bar,
-                            start: 'top 90%'
-                        }
-                    }
-                );
-            });
         }, heroRef);
 
         return () => ctx.revert();
@@ -172,83 +122,54 @@ export default function Hero() {
                 <div className={styles.copyCol}>
                     <div className={styles.topLabel}>
                         <span className={styles.labelDot}></span>
-                        Trusted Technology Partner for Growth-Focused Businesses
+                        POS Systems · Karachi, Pakistan
                     </div>
 
                     <h1 className={styles.heading} ref={headingRef}>
-                        We design and build software that improves
-                        <span className={styles.accent}> revenue, efficiency,<br />and operational performance.</span>
+                        Modern POS systems for
+                        <span className={styles.accent}> restaurants and retail<br />in Pakistan.</span>
                     </h1>
 
                     <p className={styles.subHeading} ref={subheadingRef}>
-                        CRM, SaaS, mobile, and web platforms engineered for measurable business outcomes.
+                        Built in Karachi. Live in 30 days. Serving restaurants and retail businesses across Pakistan.
                     </p>
 
                     <div className={styles.ctaRow} ref={ctaRowRef}>
                         <Link href="/contact" className={styles.ctaPill}>
-                            <span>Start Your Project</span>
+                            <span>See the POS in action</span>
                             <span className={styles.arrowCircle}>
                                 <DiagonalArrow color="#0F172A" size={18} />
                             </span>
                         </Link>
                         <Link href="/project" className={styles.ctaOutline}>
-                            View Case Studies →
+                            View a case study →
                         </Link>
                     </div>
 
                     <p className={styles.subNote} ref={subNoteRef}>
-                        Complimentary 30-minute consultation · No obligation
+                        Currently serving restaurants and retail businesses across Pakistan
                     </p>
                 </div>
                 <div className={styles.visualCol} ref={visualColRef}>
                     <div className={styles.visualCard}>
                         <div className={styles.visualHeader}>
-                            <span className={styles.visualPill}>Growth Snapshot</span>
-                            <span className={styles.visualMetric}>+41%</span>
+                            <span className={styles.visualPill}>POS Deployment</span>
+                            <span className={styles.visualMetric}>30 Days</span>
                         </div>
-                        <p className={styles.visualTitle}>Average revenue improvement across recent engagements</p>
+                        <p className={styles.visualTitle}>From first call to live system in 4 weeks</p>
 
                         <div className={styles.progressList}>
-                            {outcomes.map((o, i) => (
+                            {deploymentPhases.map((phase, i) => (
                                 <div className={styles.progressRow} key={i}>
                                     <div className={styles.progressMeta}>
-                                        <span className={styles.progressLabel}>{o.label}</span>
-                                        <span className={styles.progressValue}>{o.value}%</span>
-                                    </div>
-                                    <div className={styles.progressTrack}>
-                                        <div className={styles.progressFill} data-value={o.value}></div>
+                                        <span className={styles.progressLabel}>&#10003; {phase}</span>
                                     </div>
                                 </div>
                             ))}
                         </div>
 
                         <div className={styles.cardDivider}></div>
-
-                        <div className={styles.projectList}>
-                            {recentWork.map((project, i) => (
-                                <div className={styles.projectRow} key={i}>
-                                    <span className={styles.projectDot}></span>
-                                    <div className={styles.projectInfo}>
-                                        <span className={styles.projectName}>{project.name}</span>
-                                        <span className={styles.projectType}>· {project.type}</span>
-                                    </div>
-                                    <span className={styles.projectStatus}>{project.status}</span>
-                                </div>
-                            ))}
-                        </div>
                     </div>
-                </div>
-            </div>
-
-            {/* Stats Band */}
-            <div className={styles.statsBand} ref={statsBandRef}>
-                <div className={styles.statsInner}>
-                    {stats.map((s, i) => (
-                        <div key={i} className={styles.statItem}>
-                            <span className={styles.statNumber}>{s.number}</span>
-                            <span className={styles.statLabel}>{s.label}</span>
-                        </div>
-                    ))}
                 </div>
             </div>
 

@@ -15,34 +15,6 @@ export default function Team() {
     const teamGridRef = useRef(null);
     const testimonialRef = useRef(null);
 
-    const team = [
-        {
-            name: 'Syed Ashhad',
-            role: 'CEO & Lead Engineer',
-            image: '/images/team/member-1.png'
-        },
-        {
-            name: 'Abdul Rafay',
-            role: 'Co-Founder',
-            image: '/images/team/member-2.png'
-        },
-        {
-            name: 'Abdullah Farooqui',
-            role: 'Media & Sales Lead',
-            image: '/images/team/member-3.png'
-        },
-        {
-            name: 'Aimen Tariq',
-            role: 'Product Design Lead',
-            image: '/images/team/member-4.png'
-        },
-        {
-            name: 'Muhammad Danish',
-            role: 'Technical Director',
-            image: '/images/team/founder.png'
-        }
-    ];
-
     useEffect(() => {
         // Animate heading
         if (headingRef.current) {
@@ -144,56 +116,54 @@ export default function Team() {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h2 className={styles.heading} ref={headingRef}>
-                        Meet our beautiful team
+                        Hi, I'm Ashhad.<br />
+                        <span style={{color: 'var(--accent)'}}>I build POS systems for restaurants in Pakistan.</span>
                     </h2>
                     <p className={styles.subtitle} ref={subtitleRef}>
-                        Our philosophy is simple: hire great people and give them the resources and support to do their best work.
+                        I started BD Matrix to help restaurants and retail businesses in Pakistan modernize their operations with software that actually works. We're a small, focused team in Karachi — and we take on projects where we can deliver real results.
                     </p>
 
                     <div className={styles.actions} ref={actionsRef}>
-                        <Link href="/contact" className={styles.btnGhost}>Book a demo</Link>
-                        <Link href="/contact" className={styles.btnPrimary}>Get in touch</Link>
+                        <Link href="/contact" className={styles.btnGhost}>Book a 15-min demo</Link>
+                        <Link href="/contact" className={styles.btnPrimary}>Talk to us</Link>
                     </div>
                 </div>
 
                 <div className={styles.teamGrid} ref={teamGridRef}>
-                    {team.map((member, index) => (
-                        <div
-                            key={index}
-                            className={styles.memberCard}
-                        >
-                            <div className={styles.memberImage}>
-                                <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                />
-                            </div>
-                            <div className={styles.memberInfoBox}>
-                                <h3 className={styles.memberName}>{member.name}</h3>
-                                <p className={styles.memberRole}>{member.role}</p>
-                            </div>
+                    {/* Single founder card */}
+                    <div className={styles.memberCard}>
+                        <div className={styles.memberImage}>
+                            <Image
+                                src="/images/team/member-1.png"
+                                alt="Syed Ashhad - Founder, BD Matrix"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                            />
                         </div>
-                    ))}
+                        <div className={styles.memberInfoBox}>
+                            <h3 className={styles.memberName}>Syed Ashhad</h3>
+                            <p className={styles.memberRole}>Founder & Lead Engineer</p>
+                        </div>
+                    </div>
                 </div>
 
+                {/* Honest statement instead of fake testimonial */}
                 <div className={styles.testimonial} ref={testimonialRef}>
                     <p className={styles.quote}>
-                        We have been blown away by the support from BD Matrix. We suggested an improvement to our account manager and they implemented it in just a few days.
+                        We don't take every project. We work with restaurants and retail businesses that want to modernize their operations and have the team to execute alongside us. If we're not the right fit, we'll tell you and recommend someone who is.
                     </p>
                     <div className={styles.author}>
                         <div className={styles.avatarWrap}>
                             <Image
-                                src="/images/team/member-2.png"
-                                alt="Client avatar"
+                                src="/images/team/member-1.png"
+                                alt="Syed Ashhad"
                                 fill
                                 style={{ objectFit: 'cover' }}
                             />
                         </div>
                         <div>
-                            <p className={styles.authorName}>Amelie Laurent</p>
-                            <p className={styles.authorRole}>CTO, Beyond Systems</p>
+                            <p className={styles.authorName}>Syed Ashhad</p>
+                            <p className={styles.authorRole}>Founder, BD Matrix · Karachi, Pakistan</p>
                         </div>
                     </div>
                 </div>

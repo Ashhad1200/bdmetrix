@@ -14,28 +14,36 @@ export default function FAQ() {
 
     const faqs = [
         {
-            question: 'What types of software do you build?',
-            answer: 'We build custom web & mobile apps, ERP systems, SaaS platforms, POS systems, and CRM solutions tailored to your specific business challenges and requirements.'
+            question: 'How long does a POS deployment take?',
+            answer: 'From first call to a live system is typically 4 weeks. Week 1 is discovery at your outlet. Weeks 2–3 are build and customization. Week 4 is pilot deployment and staff training. After the pilot is stable, we roll out to additional outlets.'
         },
         {
-            question: 'How long does a project typically take?',
-            answer: 'Project timelines vary based on scope and complexity — from 4–12+ weeks for full custom solutions. We provide detailed timelines during our initial consultation based on your specific requirements.'
+            question: 'Can it handle multiple outlets?',
+            answer: 'Yes. Multi-outlet support with a central dashboard is a core feature. Each outlet has its own POS terminal while all data — sales, inventory, staff shifts — is visible from one management dashboard in real time.'
         },
         {
-            question: 'Do you offer ongoing support?',
-            answer: 'Yes — we provide comprehensive maintenance, updates, security patches, and growth optimization services post-launch to ensure your systems continue to perform optimally.'
+            question: 'Does it work offline if internet drops?',
+            answer: 'Yes. The system operates offline and syncs automatically when the connection is restored. Your staff can keep taking orders and processing payments even during an outage — no disruptions to your service.'
         },
         {
-            question: 'Can you redesign an existing product?',
-            answer: 'Absolutely — we evaluate and modernize existing systems to improve performance, user experience, and scalability. We can also migrate legacy systems to modern technologies.'
+            question: 'Can it integrate with my existing inventory or accounting system?',
+            answer: 'In most cases, yes. During the discovery phase we map out your current tools and build the necessary integrations. Common integrations include accounting software, inventory management, and supplier ordering systems.'
         },
         {
-            question: 'What is your development process?',
-            answer: 'Our proven process includes Discovery & Strategy, Design & Prototyping, Development & Testing, Launch & Optimization, and ongoing Support & Growth. We involve you at every stage for transparent collaboration.'
+            question: 'What hardware do I need? Can you supply it?',
+            answer: 'We work with standard POS hardware — touchscreen terminals, receipt printers, kitchen display screens, and customer-facing displays. We can help you source the right hardware or work with what you already have.'
         },
         {
-            question: 'Do you work with international clients?',
-            answer: 'Absolutely. BD Matrix is headquartered in Karachi, Pakistan, with active clients in Canada, the UK, and across the Middle East. We work across time zones and have a proven process for remote collaboration — from discovery calls to final delivery. Wherever you are, we make it work.'
+            question: 'What happens after the 6-month support period?',
+            answer: 'After 6 months, you can opt into a support package that covers ongoing updates, priority response, and feature additions. We\'ll present options before your support period ends — no surprises.'
+        },
+        {
+            question: 'Do you work with restaurants outside Karachi?',
+            answer: 'Yes. We work with restaurants and retail businesses across Pakistan. For deployment and training we can visit on-site, and for ongoing support we work remotely. Contact us to discuss your specific location.'
+        },
+        {
+            question: 'How much does it cost?',
+            answer: 'Pricing depends on the number of outlets and the specific features needed. Book a 15-minute demo and we\'ll give you a clear quote based on your actual setup — no vague estimates.'
         }
     ];
 
@@ -112,7 +120,7 @@ export default function FAQ() {
                         FAQ
                     </div>
                     <h2 className={styles.heading} ref={headingRef}>
-                        Frequently Asked <span className={styles.accent}>Questions</span>
+                        Questions About <span className={styles.accent}>Our POS System</span>
                     </h2>
                 </div>
 

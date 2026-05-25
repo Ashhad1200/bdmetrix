@@ -1,0 +1,187 @@
+.pricing {
+    padding: 6rem 0;
+    background: var(--bg);
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin: 1rem 0;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subheading {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(31, 111, 255, 0.3);
+}
+
+.cardFeatured {
+    border-color: rgba(31, 111, 255, 0.35);
+    background: rgba(31, 111, 255, 0.04);
+    position: relative;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+
+.cardPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.priceNote {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+}
+
+.priceSub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.checkmark {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.customDesc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+}
+
+.cardCta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.cardCta:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.cardCtaPrimary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    text-align: center;
+}
+
+.cardCtaPrimary:hover {
+    opacity: 0.88;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin-top: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+}

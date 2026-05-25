@@ -15,59 +15,27 @@ export default function Services() {
     const services = [
         {
             number: '01',
-            title: 'CRM Software Development',
-            description: 'Build powerful CRM systems that centralize customer data, automate workflows, and drive revenue growth.',
-            outcomes: ['13-15% average sales growth', '30% faster lead management'],
-            link: '/service/crm-software'
+            title: 'POS Systems for Restaurants & Retail',
+            description: 'A complete point-of-sale, inventory, and reporting system for your restaurant or retail business. Built around how your team actually works. Deployed in 30 days.',
+            outcomes: ['Multi-outlet support with central dashboard', 'Real-time inventory and sales reports', 'Setup, training & 6 months support included'],
+            link: '/service/pos-system',
+            primary: true
         },
         {
             number: '02',
-            title: 'ERP System Development',
-            description: 'Streamline your entire business with integrated ERP solutions. From inventory to finance, unified operations.',
-            outcomes: ['18-28% increase in production efficiency', '25-38% reduction in inventory costs'],
-            link: '/service/erp-system'
+            title: 'CRM Software Development',
+            description: 'Custom CRM systems that centralize customer data, automate follow-ups, and give your sales team the tools they need to close more deals.',
+            outcomes: ['Tailored to your sales process', 'Automated workflows and reminders'],
+            link: '/service/crm-software',
+            primary: false
         },
         {
             number: '03',
-            title: 'POS System Development',
-            description: 'Transform your checkout experience with modern POS systems for restaurants and retail.',
-            outcomes: ['20% faster checkout process', '30% reduction in inventory issues'],
-            link: '/service/pos-system'
-        },
-        {
-            number: '04',
-            title: 'Web Platforms & Landing Pages',
-            description: 'High-performance websites and landing pages designed to convert qualified traffic into opportunities.',
-            outcomes: ['Up to 3x conversion uplift', '90+ Lighthouse performance score'],
-            link: '/service/web-development'
-        },
-        {
-            number: '05',
-            title: 'SaaS Platform Development',
-            description: 'Build subscription-based software that scales globally. From MVP to enterprise, multi-tenant architecture.',
-            outcomes: ['99.9% uptime guarantee', '10x faster time-to-market'],
-            link: '/service/saas-platform'
-        },
-        {
-            number: '06',
-            title: 'Mobile Application Development',
-            description: 'Native and cross-platform mobile apps that delight users. Feature-rich applications optimized for engagement.',
-            outcomes: ['4.5+ average app store rating', 'Consistent 60fps performance'],
-            link: '/service/mobile-app'
-        },
-        {
-            number: '07',
-            title: 'UI/UX Design & Strategy',
-            description: 'Stunning user interfaces and intuitive experiences that drive engagement and conversion.',
-            outcomes: ['95%+ user satisfaction ratings', '40% increase in engagement metrics'],
-            link: '/service/ui-ux-design'
-        },
-        {
-            number: '08',
             title: 'Workflow Automation (n8n)',
-            description: 'Automate repetitive operations across your tools using n8n-based workflows, AI steps, and secure integrations.',
-            outcomes: ['40%+ reduction in manual tasks', 'Faster, error-resistant operations'],
-            link: '/service/workflow-automation'
+            description: 'Automate repetitive operations across your tools using n8n-based workflows and AI steps. Less manual work, fewer errors, more time for what matters.',
+            outcomes: ['Connect your existing tools', 'AI-powered automation steps'],
+            link: '/service/workflow-automation',
+            primary: false
         }
     ];
 
@@ -157,12 +125,12 @@ export default function Services() {
                 <div className={styles.header}>
                     <div className={styles.headerLeft}>
                         <h2 className={styles.heading} ref={headingRef}>
-                            Digital Solutions Engineered{' '}
-                            <span className={styles.accent}>For Growth</span>
+                            What We Build{' '}
+                            <span className={styles.accent}>Best</span>
                         </h2>
                     </div>
                     <p className={styles.headerRight} ref={descRef}>
-                        From CRM and SaaS platforms to workflow automation, we engineer solutions that solve real business problems and drive measurable outcomes.
+                        We specialize in POS systems for restaurants and retail in Pakistan. We also build custom CRM and automation solutions for businesses that want to streamline operations.
                     </p>
                 </div>
 

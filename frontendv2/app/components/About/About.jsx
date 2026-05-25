@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import styles from './About.module.css';
 import gsap from 'gsap';
@@ -11,15 +10,11 @@ export default function About() {
     const headingRef = useRef(null);
     const teamGridRef = useRef(null);
 
-    const stats = [
-        { number: '5+', label: 'Years of Experience' },
-        { number: '50+', label: 'Projects Completed' },
-    ];
-
-    const team = [
-        { name: 'Syed Ashhad', role: 'CEO, Founder & Lead Developer', bio: 'Syed Ashhad founded BD Matrix to deliver software that solves real business problems, not cookie-cutter templates. He leads both strategy and development, combining hands-on technical expertise with a deep understanding of what businesses actually need to grow.', image: '/images/team/member-1.png' },
-        { name: 'Abdul Rafay', role: 'Co-Founder', bio: 'Abdul Rafay co-founded BD Matrix and plays a key role in shaping the company\'s vision, partnerships, and operational strategy. His business acumen and client-first approach have been instrumental in scaling BD Matrix across multiple markets.', image: '/images/team/member-2.png' },
-        { name: 'Abdullah Farooqui', role: 'Media & Sales Lead', bio: 'Abdullah drives BD Matrix\'s brand presence, lead generation, and client outreach across all digital channels. From social media strategy to closing deals, he ensures the right clients find BD Matrix and have a seamless experience from first contact to kickoff.', image: '/images/team/member-3.png' },
+    const reasons = [
+        { title: 'We specialize, not generalize', desc: 'We focus on POS systems for restaurants and retail. That focus means we\'ve solved the hard problems already — offline sync, multi-outlet dashboards, staff shifts, inventory reconciliation.' },
+        { title: 'Live in 30 days', desc: 'From first call to a live system is 4 weeks. Not months of back-and-forth. We have a repeatable process that gets you operational fast without cutting corners.' },
+        { title: 'Built in Pakistan, for Pakistan', desc: 'We\'re a Karachi-based team that understands local operations: power outages, mixed hardware, Urdu-speaking staff, and the way restaurants here actually run.' },
+        { title: 'We tell you if we\'re not the right fit', desc: 'If your project needs something outside our core expertise, we\'ll say so and point you in the right direction. No wasted time on either side.' },
     ];
 
     useEffect(() => {
@@ -87,29 +82,19 @@ export default function About() {
         <section className={styles.about} id="about">
             <div className={styles.container}>
                 <div className={styles.teamHeading} ref={headingRef}>
-                    <p className={styles.teamKicker}>Build on Reliability and Trust.</p>
-                    <h2 className={styles.teamTitle}>Why Choose BD Matrix</h2>
+                    <p className={styles.teamKicker}>Why restaurants and retail businesses choose us.</p>
+                    <h2 className={styles.teamTitle}>Why BD Matrix</h2>
                 </div>
 
-                {/* Team Members Grid */}
+                {/* Reasons Grid */}
                 <div className={styles.teamGrid} ref={teamGridRef}>
-                    {team.map((member, index) => (
+                    {reasons.map((reason, index) => (
                         <div
                             key={index}
                             className={styles.teamCard}
                         >
-                            <div className={styles.teamImageWrapper}>
-                                <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    width={200}
-                                    height={200}
-                                    className={styles.teamImage}
-                                />
-                            </div>
-                            <h4 className={styles.teamName}>{member.name}</h4>
-                            <p className={styles.teamRole}>{member.role}</p>
-                            <p className={styles.teamBio}>{member.bio}</p>
+                            <h4 className={styles.teamName}>{reason.title}</h4>
+                            <p className={styles.teamBio}>{reason.desc}</p>
                         </div>
                     ))}
                 </div>

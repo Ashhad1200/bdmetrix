@@ -14,8 +14,8 @@ export default function Process() {
     const steps = [
         {
             number: '01',
-            title: 'Discovery & Strategy',
-            description: 'Understanding your goals, users, and business needs to create a strategic roadmap.',
+            title: 'Discovery (Week 1)',
+            description: 'We visit your outlet, observe your operations, and map exactly what your team needs. No guesswork — we learn your workflow first.',
             icon: (
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8" />
@@ -25,21 +25,8 @@ export default function Process() {
         },
         {
             number: '02',
-            title: 'Design & Prototyping',
-            description: 'UX/UI that engages and converts, with interactive prototypes for validation.',
-            icon: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                    <path d="M2 2l7.586 7.586" />
-                    <circle cx="11" cy="11" r="2" />
-                </svg>
-            )
-        },
-        {
-            number: '03',
-            title: 'Development & Testing',
-            description: 'Clean code, security best practices, and rigorous performance testing.',
+            title: 'Build (Weeks 2–3)',
+            description: 'We customize the system to your menu, inventory, and workflows. You see progress every few days — not at the end.',
             icon: (
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="16 18 22 12 16 6" />
@@ -48,9 +35,21 @@ export default function Process() {
             )
         },
         {
+            number: '03',
+            title: 'Pilot (Week 4)',
+            description: 'We deploy in one outlet first. Train your team. Fix what doesn\'t work before rolling out further. No big-bang launches.',
+            icon: (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                    <circle cx="11" cy="11" r="2" />
+                </svg>
+            )
+        },
+        {
             number: '04',
-            title: 'Launch & Optimization',
-            description: 'Seamless deployment with continuous improvement and analytics monitoring.',
+            title: 'Rollout',
+            description: 'Once the pilot is stable and your team is confident, we roll out to the rest of your outlets with the same hands-on approach.',
             icon: (
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -60,8 +59,8 @@ export default function Process() {
         },
         {
             number: '05',
-            title: 'Support & Growth',
-            description: 'Long-term updates, analytics insights, and enhancements for continued success.',
+            title: 'Support (6 Months)',
+            description: '6 months of included support after go-live. We fix issues fast, train new staff, and make adjustments as your business grows.',
             icon: (
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 20h9" />
@@ -162,7 +161,7 @@ export default function Process() {
                         How We Work
                     </div>
                     <h2 className={styles.heading} ref={headingRef}>
-                        Our Proven <span className={styles.accent}>Delivery Process</span>
+                        How a POS Deployment <span className={styles.accent}>Actually Works</span>
                     </h2>
                 </div>
 
