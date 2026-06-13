@@ -1,0 +1,2 @@
+google.com, pub-2549733452335072, DIRECT, f08c47fec0942fa0
+subdomain=fifa2026.bdmatrix.org

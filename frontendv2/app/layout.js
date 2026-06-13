@@ -4,6 +4,7 @@ import "./globals.css";
 import { Suspense } from 'react';
 import PixelEvents from '../src/components/PixelEvents';
 import GSAPInit from './components/AOSInit/AOSInit';
+import AdSenseScript from './components/AdSenseScript';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${sora.variable}`}>
+        <AdSenseScript />
         <GSAPInit />
         <Suspense fallback={null}>
           <PixelEvents />
