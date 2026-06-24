@@ -36,3 +36,7 @@ Thumbs.db
 # Cache
 .cache/
 .eslintcache
+
+# Claude Code / Harness session state (may contain credentials)
+.claude/
+**/.claude/
