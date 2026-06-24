@@ -1,9 +1,20 @@
 /**
  * Email Template Generator
- * 
+ *
  * Generates professional HTML and plain text email templates
  * for lead notifications from the BD Matrix contact form.
  */
+
+/**
+ * Parses service_type to detect product inquiry format ("ProductName — InquiryType")
+ */
+function parseServiceType(serviceType) {
+    if (serviceType && serviceType.includes(' — ')) {
+        const [productName, inquiryType] = serviceType.split(' — ');
+        return { isProduct: true, productName: productName.trim(), inquiryType: inquiryType.trim() };
+    }
+    return { isProduct: false, productName: null, inquiryType: null };
+}
 
 /**
  * Generates HTML email template for lead notifications
@@ -24,6 +35,8 @@ export function generateLeadEmailHTML(leadData) {
         id
     } = leadData;
 
+    const { isProduct, productName, inquiryType } = parseServiceType(service_type);
+
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +55,7 @@ export function generateLeadEmailHTML(leadData) {
           <tr>
             <td style="background: linear-gradient(135deg, #05DAC3 0%, #0EA5E9 100%); padding: 30px; border-radius: 8px 8px 0 0;">
               <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">
-                🎯 New Lead from BD Matrix Website
+                ${isProduct ? '🚀 Product Inquiry from BD Matrix Website' : '🎯 New Lead from BD Matrix Website'}
               </h1>
             </td>
           </tr>
@@ -50,8 +63,20 @@ export function generateLeadEmailHTML(leadData) {
           <!-- Content -->
           <tr>
             <td style="padding: 30px;">
+              ${isProduct ? `
+              <!-- Product Inquiry Banner -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%); border: 1px solid #BFDBFE; border-radius: 8px; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 16px 20px;">
+                    <p style="margin: 0 0 6px 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #1D4ED8;">Product Inquiry</p>
+                    <p style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #0F172A;">${productName}</p>
+                    <p style="margin: 0; font-size: 14px; color: #475569;">Inquiry Type: <strong>${inquiryType}</strong></p>
+                  </td>
+                </tr>
+              </table>
+              ` : ''}
               <p style="margin: 0 0 20px 0; font-size: 16px; color: #333333;">
-                A new contact form submission has been received from your website.
+                A new ${isProduct ? 'product demo request' : 'contact form submission'} has been received from your website.
               </p>
 
               <!-- Lead Information -->
@@ -91,12 +116,14 @@ export function generateLeadEmailHTML(leadData) {
                 </tr>
                 <tr>
                   <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-weight: 600; color: #555555;">
-                    Service Type:
+                    ${isProduct ? 'Product:' : 'Service Type:'}
                   </td>
                   <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; color: #333333;">
-                    <span style="background-color: #05DAC3; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-size: 14px;">
-                      ${formatServiceType(service_type)}
-                    </span>
+                    ${isProduct
+                        ? `<span style="background-color: #1D4ED8; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-size: 14px;">${productName}</span>
+                           <span style="margin-left: 8px; background-color: #E0E7FF; color: #3730A3; padding: 4px 12px; border-radius: 4px; font-size: 14px;">${inquiryType}</span>`
+                        : `<span style="background-color: #05DAC3; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-size: 14px;">${formatServiceType(service_type)}</span>`
+                    }
                   </td>
                 </tr>
                 <tr>
@@ -195,18 +222,23 @@ export function generateLeadEmailPlainText(leadData) {
         id
     } = leadData;
 
-    return `
-NEW LEAD FROM BD MATRIX WEBSITE
-================================
+    const { isProduct, productName, inquiryType } = parseServiceType(service_type);
 
-A new contact form submission has been received from your website.
+    return `
+${isProduct ? 'PRODUCT INQUIRY FROM BD MATRIX WEBSITE' : 'NEW LEAD FROM BD MATRIX WEBSITE'}
+================================
+${isProduct ? `\nPRODUCT: ${productName}\nINQUIRY TYPE: ${inquiryType}\n` : ''}
+A new ${isProduct ? 'product demo request' : 'contact form submission'} has been received from your website.
 
 CONTACT DETAILS
 ---------------
 Name:         ${name}
 Email:        ${email}
 Phone:        ${phone}
-Service Type: ${formatServiceType(service_type)}
+${isProduct
+    ? `Product:      ${productName}\nInquiry Type: ${inquiryType}`
+    : `Service Type: ${formatServiceType(service_type)}`
+}
 Budget:       ${budget || 'Not specified'}
 Timeline:     ${timeline || 'Not specified'}
 

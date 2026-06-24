@@ -26,6 +26,7 @@ export default function Header() {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Services', href: '/service' },
+        { name: 'Products', href: '/products' },
         { name: 'Projects', href: '/project' },
         { name: 'Contact', href: '/contact' }
     ];
@@ -49,7 +50,7 @@ export default function Header() {
 
                 {/* CTA Button — Cubix pill style */}
                 <Link href="/contact" className={styles.ctaButton}>
-                    Let's Discuss
+                    Let&apos;s Discuss
                     <span className={styles.ctaArrow}>
                         <DiagonalArrow />
                     </span>
@@ -81,7 +82,7 @@ export default function Header() {
                         </Link>
                     ))}
                     <Link href="/contact" className={styles.mobileCta}>
-                        Let's Discuss Your Idea
+                        Let&apos;s Discuss Your Idea
                     </Link>
                 </nav>
             </div>

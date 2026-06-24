@@ -1,3 +1,5 @@
+import { productIds } from './data/products';
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bdmatrix.org";
 
 const services = [
@@ -44,6 +46,8 @@ export default function sitemap() {
     entry("/about", { priority: 0.8 }),
     entry("/contact", { priority: 0.8 }),
     entry("/service", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/products", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/pricing", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/project", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/blog", { priority: 0.9, changeFrequency: "weekly" }),
     entry("/privacy", { priority: 0.5, changeFrequency: "yearly" }),
@@ -51,6 +55,10 @@ export default function sitemap() {
 
   const servicePages = services.map((id) =>
     entry(`/service/${id}`, { priority: 0.8, changeFrequency: "monthly" })
+  );
+
+  const productPages = productIds.map((id) =>
+    entry(`/products/${id}`, { priority: 0.8, changeFrequency: "monthly" })
   );
 
   const projectPages = projects.map((id) =>
@@ -61,5 +69,5 @@ export default function sitemap() {
     entry(`/blog/${id}`, { priority: 0.7, changeFrequency: "monthly" })
   );
 
-  return [...staticPages, ...servicePages, ...projectPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...productPages, ...projectPages, ...blogPages];
 }
