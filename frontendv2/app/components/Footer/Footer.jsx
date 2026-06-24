@@ -81,6 +81,7 @@ export default function Footer() {
                             <Link href="/about" className={styles.footerLink}>About Us</Link>
                             <Link href="/service" className={styles.footerLink}>Services</Link>
                             <Link href="/project" className={styles.footerLink}>Projects</Link>
+                            <Link href="/blog" className={styles.footerLink}>Blog</Link>
                             <Link href="/contact" className={styles.footerLink}>Contact</Link>
                         </div>
 
@@ -153,10 +154,9 @@ export default function Footer() {
                     <p className={styles.copyright}>
                         © {new Date().getFullYear()} BD Matrix. All rights reserved.
                     </p>
-                    {/* <div className={styles.bottomLinks}>
+                    <div className={styles.bottomLinks}>
                         <Link href="/privacy" className={styles.bottomLink}>Privacy Policy</Link>
-                        <Link href="/terms" className={styles.bottomLink}>Terms of Service</Link>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </footer>
