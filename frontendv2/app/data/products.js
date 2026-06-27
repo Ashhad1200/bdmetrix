@@ -8,19 +8,19 @@ export const products = [
     industryTag: 'Retail',
     color: '#1F6FFF',
     description:
-      'A modern, FBR-compliant POS system built for restaurants and retail businesses. Manage sales, inventory, and customer loyalty across multiple locations from a single dashboard.',
+      'A modern, tax-compliant POS system built for restaurants and retail businesses. Manage sales, inventory, and customer loyalty across multiple locations from a single dashboard.',
     heroImage:
       'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=80',
     valueProps: [
-      'FBR-compliant invoicing and tax reporting out of the box',
+      'Tax-compliant invoicing and financial reporting out of the box',
       'Manage all locations from one unified dashboard',
       'Real-time inventory tracking and sales analytics',
     ],
     features: [
       {
-        title: 'FBR-Compliant Billing',
+        title: 'Tax-Compliant Billing',
         description:
-          'Generate tax invoices that meet FBR requirements automatically, with built-in tax calculation and submission-ready reports.',
+          'Generate accurate tax invoices automatically, with built-in tax calculation and submission-ready financial reports for your jurisdiction.',
         problem: 'Manual tax filing takes hours and risks costly errors',
         icon: 'receipt',
       },
@@ -418,17 +418,17 @@ export const products = [
   {
     id: 'matrix-hr',
     name: 'Matrix HR',
-    tagline: 'The connected HR platform for South Asia and the Middle East',
+    tagline: 'The connected HR platform for growing businesses worldwide',
     category: 'HR & Payroll',
     industry: 'HR',
     industryTag: 'HR',
     color: '#10B981',
     description:
-      'A multi-tenant SaaS HR platform with payroll (FBR/EOBI/PF), recruitment, attendance tracking, performance management, and an AI workforce assistant — built for growing companies across South Asia and the Middle East.',
+      'A multi-tenant SaaS HR platform with configurable payroll, recruitment, attendance tracking, performance management, and an AI workforce assistant — built for growing companies worldwide.',
     heroImage:
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80',
     valueProps: [
-      'Full payroll engine with FBR income tax, EOBI, and PF compliance',
+      'Full payroll engine with configurable tax, statutory contributions, and deductions',
       'End-to-end recruitment pipeline with built-in ATS',
       'AI assistant that answers natural language questions about your workforce',
     ],
@@ -443,7 +443,7 @@ export const products = [
       {
         title: 'Payroll Engine',
         description:
-          'Automated salary computation with FBR income tax slabs, EOBI contributions, and Provident Fund deductions. Generate payslips and bank transfer files.',
+          'Automated salary computation with configurable tax slabs, statutory contributions, and benefit deductions. Generate payslips and bank transfer files for any jurisdiction.',
         problem: 'Manual payroll calculation is slow and prone to compliance errors every month',
         icon: 'credit-card',
       },
@@ -509,7 +509,7 @@ export const products = [
       {
         title: 'Multi-Country Operations',
         description:
-          'Configurable payroll rules for Pakistan and Gulf countries under a single multi-tenant login.',
+          'Configurable payroll rules for multiple countries under a single multi-tenant login — adapt to any jurisdiction without a full system change.',
       },
     ],
     pricing: {
@@ -841,12 +841,116 @@ export const products = [
         'Pricing based on number of venues, event spaces, and required integrations. Contact us for a quote.',
     },
   },
+  {
+    id: 'client-chatbot',
+    name: 'BD Matrix ClientBot',
+    tagline: 'AI-powered 24/7 client handling for real estate, restaurants, and clinics',
+    category: 'AI Chatbot',
+    industry: 'AI Chatbot',
+    industryTag: 'AI Chatbot',
+    color: '#0D9488',
+    description:
+      'A professionally designed AI chatbot that handles client inquiries, books appointments, qualifies leads, and provides instant answers — 24/7, across your website, WhatsApp, and social channels. Purpose-built for real estate agencies, restaurants, and medical and dental clinics.',
+    heroImage:
+      'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1400&q=80',
+    valueProps: [
+      'Answers client questions and books appointments around the clock — no staff required',
+      'Industry-specific flows for real estate, restaurants, dental, and doctor clinics',
+      'Deploys on your website, WhatsApp, and Instagram in days',
+    ],
+    features: [
+      {
+        title: '24/7 Automated Client Engagement',
+        description:
+          'Respond to every inquiry instantly — day or night, weekends and holidays included. Leads never go cold because no one was available to reply.',
+        problem: 'Leads go cold when staff are offline or overwhelmed with manual replies',
+        icon: 'zap',
+      },
+      {
+        title: 'Appointment & Booking System',
+        description:
+          'Patients, restaurant guests, and property viewers book directly through the chat. Slots sync with your calendar and staff receive instant notifications for every confirmed booking.',
+        problem: 'Booking calls and manual follow-ups consume hours of front-desk time each day',
+        icon: 'calendar',
+      },
+      {
+        title: 'Lead Capture & Qualification',
+        description:
+          'The chatbot collects contact details, intent, budget, and timeline from every visitor — then scores and routes leads to the right team member automatically.',
+        problem: 'Valuable visitor data is lost when there is no structured intake process',
+        icon: 'users',
+      },
+      {
+        title: 'Multi-Channel Deployment',
+        description:
+          'One chatbot, multiple channels: website widget, WhatsApp Business, Instagram DMs, and Facebook Messenger — all managed from a single dashboard with unified conversation history.',
+        problem: 'Managing inquiries across multiple platforms creates missed messages and chaos',
+        icon: 'globe',
+      },
+      {
+        title: 'Seamless Human Handoff',
+        description:
+          'When a conversation needs a real person, the bot transfers full context, history, and contact details to the right staff member in seconds. The client never has to repeat themselves.',
+        problem: 'Bots that cannot escalate leave clients frustrated and deals lost',
+        icon: 'bell',
+      },
+      {
+        title: 'Industry Knowledge Base',
+        description:
+          'Train the bot on your services, pricing, property listings, menu items, clinic specialties, or treatment FAQs. It answers accurately using your actual business data — not guesswork.',
+        problem: 'Generic chatbots give wrong or irrelevant answers that embarrass the business',
+        icon: 'file',
+      },
+      {
+        title: 'Analytics & Conversation Reports',
+        description:
+          'See which questions are asked most, where leads drop off, booking conversion rates, and overall chatbot performance — all in a clear, actionable dashboard.',
+        problem: 'No visibility into how potential clients engage before they become customers',
+        icon: 'chart',
+      },
+      {
+        title: 'Custom Branding & Personality',
+        description:
+          'The chatbot carries your brand voice, colors, and name. Clients interact with "Aria from City Dental" — not a generic, off-the-shelf bot. Fully white-labelled for your business.',
+        problem: 'Off-the-shelf bots feel robotic and damage the professional trust your brand has built',
+        icon: 'star',
+      },
+    ],
+    personas: [
+      {
+        title: 'Dental & Medical Clinics',
+        description:
+          'Handle appointment requests, answer treatment FAQs, send reminders, collect patient intake information, and manage follow-ups — all before the receptionist arrives in the morning.',
+      },
+      {
+        title: 'Doctor Practices',
+        description:
+          'Triage patient questions, book follow-up consultations, collect pre-visit information, and reduce no-shows with automated reminders and confirmations.',
+      },
+      {
+        title: 'Real Estate Agencies',
+        description:
+          'Answer property inquiries, qualify buyer and renter budgets, schedule viewings, and notify agents instantly — directly from any listing page or portal.',
+      },
+      {
+        title: 'Restaurants & Cafes',
+        description:
+          'Take reservations, share menus and daily specials, answer allergen and dietary questions, handle delivery queries, and collect guest feedback automatically.',
+      },
+    ],
+    pricing: {
+      type: 'contact',
+      message:
+        'Pricing is based on your monthly conversation volume, number of channels, and industry configuration. Contact us for a live demo and a custom quote for your business.',
+    },
+  },
 ];
 
 export const productIds = products.map((p) => p.id);
 
 export const industries = [
   'All',
+  'AI Chatbot',
   'Retail',
   'Healthcare',
   'Education',

@@ -196,7 +196,7 @@ export default function AboutPage() {
                                 <p className={styles.storyText}>
                                     BD Matrix was founded by a team of software engineers and digital architects 
                                     who recognized a gap in the market for high-trust, bank-grade digital solutions. 
-                                    Operating with a global mindset, we serve clients across Canada, UK, and Pakistan.
+                                    Operating with a global mindset, we serve clients across North America, Europe, and beyond.
                                 </p>
                                 <p className={styles.storyText}>
                                     We don't just write code; we architect solutions. Our journey is defined by 

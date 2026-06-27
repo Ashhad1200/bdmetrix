@@ -38,8 +38,8 @@ export default function FAQ() {
             answer: 'After 6 months, you can opt into a support package that covers ongoing updates, priority response, and feature additions. We\'ll present options before your support period ends — no surprises.'
         },
         {
-            question: 'Do you work with restaurants outside Karachi?',
-            answer: 'Yes. We work with restaurants and retail businesses across Pakistan. For deployment and training we can visit on-site, and for ongoing support we work remotely. Contact us to discuss your specific location.'
+            question: 'Do you work with businesses outside your country?',
+            answer: 'Yes. We work with restaurants, clinics, real estate agencies, and retail businesses globally. For deployment and training we work on-site or remotely depending on your location. Contact us to discuss your setup.'
         },
         {
             question: 'How much does it cost?',
@@ -120,7 +120,7 @@ export default function FAQ() {
                         FAQ
                     </div>
                     <h2 className={styles.heading} ref={headingRef}>
-                        Questions About <span className={styles.accent}>Our POS System</span>
+                        Questions About <span className={styles.accent}>Working With Us</span>
                     </h2>
                 </div>
 

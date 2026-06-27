@@ -117,10 +117,10 @@ export default function Team() {
                 <div className={styles.header}>
                     <h2 className={styles.heading} ref={headingRef}>
                         Hi, I'm Ashhad.<br />
-                        <span style={{color: 'var(--accent)'}}>I build POS systems for restaurants in Pakistan.</span>
+                        <span style={{color: 'var(--accent)'}}>I build AI software and business systems for companies worldwide.</span>
                     </h2>
                     <p className={styles.subtitle} ref={subtitleRef}>
-                        I started BD Matrix to help restaurants and retail businesses in Pakistan modernize their operations with software that actually works. We're a small, focused team in Karachi — and we take on projects where we can deliver real results.
+                        I started BD Matrix to help clinics, real estate agencies, and restaurants modernize their operations with software that actually works. We're a small, focused team — and we only take on projects where we can deliver real results.
                     </p>
 
                     <div className={styles.actions} ref={actionsRef}>
@@ -163,7 +163,7 @@ export default function Team() {
                         </div>
                         <div>
                             <p className={styles.authorName}>Syed Ashhad</p>
-                            <p className={styles.authorRole}>Founder, BD Matrix · Karachi, Pakistan</p>
+                            <p className={styles.authorRole}>Founder, BD Matrix</p>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ProductDemoForm from '../../components/ProductDemoForm/ProductDemoForm';
+import ChatbotDemo from '../../components/ChatbotDemo/ChatbotDemo';
+import ChatbotFlowDoc from '../../components/ChatbotFlowDoc/ChatbotFlowDoc';
 import { products } from '../../data/products';
 import styles from './product.module.css';
 
@@ -184,18 +186,36 @@ export default async function ProductDetailPage({ params }) {
                             </ul>
 
                             <div className={styles.heroCtas}>
-                                <a href="#features" className={styles.ctaSecondary}>
-                                    View Features
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                                </a>
-                                <a href="#demo-form" className={styles.ctaPrimary} style={{ background: product.color }}>
-                                    Request Demo
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </a>
+                                {product.id === 'client-chatbot' ? (
+                                    <>
+                                        <a href="#flow-documentation" className={styles.ctaSecondary}>
+                                            View Flow Docs
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                                        </a>
+                                        <a href="#demo-form" className={styles.ctaPrimary} style={{ background: product.color }}>
+                                            Request Demo
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </>
+                                ) : (
+                                    <>
+                                        <a href="#features" className={styles.ctaSecondary}>
+                                            View Features
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                                        </a>
+                                        <a href="#demo-form" className={styles.ctaPrimary} style={{ background: product.color }}>
+                                            Request Demo
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
                 </section>
+
+                {/* ── Chatbot-specific: Live Demo ── */}
+                {product.id === 'client-chatbot' && <ChatbotDemo />}
 
                 {/* ── Features ── */}
                 <section className={styles.featuresSection} id="features">
@@ -323,6 +343,9 @@ export default async function ProductDetailPage({ params }) {
                         </div>
                     </div>
                 </section>
+
+                {/* ── Chatbot-specific: Flow Documentation ── */}
+                {product.id === 'client-chatbot' && <ChatbotFlowDoc />}
 
                 {/* ── Demo Form ── */}
                 <section className={styles.formSection} id="demo-form">

@@ -122,21 +122,21 @@ export default function Hero() {
                 <div className={styles.copyCol}>
                     <div className={styles.topLabel}>
                         <span className={styles.labelDot}></span>
-                        POS Systems · Karachi, Pakistan
+                        AI Software Solutions · Worldwide
                     </div>
 
                     <h1 className={styles.heading} ref={headingRef}>
-                        Modern POS systems for
-                        <span className={styles.accent}> restaurants and retail<br />in Pakistan.</span>
+                        Smart software built for
+                        <span className={styles.accent}> clinics, real estate,<br />and restaurants worldwide.</span>
                     </h1>
 
                     <p className={styles.subHeading} ref={subheadingRef}>
-                        Built in Karachi. Live in 30 days. Serving restaurants and retail businesses across Pakistan.
+                        AI chatbots, POS systems, and custom business software. Live in 30 days.
                     </p>
 
                     <div className={styles.ctaRow} ref={ctaRowRef}>
-                        <Link href="/contact" className={styles.ctaPill}>
-                            <span>See the POS in action</span>
+                        <Link href="/products/client-chatbot" className={styles.ctaPill}>
+                            <span>See the AI Chatbot</span>
                             <span className={styles.arrowCircle}>
                                 <DiagonalArrow color="#0F172A" size={18} />
                             </span>
@@ -147,13 +147,13 @@ export default function Hero() {
                     </div>
 
                     <p className={styles.subNote} ref={subNoteRef}>
-                        Currently serving restaurants and retail businesses across Pakistan
+                        Trusted by businesses across the globe
                     </p>
                 </div>
                 <div className={styles.visualCol} ref={visualColRef}>
                     <div className={styles.visualCard}>
                         <div className={styles.visualHeader}>
-                            <span className={styles.visualPill}>POS Deployment</span>
+                            <span className={styles.visualPill}>Software Delivery</span>
                             <span className={styles.visualMetric}>30 Days</span>
                         </div>
                         <p className={styles.visualTitle}>From first call to live system in 4 weeks</p>

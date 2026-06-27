@@ -13,7 +13,7 @@ export default function About() {
     const reasons = [
         { title: 'We specialize, not generalize', desc: 'We focus on POS systems for restaurants and retail. That focus means we\'ve solved the hard problems already — offline sync, multi-outlet dashboards, staff shifts, inventory reconciliation.' },
         { title: 'Live in 30 days', desc: 'From first call to a live system is 4 weeks. Not months of back-and-forth. We have a repeatable process that gets you operational fast without cutting corners.' },
-        { title: 'Built in Pakistan, for Pakistan', desc: 'We\'re a Karachi-based team that understands local operations: power outages, mixed hardware, Urdu-speaking staff, and the way restaurants here actually run.' },
+        { title: 'Built around your industry, not a template', desc: 'Whether you run a dental clinic, real estate agency, or restaurant chain, we build software that fits how your business actually operates — not a generic system you have to work around.' },
         { title: 'We tell you if we\'re not the right fit', desc: 'If your project needs something outside our core expertise, we\'ll say so and point you in the right direction. No wasted time on either side.' },
     ];
 

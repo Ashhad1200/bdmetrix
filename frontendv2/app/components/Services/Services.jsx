@@ -15,14 +15,22 @@ export default function Services() {
     const services = [
         {
             number: '01',
-            title: 'POS Systems for Restaurants & Retail',
-            description: 'A complete point-of-sale, inventory, and reporting system for your restaurant or retail business. Built around how your team actually works. Deployed in 30 days.',
-            outcomes: ['Multi-outlet support with central dashboard', 'Real-time inventory and sales reports', 'Setup, training & 6 months support included'],
-            link: '/service/pos-system',
+            title: 'AI Client Chatbot',
+            description: 'A 24/7 AI chatbot purpose-built for clinics, real estate agencies, and restaurants. Books appointments, qualifies leads, and answers client questions automatically — on your website, WhatsApp, and Instagram.',
+            outcomes: ['Live on your channels in days', 'Appointment booking & lead capture built in', 'Custom-branded with your voice and persona'],
+            link: '/products/client-chatbot',
             primary: true
         },
         {
             number: '02',
+            title: 'POS Systems for Restaurants & Retail',
+            description: 'A complete point-of-sale, inventory, and reporting system for your restaurant or retail business. Built around how your team actually works. Deployed in 30 days.',
+            outcomes: ['Multi-outlet support with central dashboard', 'Real-time inventory and sales reports', 'Setup, training & 6 months support included'],
+            link: '/service/pos-system',
+            primary: false
+        },
+        {
+            number: '03',
             title: 'CRM Software Development',
             description: 'Custom CRM systems that centralize customer data, automate follow-ups, and give your sales team the tools they need to close more deals.',
             outcomes: ['Tailored to your sales process', 'Automated workflows and reminders'],
@@ -30,7 +38,7 @@ export default function Services() {
             primary: false
         },
         {
-            number: '03',
+            number: '04',
             title: 'Workflow Automation (n8n)',
             description: 'Automate repetitive operations across your tools using n8n-based workflows and AI steps. Less manual work, fewer errors, more time for what matters.',
             outcomes: ['Connect your existing tools', 'AI-powered automation steps'],
@@ -130,7 +138,7 @@ export default function Services() {
                         </h2>
                     </div>
                     <p className={styles.headerRight} ref={descRef}>
-                        We specialize in POS systems for restaurants and retail in Pakistan. We also build custom CRM and automation solutions for businesses that want to streamline operations.
+                        We build AI chatbots, POS systems, CRM, and automation solutions for businesses that want to grow and streamline operations — worldwide.
                     </p>
                 </div>
 

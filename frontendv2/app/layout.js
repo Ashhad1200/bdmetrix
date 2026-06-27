@@ -20,7 +20,7 @@ const sora = Sora({
 
 export const metadata = {
   title: 'BD Matrix - Custom Software Development & IT Solutions',
-  description: 'BD Matrix delivers custom software solutions including CRM, ERP, POS Systems, SaaS Platforms, Mobile Apps, and AI Automation. Based in Canada and UK, now in Karachi, Pakistan.',
+  description: 'BD Matrix delivers AI chatbots, POS systems, CRM, ERP, SaaS Platforms, and custom software solutions for clinics, real estate, restaurants, and businesses worldwide.',
 };
 
 export default function RootLayout({ children }) {
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
         {children}
         {/* WhatsApp Floating Chat Button */}
         <a
-          href="https://wa.me/923211426216?text=Hi%2C%20I%20found%20you%20on%20your%20website%20and%20I%27d%20like%20to%20discuss%20a%20project."
+          href="https://wa.me/15817051620?text=Hi%2C%20I%20found%20you%20on%20your%20website%20and%20I%27d%20like%20to%20discuss%20a%20project."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

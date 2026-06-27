@@ -140,18 +140,18 @@ export default function ProductsPage() {
                             Software Built for <span className={styles.accent}>Every Industry</span>
                         </h1>
                         <p className={styles.heroSubtitle}>
-                            Eight purpose-built products spanning retail, healthcare, education, real estate,
+                            Nine purpose-built products spanning AI chatbots, retail, healthcare, education, real estate,
                             HR, fitness, manufacturing, and hospitality. Each one engineered to solve the
                             specific problems of its domain.
                         </p>
                         <div className={styles.heroStats}>
                             <div className={styles.stat}>
-                                <span className={styles.statValue}>8</span>
+                                <span className={styles.statValue}>9</span>
                                 <span className={styles.statLabel}>Products</span>
                             </div>
                             <div className={styles.statDivider} />
                             <div className={styles.stat}>
-                                <span className={styles.statValue}>8</span>
+                                <span className={styles.statValue}>9</span>
                                 <span className={styles.statLabel}>Industries</span>
                             </div>
                             <div className={styles.statDivider} />
