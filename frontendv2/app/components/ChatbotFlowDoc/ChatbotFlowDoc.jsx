@@ -74,7 +74,7 @@ const FLOWS = [
 
 export default function ChatbotFlowDoc() {
   const handleDownload = () => {
-    window.print();
+    window.open('/products/client-chatbot/flow-doc', '_blank');
   };
 
   return (

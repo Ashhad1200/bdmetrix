@@ -1,0 +1,285 @@
+/* ── Screen layout ── */
+.page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #f8fafc;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #0f172a;
+    padding: 32px 40px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── Controls bar (hidden on print) ── */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    justify-content: flex-end;
+}
+
+.printBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: #0D9488;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.printBtn:hover { background: #0f766e; }
+
+.closeBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: white;
+    color: #64748b;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.closeBtn:hover { border-color: #94a3b8; color: #334155; }
+
+/* ── Document header ── */
+.docHeader {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.docBrand {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0D9488;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.docTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+}
+
+.docSub {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 3px;
+}
+
+.docDate {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.docDivider {
+    height: 2px;
+    background: linear-gradient(90deg, #0D9488 0%, #1F6FFF 50%, #8B5CF6 100%);
+    border-radius: 2px;
+    margin-bottom: 28px;
+}
+
+/* ── 2×2 grid ── */
+.flowGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+/* ── Individual card ── */
+.card {
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.cardHead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px 10px;
+    border-top: 3px solid #0D9488;
+    background: #f8fafc;
+}
+
+.cardIcon { font-size: 22px; }
+
+.cardIndustry {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.cardBot {
+    font-size: 11.5px;
+    color: #64748b;
+    margin-top: 1px;
+}
+.cardBot strong { color: #0D9488; }
+
+.cardTagline {
+    font-size: 11.5px;
+    color: #475569;
+    padding: 0 16px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    line-height: 1.4;
+}
+
+/* ── Steps ── */
+.steps {
+    padding: 12px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.step {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.stepActor {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    min-width: 40px;
+    padding-top: 5px;
+    flex-shrink: 0;
+}
+
+.botStep .stepActor    { color: #0D9488; }
+.clientStep .stepActor { color: #6366f1; }
+
+.stepBubble {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: #374151;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 5px 9px;
+    flex: 1;
+}
+
+.botStep .stepBubble {
+    background: #f0fdfc;
+    border-color: #ccfbf1;
+}
+
+.clientStep .stepBubble {
+    background: #eef2ff;
+    border-color: #c7d2fe;
+    color: #312e81;
+}
+
+/* Terminal / Outcome step */
+.terminalStep .stepBubble {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d;
+    font-weight: 600;
+}
+.terminalStep .stepActor {
+    color: #16a34a;
+}
+
+/* ── Chips ── */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.chip {
+    padding: 2px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    font-size: 10px;
+    color: #6b7280;
+    background: white;
+}
+
+/* ── Footer ── */
+.docFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 10.5px;
+    color: #94a3b8;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+/* ────────────────────────────────────
+   PRINT STYLES
+   Only the document content is printed.
+   Controls bar is hidden.
+──────────────────────────────────── */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 14mm 16mm;
+    }
+
+    :global(*) { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .page {
+        background: white;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    /* Hide controls */
+    .controls { display: none !important; }
+
+    .docHeader {
+        margin-bottom: 10px;
+    }
+
+    .docDivider {
+        margin-bottom: 14px;
+    }
+
+    .flowGrid {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .card {
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+    }
+
+    .cardHead { padding: 10px 12px 8px; }
+    .cardTagline { padding: 0 12px 8px; }
+    .steps { padding: 10px 12px 12px; gap: 5px; }
+
+    .stepBubble { font-size: 10.5px; padding: 4px 8px; }
+    .chip { font-size: 9px; padding: 1px 6px; }
+
+    .docFooter { margin-top: 10px; }
+}
