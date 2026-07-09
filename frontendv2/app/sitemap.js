@@ -51,6 +51,7 @@ export default function sitemap() {
     entry("/project", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/blog", { priority: 0.9, changeFrequency: "weekly" }),
     entry("/privacy", { priority: 0.5, changeFrequency: "yearly" }),
+    entry("/terms", { priority: 0.5, changeFrequency: "yearly" }),
   ];
 
   const servicePages = services.map((id) =>

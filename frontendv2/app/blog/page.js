@@ -9,6 +9,57 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const CategoryVisuals = {
+    'Digital Marketing': {
+        gradient: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+        icon: (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+        )
+    },
+    'Web Design': {
+        gradient: 'linear-gradient(135deg, #EC4899 0%, #BE185D 100%)',
+        icon: (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+        )
+    },
+    'E-commerce': {
+        gradient: 'linear-gradient(135deg, #10B981 0%, #047857 100%)',
+        icon: (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+        )
+    },
+    'Branding': {
+        gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+        icon: (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+        )
+    },
+    'UI/UX': {
+        gradient: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+        icon: (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M21 12H3" />
+                <path d="M12 3v18" />
+            </svg>
+        )
+    }
+};
+
 export default function BlogPage() {
     const heroRef = useRef(null);
     const blogGridRef = useRef(null);
@@ -98,35 +149,43 @@ export default function BlogPage() {
                 <section className={styles.blog}>
                     <div className={styles.container}>
                         <div className={styles.blogGrid} ref={blogGridRef}>
-                            {posts.map((post, index) => (
-                                <Link
-                                    key={post.id}
-                                    href={`/blog/${post.id}`}
-                                    className={styles.blogCard}
-                                >
-                                    <div className={styles.blogImage}>
-                                        <div className={styles.imagePlaceholder}>
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                                <polyline points="21 15 16 10 5 21" />
-                                            </svg>
+                            {posts.map((post, index) => {
+                                const visual = CategoryVisuals[post.category] || {
+                                    gradient: 'linear-gradient(135deg, #1F6FFF 0%, #0F172A 100%)',
+                                    icon: (
+                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                                            <circle cx="8.5" cy="8.5" r="1.5" />
+                                            <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                    )
+                                };
+                                return (
+                                    <Link
+                                        key={post.id}
+                                        href={`/blog/${post.id}`}
+                                        className={styles.blogCard}
+                                    >
+                                        <div className={styles.blogImage} style={{ background: visual.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <div className={styles.imagePlaceholder} style={{ position: 'static', transform: 'none' }}>
+                                                {visual.icon}
+                                            </div>
+                                            <div className={styles.category}>{post.category}</div>
                                         </div>
-                                        <div className={styles.category}>{post.category}</div>
-                                    </div>
-                                    <div className={styles.blogContent}>
-                                        <span className={styles.date}>{post.date}</span>
-                                        <h3 className={styles.blogTitle}>{post.title}</h3>
-                                        <p className={styles.excerpt}>{post.excerpt}</p>
-                                        <span className={styles.readMore}>
-                                            Read More
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M5 12h14M12 5l7 7-7 7" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </Link>
-                            ))}
+                                        <div className={styles.blogContent}>
+                                            <span className={styles.date}>{post.date}</span>
+                                            <h3 className={styles.blogTitle}>{post.title}</h3>
+                                            <p className={styles.excerpt}>{post.excerpt}</p>
+                                            <span className={styles.readMore}>
+                                                Read More
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
